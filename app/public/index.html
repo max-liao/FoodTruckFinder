@@ -31,10 +31,12 @@
 							<li><a title="team" href="#about">About</a></li>
 							<li><a title="search" href="#search">Search</a></li>
 							<li><a title="map" href="#mapContainer">Map</a></li>
-							<li><a title="works" href="#works">Works</a></li>
-							<li><a title="blog" href="#blog">Blog</a></li>
-							<li><a title="contact" href="#contact">Contact</a></li>
-							<li><a href="page.html">Page</a></li>
+							<li><a title="map" href="#Twitter">Twitter</a></li>
+							<li><a title="map" href="#form">Form</a></li>
+							<!-- <li><a title="works" href="#works">Works</a></li> -->
+							<!-- <li><a title="blog" href="#blog">Blog</a></li> -->
+							<!-- <li><a title="contact" href="#contact">Contact</a></li> -->
+							<!-- <li><a href="page.html">Page</a></li> -->
 							<li><a title="oldmap" href="map.html">Old Map</a></li>
 						</ul>
 					</nav>
@@ -114,6 +116,15 @@
 			</div>
 			<div class="row">
 				<div class="span2 offset1 flyIn">
+					<!-- <div class="people">
+						<img class="team-thumb img-circle" src="img/team/img-4.jpg" alt="" />
+						<h3>Bob Bobertson</h3>
+						<p>
+							UI designer
+						</p>
+					</div> -->
+				</div>
+				<div class="span2 flyIn">
 					<div class="people">
 						<img class="team-thumb img-circle" src="img/team/img-1.jpg" alt="" />
 						<h3>Max Liao</h3>
@@ -134,22 +145,13 @@
 				<div class="span2 flyIn">
 					<div class="people">
 						<img class="team-thumb img-circle" src="img/team/img-3.jpg" alt="" />
-						<h3>Robert Robertson</h3>
+						<h3>Carrie Kordys</h3>
 						<p>
 							Web designer
 						</p>
 					</div>
 				</div>
-				<div class="span2 flyIn">
-					<div class="people">
-						<img class="team-thumb img-circle" src="img/team/img-4.jpg" alt="" />
-						<h3>Bob Bobertson</h3>
-						<p>
-							UI designer
-						</p>
-					</div>
-				</div>
-				<div class="span2 flyIn">
+				<!-- <div class="span2 flyIn">
 					<div class="people">
 						<img class="team-thumb img-circle" src="img/team/img-5.jpg" alt="" />
 						<h3>Bobbie Bobbieson</h3>
@@ -157,7 +159,7 @@
 							Digital imaging
 						</p>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<!-- /.container -->
@@ -239,10 +241,10 @@
 		</div>
 	</section>
 	<!-- end section: map -->
-	<!-- section: works -->
-	<section id="works" class="section">
+	<!-- section: cuisines -->
+	<section id="cuisines" class="section">
 		<div class="container clearfix">
-			<h4>Our Works</h4>
+			<h4>Cuisines</h4>
 			<!-- portfolio filter -->
 			<div class="row">
 				<div id="filters" class="span12">
@@ -254,22 +256,22 @@
 						</li>
 						<li>
 							<a href="#" data-filter=".web">
-								<h5>Web</h5>
+								<h5>American</h5>
 							</a>
 						</li>
 						<li>
 							<a href="#" data-filter=".print">
-								<h5>Print</h5>
+								<h5>Mexican</h5>
 							</a>
 						</li>
 						<li>
 							<a href="#" data-filter=".design">
-								<h5>Design</h5>
+								<h5>Asian</h5>
 							</a>
 						</li>
 						<li>
 							<a href="#" data-filter=".photography">
-								<h5>Photography</h5>
+								<h5>Pizza</h5>
 							</a>
 						</li>
 					</ul>
@@ -452,10 +454,10 @@
 		</div>
 	</section>
 	<!-- end spacer section -->
-	<!-- section: blog -->
-	<section id="blog" class="section">
+	<!-- section: Twitter -->
+	<section id="Twitter" class="section">
 		<div class="container">
-			<h4>Our Blog</h4>
+			<h4>Tweets from </h4><h4 id = "trucktweets"></h4>
 			<!-- Three columns -->
 			<div class="row">
 				<div class="span3">
@@ -537,16 +539,16 @@
 			</div>
 			<div class="blankdivider30"></div>
 			<div class="aligncenter">
-				<a href="#" class="btn btn-large btn-theme">More blog post</a>
+				<a href="#" class="btn btn-large btn-theme">More Tweets</a>
 			</div>
 		</div>
 	</section>
 
 	<!-- end spacer section -->
-	<!-- section: contact -->
-	<section id="contact" class="section green">
+	<!-- section: form -->
+	<section id="form" class="section green">
 		<div class="container">
-			<h4>Get in Touch</h4>
+			<h4>Add/Update a Truck</h4>
 			<p>
 				Reque facer nostro et ius, cu persius mnesarchum disputando eam, clita prompta et mel vidisse phaedrum pri et. Facilisis posidonium ex his. Mutat iudico vis in, mea aeque tamquam scripserit an, mea eu ignota viderer probatus. Lorem legere consetetur ei
 				eum. Sumo aeque assentior te eam, pri nominati posidonium consttuam
@@ -561,12 +563,12 @@
 						<form action="" method="post" role="form" class="contactForm">
 							<div class="row">
 								<div class="span6">
-									<div class="field your-name form-group">
-										<input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+									<div class="field Truck-name form-group">
+										<input type="text" name="name" class="form-control" id="name" placeholder="Truck Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
 										<div class="validation"></div>
 									</div>
-									<div class="field your-email form-group">
-										<input type="text" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+									<div class="field Truck-email form-group">
+										<input type="text" class="form-control" name="email" id="email" placeholder="Truck Email" data-rule="email" data-msg="Please enter a valid email" />
 										<div class="validation"></div>
 									</div>
 									<div class="field subject form-group">

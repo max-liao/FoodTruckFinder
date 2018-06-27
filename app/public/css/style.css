@@ -835,6 +835,7 @@ section#about {
 }
 
 .people h3 {
+	color: #312f2b;
 	margin-bottom:10px;
 	font-weight:700;
 	letter-spacing:-1px;
@@ -1767,7 +1768,7 @@ h3 {
 }
 
 h4 {
-	color: whitesmoke;
+	color: #312f2b;
 	font-size: 22px;
 }
 li{
