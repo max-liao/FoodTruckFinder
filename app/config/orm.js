@@ -1,11 +1,5 @@
 var connection = require("./connection.js");
 
-// Object Relational Mapper (ORM)
-
-// The ?? signs are for swapping out table or column names
-// The ? signs are for swapping out other values
-// These help avoid SQL injection
-// https://en.wikipedia.org/wiki/SQL_injection
 var orm = {
   selectAll: function(table, cb) {
     var queryString = "SELECT * FROM " + table + ";";
@@ -37,6 +31,7 @@ var orm = {
   //Add row to table
   createOne: function(table, keys, values, cb) {
 
+    console.log("values from orm" + values);
     for(var a = 0; a<values.length; a++){
       values[a] = "'" + values[a] + "'";
     }
