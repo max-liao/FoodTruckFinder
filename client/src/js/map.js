@@ -1,9 +1,11 @@
+console.log("hello world");
+
 //Google Maps initialization
 var googlemapskey = "AIzaSyACZMGscEwWMY3TJblK-NuIwhIRsoEaAnI";
 
 // Create an array used to label the markers.
 var labels = [];
-for (l = 1; l< 100; l++){
+for (let l = 1; l< 100; l++){
     labels.push(String(l));
 }
 
@@ -35,7 +37,7 @@ async function initMap() {
     var test = await init();
     var locations = [];
     
-    for (i=0; i<test.length; i++){
+    for (let i=0; i<test.length; i++){
         await test[i].then(function(value){
             // console.log(value);
             locations.push(value);
@@ -89,7 +91,7 @@ async function initMap() {
     });
 
     //Handles Marker Click events
-    for (i=0; i<marker.length; i++){
+    for (let i=0; i<marker.length; i++){
         markerclick(map, marker[i], false);
     }
 }
@@ -117,7 +119,7 @@ async function clusterclick (map, markerCluster){
         // console.log("markers", marks);
 
         var array = [];
-        for (i = 0; i < marks.length; i++) {
+        for (let i = 0; i < marks.length; i++) {
             array.push(marks[i].label - 1);
         }
 
@@ -127,7 +129,7 @@ async function clusterclick (map, markerCluster){
 
         var infonames = "";
 
-        for (i = 0; i < array.length; i++) {
+        for (let i = 0; i < array.length; i++) {
             infonames += `${names[array[i]]}, `;
         }
         infonames = infonames.slice(0, -2);
@@ -141,7 +143,7 @@ async function clusterclick (map, markerCluster){
 
         var info = [];
         var menuinfo = [];
-        for (i = 0; i < marks.length; i++) {
+        for (let i = 0; i < marks.length; i++) {
             var truckobj = await getInfo("food_truck", "id", marks[i].label);
             info.push(truckobj);
             var menu = await getInfo("truck_menu", "truck_id", marks[i].label);
@@ -150,7 +152,7 @@ async function clusterclick (map, markerCluster){
         // console.log(info);
         // console.log(menuinfo);
 
-        for (i = 0; i < marks.length; i++) {
+        for (let i = 0; i < marks.length; i++) {
             $('#truck-name').append(`<h4><b><strong> ${info[i][0].foodtruck_name} </b></strong></h4> ${info[i][0].descr}<br>${info[i][0].contact}`);
 
             // if (menuinfo.length > 1){
@@ -158,7 +160,7 @@ async function clusterclick (map, markerCluster){
             // }
             //get the menu info and add it to maps.html
             
-            for(var j = 0; j < menuinfo[i].length; j++){
+            for(let j = 0; j < menuinfo[i].length; j++){
                 var menuitem = "<li>" + menuinfo[i][j].menu_item + " -- "
                                     + menuinfo[i][j].menu_description + " -- $"
                                     + menuinfo[i][j].price
@@ -200,7 +202,7 @@ function markerclick (map, marker){
          else{
             $("#menulist").text("");
          }
-         for(var i = 0; i<menuinfo.length; i++){
+         for(let i = 0; i<menuinfo.length; i++){
              
              var menuitem = "<li>" + menuinfo[i].menu_item + " -- "
                                    + menuinfo[i].menu_description + " -- $"
@@ -258,7 +260,7 @@ function getNames(){
         function(data) {
             var promises = [];
           
-            for(var i = 0; i < data.length; i++){
+            for(let i = 0; i < data.length; i++){
                 promises[i] = data[i].foodtruck_name;
             }
             // console.log(promises);
@@ -279,7 +281,7 @@ async function getInfo(table, col, id){
      function(data) {
          var promises = [];
        
-         for(var i = 0; i < data.length; i++){
+         for(let i = 0; i < data.length; i++){
              promises[i] = data[i];
  
          }
