@@ -103,17 +103,17 @@ class App extends Component {
           </div>
         </Jumbotron>
       <link rel="shortcut icon" href={require("./css/img/food-truck.png")} />
-      <script type="text/javascript" src={require("./js/jquery.js")}></script>
-      <script type="text/javascript" src={require("./js/map.js")}></script>
-      <script type="text/javascript" src={require("./js/jquery.scrollTo.js")}></script>
-      <script type="text/javascript" src={require("./js/jquery.localScroll.js")}></script>
-      <script type="text/javascript" src={require("./js/bootstrap.js")}></script>
-      <script type="text/javascript" src={require("./js/jquery.prettyPhoto.js")}></script>
-      <script type="text/javascript" src={require("./js/isotope.js")}></script>
-      <script type="text/javascript" src={require("./js/jquery.flexslider.js")}></script>
-      <script type="text/javascript" src={require("./js/inview.js")}></script>
-      <script type="text/javascript" src={require("./js/animate.js")}></script>
-      <script type="text/javascript" src={require("./contactform/contactform.js")}></script> */}
+      {/* <script type="text/javascript" src={require("./js/jquery.js")}></script> */}
+      {/* <script type="text/javascript" src={require("./js/map.js")}></script> */}
+      {/* <script type="text/javascript" src={require("./js/jquery.scrollTo.js")}></script> */}
+      {/* <script type="text/javascript" src={require("./js/jquery.localScroll.js")}></script> */}
+      {/* <script type="text/javascript" src={require("./js/bootstrap.js")}></script> */}
+      {/* <script type="text/javascript" src={require("./js/jquery.prettyPhoto.js")}></script> */}
+      {/* <script type="text/javascript" src={require("./js/isotope.js")}></script> */}
+      {/* <script type="text/javascript" src={require("./js/jquery.flexslider.js")}></script> */}
+      {/* <script type="text/javascript" src={require("./js/inview.js")}></script> */}
+      {/* <script type="text/javascript" src={require("./js/animate.js")}></script> */}
+      {/* <script type="text/javascript" src={require("./contactform/contactform.js")}></script> */} */}
     </div>
     )}
 
