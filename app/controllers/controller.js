@@ -52,18 +52,18 @@ router.get("/locations", function(req, res) {
 //Adds New food truck
 router.post("/api/model", function(req, res) {
   console.log('server got', JSON.stringify(req.body, null, 2))
-  model.createone(req.body.keys, req.body.values, function(result) {
+  //model.createone(req.body.keys, req.body.values, function(result) {
 
   var keys = [ 'foodtruck_name', 'contact', 'descr', 'cuisine', 'location', 'date'];
   var values = [req.body.foodtruck_name, req.body.contact, req.body.descr, req.body.cuisine, req.body.location, req.body.date];
   console.log ('keys:' + keys);
   console.log ('values :' + values);
    model.createone(keys, values, function(result) {
-      // res.json({ id: result.insertId });
-      res.json({ id: result.id });
-      console.log("result from createone" + result);
+      //res.json({ id: result.id });
+      //console.log("result from createone" + result);
+      res.send(result);
     });
-  });
+  //});
 });
 
 //Update keys to values in row with id
