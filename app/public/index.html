@@ -169,13 +169,19 @@
 	<section id="search" class="section orange">
 		<div class="container">
 			<h4>Search</h4>
-			<!-- Four columns -->
 			<div class="row">
 				<form>
 					<label id="formHead"></label>
 					<Input id = "trucksearch" name="trucksearch" placeholder="Enter Truck Name" />
 					<button id ="searchButton" type="button" class="btn btn-secondary">Search for a Truck</button>
-				</form>
+				</form>				
+				<table class="responsive-table striped">
+					<thead>
+						<tr id="searchTab">
+						</tr>
+					</thead>
+					<tbody id="searchTabBody"></tbody>
+				</table>
 				<!-- <div class="span3 animated-fast flyIn">
 					<div class="service-box">
 						<img src="img/icons/laptop.png" alt="" />
