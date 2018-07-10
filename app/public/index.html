@@ -169,14 +169,24 @@
 	<section id="search" class="section orange">
 		<div class="container">
 			<h4>Search</h4>
-			<!-- Four columns -->
 			<div class="row">
-				<div class="span3 animated-fast flyIn">
+				<form>
+					<label id="formHead"></label>
+					<Input id = "trucksearch" name="trucksearch" placeholder="Enter Truck Name" />
+					<button id ="searchButton" type="button" class="btn btn-secondary">Search for a Truck</button>
+				</form>				
+				<table class="responsive-table striped">
+					<thead>
+						<tr id="searchTab">
+						</tr>
+					</thead>
+					<tbody id="searchTabBody"></tbody>
+				</table>
+				<!-- <div class="span3 animated-fast flyIn">
 					<div class="service-box">
 						<img src="img/icons/laptop.png" alt="" />
 						<h2>Web design</h2>
 						<p>
-							Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 						</p>
 					</div>
 				</div>
@@ -185,7 +195,7 @@
 						<img src="img/icons/lab.png" alt="" />
 						<h2>Web development</h2>
 						<p>
-							Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+							
 						</p>
 					</div>
 				</div>
@@ -194,7 +204,6 @@
 						<img src="img/icons/camera.png" alt="" />
 						<h2>Photography</h2>
 						<p>
-							Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 						</p>
 					</div>
 				</div>
@@ -203,10 +212,9 @@
 						<img src="img/icons/basket.png" alt="" />
 						<h2>Ecommerce</h2>
 						<p>
-							Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 						</p>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</section>
@@ -218,17 +226,17 @@
 				<div class="span12 aligncenter flyLeft">
 					<div>
 						<div class="jumbotron" id="Mapjumbo">
-						<h1 style="color:ghostwhite;"> <strong> Map </strong></h1>
+						<h1 style="color:ghostwhite;margin-left: auto; margin-right: auto;"> <strong> Map </strong></h1>
 						<!-- <h4> Map </h4> -->
 						<hr>
 						<!-- <h1 class="text-center">Food Truck Info!</h1> -->
 						<div class="row">
-							<div class="col-lg-4">
+							<div class="col-lg-12">
 							<p id = "truck-name"></p>
 							<p id = "descr"></p>
 							<p id = "contact"></p>
 							</div>
-							<div class="col-lg-8">
+							<div class="col-lg-12">
 							<ul id = "menulist"></ul>
 							</div>
 						</div>  
@@ -444,7 +452,7 @@
 			<div class="row">
 				<div class="span12 aligncenter flyLeft">
 					<blockquote class="large">
-						We are an established and trusted web agency with a reputation for commitment and high integrity
+						Choose from a variety of conveninent and delicious meals from the back of a truck!
 					</blockquote>
 				</div>
 				<div class="span12 aligncenter flyRight">
@@ -610,9 +618,9 @@
 			<div class="row">
 				<div class="span6 offset3">
 					<ul class="social-networks">
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-instagram icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-twitter icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-dribbble icon-2x"></i></a></li>
+						<li><a href=""><i class="icon-circled icon-bgdark icon-instagram icon-2x"></i></a></li>
+						<li><a href="https://twitter.com/finder_truck"><i class="icon-circled icon-bgdark icon-twitter icon-2x"></i></a></li>
+						<li><a href="https://github.com/max-liao"><i class="icon-circled icon-bgdark icon-github icon-2x"></i></a></li>
 						<li><a href="#"><i class="icon-circled icon-bgdark icon-pinterest icon-2x"></i></a></li>
 					</ul>
 					<p class="copyright">
@@ -628,6 +636,7 @@
 	<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6b6PThKZfWpNBOo_s6f1caBl9iB2PG4E"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 	<script src="js/map.js"></script>
 	
 	<script src="js/jquery.js"></script>
