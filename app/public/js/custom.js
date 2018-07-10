@@ -4,6 +4,12 @@ jQuery(document).ready(function($) {
 		$("html, body").animate({ scrollTop: 0 }, 1000);
 		return false;
 	});
+
+	$('#searchButton').click(function(){
+		var truck = document.getElementById("trucksearch").value;
+		document.getElementById("trucksearch").value = "";
+		console.log(truck);
+	});
 	
 		$('.accordion').on('show', function (e) {
 		
