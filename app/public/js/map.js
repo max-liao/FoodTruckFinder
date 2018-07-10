@@ -249,6 +249,7 @@ async function mapQuery(addr, i) {
         //     location: coordinates,
         //     timeupdated automatically updated
         // });
+        
         return new Promise(resolve => {
               resolve(coordinates);
           });
