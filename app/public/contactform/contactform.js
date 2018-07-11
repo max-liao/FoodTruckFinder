@@ -17,10 +17,17 @@
           //console.log(newoption);
         }
         //console.log(trucks);
+
       }
     );
 
+    if ($('#existing_foodtruck_name').val() != ''){
 
+      $('#updatetruck').attr("disabled", true);
+    }
+    else{
+      $('#updatetruck').attr("disabled", false);
+    }
 //function to validate form data, ensure no fields are blank
 function validateForm() {
   var isValid = true;
