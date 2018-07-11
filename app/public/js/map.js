@@ -15,11 +15,11 @@ var locations = [];
 
 //POPULATE LOCATIONS FROM SQL DB
 async function init(){
-    console.log("INITing");
     var promise = await $.ajax("/locations", {
         type: "GET"
     }).then(
         function(data) {
+            console.log("INITing");
             var promises = [];
             // console.log("test");
             for(let i = 0; i < data.length; i++){
