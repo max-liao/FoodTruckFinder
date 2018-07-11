@@ -1,8 +1,6 @@
 //Google Maps initialization
 var googlemapskey = "AIzaSyACZMGscEwWMY3TJblK-NuIwhIRsoEaAnI";
 
-initMap();
-
 // Create an array used to label the markers.
 var labels = [];
 for (let l = 1; l< 100; l++){
@@ -17,6 +15,7 @@ var locations = [];
 
 //POPULATE LOCATIONS FROM SQL DB
 async function init(){
+    console.log("INITing");
     var promise = await $.ajax("/locations", {
         type: "GET"
     }).then(
@@ -39,6 +38,7 @@ async function init(){
 //Display Maps
 async function initMap() {
     var test = await init();
+
     var locations = [];
     
     for (i=0; i<test.length; i++){
@@ -302,3 +302,4 @@ async function getInfo(table, col, id){
  return promise;
  }
 
+initMap();
