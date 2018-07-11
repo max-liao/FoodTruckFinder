@@ -1,6 +1,8 @@
 //Google Maps initialization
 var googlemapskey = "AIzaSyACZMGscEwWMY3TJblK-NuIwhIRsoEaAnI";
 
+initMap();
+
 // Create an array used to label the markers.
 var labels = [];
 for (let l = 1; l< 100; l++){
@@ -300,4 +302,3 @@ async function getInfo(table, col, id){
  return promise;
  }
 
-initMap();
