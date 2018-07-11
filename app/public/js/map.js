@@ -1,4 +1,3 @@
-console.log("Hello World Map.js");
 //Google Maps initialization
 var googlemapskey = "AIzaSyACZMGscEwWMY3TJblK-NuIwhIRsoEaAnI";
 
