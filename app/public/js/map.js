@@ -1,3 +1,4 @@
+console.log("Hello World Map.js");
 //Google Maps initialization
 var googlemapskey = "AIzaSyACZMGscEwWMY3TJblK-NuIwhIRsoEaAnI";
 
@@ -299,4 +300,5 @@ async function getInfo(table, col, id){
 //  console.log("from getinfo: " + promise);
  return promise;
  }
+
 initMap();
