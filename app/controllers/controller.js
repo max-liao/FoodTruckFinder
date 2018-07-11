@@ -4,7 +4,6 @@ var express = require("express");
 var router = express.Router();
 var model = require("../models/model.js");
 var path = require("path");
-var bodyParser = require("body-parser");
 
 // Routes
 // Create all our routes and set up logic within those routes where required.
@@ -46,7 +45,6 @@ router.get("/locations", function(req, res) {
   model.selectlocations(function(data) {
     res.json(data);
   });
-
 });
 
 //Adds New food truck

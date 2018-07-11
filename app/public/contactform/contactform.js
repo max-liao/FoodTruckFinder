@@ -35,9 +35,7 @@ function validateForm() {
   //when the submit is clicked to add a new food truck, validate the form and send the data
  
   $('#submittruck').on("click", function(event) {
-    event.preventDefault();
-
-
+    // event.preventDefault();
     if(validateForm()){
     // Here we grab the form elements and remove blank spaces
     var newTruck = {

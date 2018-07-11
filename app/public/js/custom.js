@@ -5,10 +5,18 @@ jQuery(document).ready(function($) {
 		return false;
 	});
 
-	$('#searchButton').click(function(){
+	$('#searchButton').click(function(event){
+		event.preventDefault();
 		var truck = document.getElementById("trucksearch").value;
 		document.getElementById("trucksearch").value = "";
-		console.log(truck);
+		console.log(truck);	
+		//ajax
+		//.then(append info to searchTabBody)
+		$("#searchTabBody").append(`<tr><th>${truck}</th></tr>`);
+	});
+
+	$('#trucksearch').click(function(event){
+		return event.keyCode != 13;
 	});
 	
 		$('.accordion').on('show', function (e) {

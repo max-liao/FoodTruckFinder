@@ -170,15 +170,14 @@
 		<div class="container">
 			<h4>Search</h4>
 			<div class="row">
-				<form>
+				<form onkeypress="return event.keyCode != 13">
 					<label id="formHead"></label>
-					<Input id = "trucksearch" name="trucksearch" placeholder="Enter Truck Name" />
+					<input id = "trucksearch" placeholder="Enter Truck Name" />
 					<button id ="searchButton" type="button" class="btn btn-secondary">Search for a Truck</button>
 				</form>				
-				<table class="responsive-table striped">
+				<table>
 					<thead>
-						<tr id="searchTab">
-						</tr>
+						<tr id="searchTab"></tr>
 					</thead>
 					<tbody id="searchTabBody"></tbody>
 				</table>
@@ -546,9 +545,9 @@
 				</div>
 			</div>
 			<div class="blankdivider30"></div>
-			<div class="aligncenter">
+			<!-- <div class="aligncenter">
 				<a href="#" class="btn btn-large btn-theme">More Tweets</a>
-			</div>
+			</div> -->
 		</div>
 	</section>
 
