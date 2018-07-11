@@ -303,14 +303,3 @@ initMap();
 
 
 
-$('#searchButton').click(function(event){
-    event.preventDefault();
-    var truck = document.getElementById("trucksearch").value;
-    document.getElementById("trucksearch").value = "";
-    console.log(truck);	
-    $("#searchTabBody").append(`<tr><th>${truck}</th></tr>`);
-});
-
-$('#trucksearch').click(function(event){
-    return event.keyCode != 13;
-});

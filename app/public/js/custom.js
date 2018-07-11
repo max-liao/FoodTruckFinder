@@ -10,10 +10,21 @@ jQuery(document).ready(function($) {
 		var truck = document.getElementById("trucksearch").value;
 		document.getElementById("trucksearch").value = "";
 		console.log(truck);	
-		//ajax
-		//.then(append info to searchTabBody)
-		$("#searchTabBody").append(`<tr><th>${truck}</th></tr>`);
+		var namesearch = "/api/food_truck/foodtruck_name/" + truck;
+
+		console.log(namesearch);
+		$.ajax(namesearch , {
+			type: "GET"
+			}).then(
+			function(data) {
+				console.log(data);
+			  //$("#searchTabBody").append(`<tr><th>${truck}</th></tr>`);
+
+		}).fail(function(err){
+			throw(err);
+		});
 	});
+
 
 	$('#trucksearch').click(function(event){
 		return event.keyCode != 13;
@@ -148,6 +159,3 @@ jQuery(document).ready(function($) {
 		useCSS: false
 	});
 });
-	
-	
-
