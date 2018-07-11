@@ -19,7 +19,6 @@ async function init(){
         type: "GET"
     }).then(
         function(data) {
-            console.log("INITing");
             var promises = [];
             // console.log("test");
             for(let i = 0; i < data.length; i++){

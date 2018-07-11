@@ -43,6 +43,7 @@ router.get("/data/:table/:col/:id", function(req, res) {
 
 // returns all the locations of the food truck
 router.get("/locations", function(req, res) {
+  console.log("INITing");
   model.selectlocations(function(data) {
     res.json(data);
   });
