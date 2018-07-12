@@ -7,6 +7,7 @@ jQuery(document).ready(function($) {
 
 	$('#searchButton').click(function(event){
 		event.preventDefault();
+		$("#searchTabBody").empty();
 		var truck = document.getElementById("trucksearch").value;
 		document.getElementById("trucksearch").value = "";
 		console.log(truck);	
@@ -18,7 +19,12 @@ jQuery(document).ready(function($) {
 			}).then(
 			function(data) {
 				console.log(data);
-			  //$("#searchTabBody").append(`<tr><th>${truck}</th></tr>`);
+
+				for(let i=0; i<data.length; i++){
+
+					$("#searchTabBody").append(`<tr><th>${data[i].foodtruck_name}</th></tr>`);
+				}
+			  	
 
 		}).fail(function(err){
 			throw(err);

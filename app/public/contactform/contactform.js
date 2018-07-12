@@ -15,10 +15,13 @@
   
           $('#existing_foodtruck_name').append(newoption);
           //console.log(newoption);
+
         }
         //console.log(trucks);
       }
     );
+
+
 
 
 //function to validate form data, ensure no fields are blank
@@ -32,10 +35,16 @@ function validateForm() {
     return isValid;
   }
 
+  if($('#existing_foodtruck_name').val()){
+
+    console.log("value updated");
+  }
+  
+
   //when the submit is clicked to add a new food truck, validate the form and send the data
  
   $('#submittruck').on("click", function(event) {
-    // event.preventDefault();
+     event.preventDefault();
     if(validateForm()){
     // Here we grab the form elements and remove blank spaces
     var newTruck = {
