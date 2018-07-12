@@ -5,6 +5,7 @@ jQuery(document).ready(function($) {
 		return false;
 	});
 
+<<<<<<< HEAD
 	$('#searchButton').click(function(event){
 		event.preventDefault();
 		$("#searchTabBody").empty();
@@ -35,6 +36,21 @@ jQuery(document).ready(function($) {
 	$('#trucksearch').click(function(event){
 		return event.keyCode != 13;
 	});
+=======
+	// $('#searchButton').click(function(event){
+	// 	event.preventDefault();
+	// 	var truck = document.getElementById("trucksearch").value;
+	// 	document.getElementById("trucksearch").value = "";
+	// 	console.log(truck);	
+	// 	//ajax
+	// 	//.then(append info to searchTabBody)
+	// 	$("#searchTabBody").append(`<tr><th>${truck}</th></tr>`);
+	// });
+
+	// $('#trucksearch').click(function(event){
+	// 	return event.keyCode != 13;
+	// });
+>>>>>>> bdbe5526ebfbc7c903435a30d5f5a2aca16a0c8c
 	
 		$('.accordion').on('show', function (e) {
 		

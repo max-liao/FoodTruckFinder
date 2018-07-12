@@ -4,6 +4,7 @@ var express = require("express");
 var router = express.Router();
 var model = require("../models/model.js");
 var path = require("path");
+var bodyParser = require("body-parser");
 
 // Routes
 // Create all our routes and set up logic within those routes where required.
@@ -54,6 +55,7 @@ router.get("/api/:table/:column/:name", function(req, res) {
 
 // returns all the locations of the food truck
 router.get("/locations", function(req, res) {
+  console.log("INITing");
   model.selectlocations(function(data) {
     res.json(data);
   });

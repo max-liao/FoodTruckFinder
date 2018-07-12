@@ -37,6 +37,7 @@ async function init(){
 //Display Maps
 async function initMap() {
     var test = await init();
+
     var locations = [];
     
     for (i=0; i<test.length; i++){
@@ -299,7 +300,9 @@ async function getInfo(table, col, id){
 //  console.log("from getinfo: " + promise);
  return promise;
  }
+
+<<<<<<< HEAD
+
+=======
 initMap();
-
-
-
+>>>>>>> bdbe5526ebfbc7c903435a30d5f5a2aca16a0c8c
