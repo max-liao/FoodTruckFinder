@@ -4,7 +4,6 @@ const express = require("express");
 const router = express.Router();
 const model = require("../models/model.js");
 const path = require("path");
-const app = express();
 
 // Routes
 // Create all our routes and set up logic within those routes where required.
@@ -17,7 +16,6 @@ router.get("/contact", function(req, res) {
   // Serve up static assets.
   // app.use(express.static("client/build"))
   // if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
     res.sendFile(path.join(__dirname, "../../client/build/index.html"));
   // } else{
     // res.sendFile(path.join(__dirname, "../../client/build/index.html"));
