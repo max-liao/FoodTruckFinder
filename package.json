@@ -1,5 +1,5 @@
 {
-  "name": "projecttwo",
+  "name": "FoodTruckFinder",
   "version": "1.0.0",
   "description": "Team:",
   "main": "server.js",
@@ -23,12 +23,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/max-liao/ProjectTwo.git"
+    "url": "git+https://github.com/max-liao/FoodTruckFinder.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/max-liao/ProjectTwo/issues"
+    "url": "https://github.com/max-liao/FoodTruckFinder/issues"
   },
-  "homepage": "https://github.com/max-liao/ProjectTwo#readme"
+  "homepage": "https://github.com/max-liao/FoodTruckFinder#readme"
 }
