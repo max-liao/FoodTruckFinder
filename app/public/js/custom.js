@@ -4,6 +4,37 @@ jQuery(document).ready(function($) {
 		$("html, body").animate({ scrollTop: 0 }, 1000);
 		return false;
 	});
+
+	$('#searchButton').click(function(event){
+		event.preventDefault();
+		$("#searchTabBody").empty();
+		var truck = document.getElementById("trucksearch").value;
+		document.getElementById("trucksearch").value = "";
+		console.log(truck);	
+		var namesearch = "/api/food_truck/foodtruck_name/" + truck;
+
+		console.log(namesearch);
+		$.ajax(namesearch , {
+			type: "GET"
+			}).then(
+			function(data) {
+				console.log(data);
+
+				for(let i=0; i<data.length; i++){
+
+					$("#searchTabBody").append(`<tr><th>${data[i].foodtruck_name}</th></tr>`);
+				}
+			  	
+
+		}).fail(function(err){
+			throw(err);
+		});
+	});
+
+
+	$('#trucksearch').click(function(event){
+		return event.keyCode != 13;
+	});
 	
 		$('.accordion').on('show', function (e) {
 		
@@ -134,6 +165,3 @@ jQuery(document).ready(function($) {
 		useCSS: false
 	});
 });
-	
-	
-

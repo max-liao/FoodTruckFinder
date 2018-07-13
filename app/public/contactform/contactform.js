@@ -21,13 +21,14 @@
       }
     );
 
-    if ($('#existing_foodtruck_name').val() != ''){
+    $('#existing_foodtruck_name').on('select', function(event){
 
-      $('#updatetruck').attr("disabled", true);
-    }
-    else{
-      $('#updatetruck').attr("disabled", false);
-    }
+       $('#addtruck').attr("disabled", true);
+    });
+
+
+     
+   
 //function to validate form data, ensure no fields are blank
 function validateForm() {
   var isValid = true;
