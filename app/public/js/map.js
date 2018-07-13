@@ -301,8 +301,4 @@ async function getInfo(table, col, id){
  return promise;
  }
 
-<<<<<<< HEAD
-
-=======
 initMap();
->>>>>>> bdbe5526ebfbc7c903435a30d5f5a2aca16a0c8c

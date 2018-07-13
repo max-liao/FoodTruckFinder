@@ -17,7 +17,7 @@ router.get("/contact", function(req, res) {
   // Serve up static assets.
   // app.use(express.static("client/build"))
   // if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
+    // app.use(express.static("client/build"));
     res.sendFile(path.join(__dirname, "../../client/build/index.html"));
   // } else{
     // res.sendFile(path.join(__dirname, "../../client/build/index.html"));
