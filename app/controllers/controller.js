@@ -53,18 +53,6 @@ router.get("/data/:table/:col/:id", function(req, res) {
   });
 });
 
-router.get("/api/:table/:column/:name", function(req, res) {
-  var name = req.params.name;
-  var table = req.params.table;
-  var col = req.params.column;
-  console.log("Name from router:" + name);
-  model.searchNames(table,col, name, function(data) {
-  res.json(data);
-  console.log(data);
-  });
-});
-
-
 // returns all the locations of the food truck
 router.get("/locations", function(req, res) {
   model.selectlocations(function(data) {

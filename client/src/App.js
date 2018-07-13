@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <link href={require("./css/style.css")} rel="stylesheet" />
+        {/* <link href={require("/css/style.css")} rel="stylesheet" /> */}
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Contact Us</h1>
