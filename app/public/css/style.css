@@ -1790,3 +1790,7 @@ li{
     margin-left: auto;
     margin-right: auto;
 }
+
+.form-control{
+	height:40px !important;
+}
