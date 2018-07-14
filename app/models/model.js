@@ -28,6 +28,12 @@ var model = {
     orm.updateOne("food_truck", keys, values, id, function(res) {
       cb(res);
     });
+  },  
+  searchNames: function(table, col, name, cb) {
+    console.log("orm name" + name);
+    orm.searchNames(table, col , name, function(res) {
+      cb(res);
+    });
   }
 };
 

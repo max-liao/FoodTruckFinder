@@ -7,8 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<link href="css/bootstrap-responsive.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
+	<link href="css/bootstrap-responsive.css" rel="stylesheet">
 	<link href="color/default.css" rel="stylesheet">
 	<link rel="shortcut icon" href="img/food-truck.png">
 </head>
@@ -20,24 +20,38 @@
 			<div class="navbar-inner">
 				<div class="container">
 					<!-- Responsive navbar -->
-					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-				</a>
-					<h1 class="brand"><a href="index.html">Food Truck Finder</a></h1>
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<h1 class="brand">
+						<a href="index.html">Food Truck Finder</a>
+					</h1>
 					<!-- navigation -->
 					<nav class="pull-right nav-collapse collapse">
 						<ul id="menu-main" class="nav">
-							<!-- <li><a title="table" href="truckTable.html">Table</a></li> -->
-							<!-- <li><a title="input" href="userInput.html">Update a Truck</a></li> -->
-							<li><a title="team" href="#about">About</a></li>
-							<li><a title="search" href="#search">Search</a></li>
-							<li><a title="map" href="#mapContainer">Map</a></li>
-							<li><a title="map" href="#Twitter">Twitter</a></li>
-							<li><a title="map" href="#form">Form</a></li>
-							<!-- <li><a title="works" href="#works">Works</a></li> -->
-							<!-- <li><a title="blog" href="#blog">Blog</a></li> -->
-							<!-- <li><a title="contact" href="#contact">Contact</a></li> -->
-							<!-- <li><a href="page.html">Page</a></li> -->
-							<li><a title="oldmap" href="map.html">Old Map</a></li>
+							<li>
+								<a title="team" href="#about">About</a>
+							</li>
+							<li>
+								<a title="search" href="#search">Search</a>
+							</li>
+							<li>
+								<a title="map" href="#mapContainer">Map</a>
+							</li>
+							<li>
+								<a title="map" href="#Twitter">Twitter</a>
+							</li>
+							<li>
+								<a title="map" href="#form">Form</a>
+							</li>
+							<li>
+								<a title="oldmap" href="/contact">Contact Us</a>
+							</li>
+							<li>
+								<a title="oldmap" href="map.html">Old Map</a>
+							</li>
 						</ul>
 					</nav>
 				</div>
@@ -67,7 +81,8 @@
 								</li> -->
 								<li>
 									<p class="home-slide-content">
-										Food from a <strong>Truck</strong>
+										Food from a
+										<strong>Truck</strong>
 									</p>
 								</li>
 							</ul>
@@ -84,7 +99,8 @@
 			<div class="row">
 				<div class="span6 alignright flyLeft">
 					<blockquote class="large">
-						GET YOUR FOOD FROM A TRUCK <cite>Max</cite>
+						GET YOUR FOOD FROM A TRUCK
+						<cite>Max</cite>
 					</blockquote>
 				</div>
 				<div class="span6 aligncenter flyRight">
@@ -101,10 +117,13 @@
 			<div class="row">
 				<div class="span4 offset1">
 					<div>
-						<h2>Eat <strong>Food</strong></h2>
+						<h2>Eat
+							<strong>Food</strong>
+						</h2>
 						<p>
-							Want lunch from your favorite mobile dining establishment? Always know where it is with Food Truck Finder!
-							Updates from all your favorites mapped <strong>live</strong>!
+							Want lunch from your favorite mobile dining establishment? Always know where it is with Food Truck Finder! Updates from all
+							your favorites mapped
+							<strong>live</strong>!
 						</p>
 					</div>
 				</div>
@@ -169,14 +188,23 @@
 	<section id="search" class="section orange">
 		<div class="container">
 			<h4>Search</h4>
-			<!-- Four columns -->
 			<div class="row">
-				<div class="span3 animated-fast flyIn">
+				<form onkeypress="return event.keyCode != 13">
+					<label id="formHead"></label>
+					<input id="trucksearch" placeholder="Enter Truck Name" />
+					<button id="searchButton" type="button" class="PageBtn btn btn-secondary">Search for a Truck</button>
+				</form>
+				<table>
+					<thead>
+						<tr id="searchTab"></tr>
+					</thead>
+					<tbody id="searchTabBody"></tbody>
+				</table>
+				<!-- <div class="span3 animated-fast flyIn">
 					<div class="service-box">
 						<img src="img/icons/laptop.png" alt="" />
 						<h2>Web design</h2>
 						<p>
-							Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 						</p>
 					</div>
 				</div>
@@ -185,7 +213,7 @@
 						<img src="img/icons/lab.png" alt="" />
 						<h2>Web development</h2>
 						<p>
-							Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+							
 						</p>
 					</div>
 				</div>
@@ -194,7 +222,6 @@
 						<img src="img/icons/camera.png" alt="" />
 						<h2>Photography</h2>
 						<p>
-							Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 						</p>
 					</div>
 				</div>
@@ -203,35 +230,36 @@
 						<img src="img/icons/basket.png" alt="" />
 						<h2>Ecommerce</h2>
 						<p>
-							Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 						</p>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</section>
 	<!-- end section: search -->
 	<!-- section: map -->
-	<section id = "mapContainer" class="spacer bg3">
+	<section id="mapContainer" class="spacer bg3">
 		<div class="container">
 			<div class="row">
 				<div class="span12 aligncenter flyLeft">
 					<div>
 						<div class="jumbotron" id="Mapjumbo">
-						<h1 style="color:ghostwhite;"> <strong> Map </strong></h1>
-						<!-- <h4> Map </h4> -->
-						<hr>
-						<!-- <h1 class="text-center">Food Truck Info!</h1> -->
-						<div class="row">
-							<div class="col-lg-4">
-							<p id = "truck-name"></p>
-							<p id = "descr"></p>
-							<p id = "contact"></p>
+							<h1 style="color:ghostwhite;margin-left: auto; margin-right: auto;">
+								<strong> Map </strong>
+							</h1>
+							<!-- <h4> Map </h4> -->
+							<hr>
+							<!-- <h1 class="text-center">Food Truck Info!</h1> -->
+							<div class="row">
+								<div class="col-lg-12">
+									<p id="truck-name"></p>
+									<p id="descr"></p>
+									<p id="contact"></p>
+								</div>
+								<div class="col-lg-12">
+									<ul id="menulist"></ul>
+								</div>
 							</div>
-							<div class="col-lg-8">
-							<ul id = "menulist"></ul>
-							</div>
-						</div>  
 						</div>
 					</div>
 					<!--The div element for the map -->
@@ -285,14 +313,14 @@
 						<div class="portfolio-item grid print photography">
 							<div class="portfolio">
 								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
-						<img src="img/works/1.png" alt="" />
-						<div class="portfolio-overlay">
-							<div class="thumb-info">
-								<h5>Portfolio name</h5>
-								<i class="icon-plus icon-2x"></i>
-							</div>
-						</div>
-						</a>
+									<img src="img/works/1.png" alt="" />
+									<div class="portfolio-overlay">
+										<div class="thumb-info">
+											<h5>Portfolio name</h5>
+											<i class="icon-plus icon-2x"></i>
+										</div>
+									</div>
+								</a>
 							</div>
 						</div>
 						<!-- end portfolio item -->
@@ -300,14 +328,14 @@
 						<div class="portfolio-item grid print design web">
 							<div class="portfolio">
 								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
-						<img src="img/works/2.png" alt="" />
-						<div class="portfolio-overlay">
-							<div class="thumb-info">
-								<h5>Portfolio name</h5>
-								<i class="icon-plus icon-2x"></i>
-							</div>
-						</div>
-						</a>
+									<img src="img/works/2.png" alt="" />
+									<div class="portfolio-overlay">
+										<div class="thumb-info">
+											<h5>Portfolio name</h5>
+											<i class="icon-plus icon-2x"></i>
+										</div>
+									</div>
+								</a>
 							</div>
 						</div>
 						<!-- end portfolio item -->
@@ -315,29 +343,14 @@
 						<div class="portfolio-item grid print design">
 							<div class="portfolio">
 								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
-						<img src="img/works/3.png" alt="" />
-						<div class="portfolio-overlay">
-							<div class="thumb-info">
-								<h5>Portfolio name</h5>
-								<i class="icon-plus icon-2x"></i>
-							</div>
-						</div>
-						</a>
-							</div>
-						</div>
-						<!-- end portfolio item -->
-						<!-- portfolio item -->
-						<div class="portfolio-item grid photography web">
-							<div class="portfolio">
-								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
-						<img src="img/works/4.png" alt="" />
-						<div class="portfolio-overlay">
-							<div class="thumb-info">
-								<h5>Portfolio name</h5>
-								<i class="icon-plus icon-2x"></i>
-							</div>
-						</div>
-						</a>
+									<img src="img/works/3.png" alt="" />
+									<div class="portfolio-overlay">
+										<div class="thumb-info">
+											<h5>Portfolio name</h5>
+											<i class="icon-plus icon-2x"></i>
+										</div>
+									</div>
+								</a>
 							</div>
 						</div>
 						<!-- end portfolio item -->
@@ -345,29 +358,14 @@
 						<div class="portfolio-item grid photography web">
 							<div class="portfolio">
 								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
-						<img src="img/works/5.png" alt="" />
-						<div class="portfolio-overlay">
-							<div class="thumb-info">
-								<h5>Portfolio name</h5>
-								<i class="icon-plus icon-2x"></i>
-							</div>
-						</div>
-						</a>
-							</div>
-						</div>
-						<!-- end portfolio item -->
-						<!-- portfolio item -->
-						<div class="portfolio-item grid photography web">
-							<div class="portfolio">
-								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
-						<img src="img/works/6.png" alt="" />
-						<div class="portfolio-overlay">
-							<div class="thumb-info">
-								<h5>Portfolio name</h5>
-								<i class="icon-plus icon-2x"></i>
-							</div>
-						</div>
-						</a>
+									<img src="img/works/4.png" alt="" />
+									<div class="portfolio-overlay">
+										<div class="thumb-info">
+											<h5>Portfolio name</h5>
+											<i class="icon-plus icon-2x"></i>
+										</div>
+									</div>
+								</a>
 							</div>
 						</div>
 						<!-- end portfolio item -->
@@ -375,14 +373,44 @@
 						<div class="portfolio-item grid photography web">
 							<div class="portfolio">
 								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
-						<img src="img/works/7.png" alt="" />
-						<div class="portfolio-overlay">
-							<div class="thumb-info">
-								<h5>Portfolio name</h5>
-								<i class="icon-plus icon-2x"></i>
+									<img src="img/works/5.png" alt="" />
+									<div class="portfolio-overlay">
+										<div class="thumb-info">
+											<h5>Portfolio name</h5>
+											<i class="icon-plus icon-2x"></i>
+										</div>
+									</div>
+								</a>
 							</div>
 						</div>
-						</a>
+						<!-- end portfolio item -->
+						<!-- portfolio item -->
+						<div class="portfolio-item grid photography web">
+							<div class="portfolio">
+								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
+									<img src="img/works/6.png" alt="" />
+									<div class="portfolio-overlay">
+										<div class="thumb-info">
+											<h5>Portfolio name</h5>
+											<i class="icon-plus icon-2x"></i>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+						<!-- end portfolio item -->
+						<!-- portfolio item -->
+						<div class="portfolio-item grid photography web">
+							<div class="portfolio">
+								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
+									<img src="img/works/7.png" alt="" />
+									<div class="portfolio-overlay">
+										<div class="thumb-info">
+											<h5>Portfolio name</h5>
+											<i class="icon-plus icon-2x"></i>
+										</div>
+									</div>
+								</a>
 							</div>
 						</div>
 						<!-- end portfolio item -->
@@ -390,14 +418,14 @@
 						<div class="portfolio-item grid photography">
 							<div class="portfolio">
 								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
-						<img src="img/works/8.png" alt="" />
-						<div class="portfolio-overlay">
-							<div class="thumb-info">
-								<h5>Portfolio name</h5>
-								<i class="icon-plus icon-2x"></i>
-							</div>
-						</div>
-						</a>
+									<img src="img/works/8.png" alt="" />
+									<div class="portfolio-overlay">
+										<div class="thumb-info">
+											<h5>Portfolio name</h5>
+											<i class="icon-plus icon-2x"></i>
+										</div>
+									</div>
+								</a>
 							</div>
 						</div>
 						<!-- end portfolio item -->
@@ -405,14 +433,14 @@
 						<div class="portfolio-item grid photography web">
 							<div class="portfolio">
 								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
-						<img src="img/works/9.png" alt="" />
-						<div class="portfolio-overlay">
-							<div class="thumb-info">
-								<h5>Portfolio name</h5>
-								<i class="icon-plus icon-2x"></i>
-							</div>
-						</div>
-						</a>
+									<img src="img/works/9.png" alt="" />
+									<div class="portfolio-overlay">
+										<div class="thumb-info">
+											<h5>Portfolio name</h5>
+											<i class="icon-plus icon-2x"></i>
+										</div>
+									</div>
+								</a>
 							</div>
 						</div>
 						<!-- end portfolio item -->
@@ -420,14 +448,14 @@
 						<div class="portfolio-item grid design web">
 							<div class="portfolio">
 								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
-						<img src="img/works/10.png" alt="" />
-						<div class="portfolio-overlay">
-							<div class="thumb-info">
-								<h5>Portfolio name</h5>
-								<i class="icon-plus icon-2x"></i>
-							</div>
-						</div>
-						</a>
+									<img src="img/works/10.png" alt="" />
+									<div class="portfolio-overlay">
+										<div class="thumb-info">
+											<h5>Portfolio name</h5>
+											<i class="icon-plus icon-2x"></i>
+										</div>
+									</div>
+								</a>
 							</div>
 						</div>
 						<!-- end portfolio item -->
@@ -436,7 +464,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 
 	<!-- spacer section -->
 	<section class="spacer bg3">
@@ -444,7 +472,7 @@
 			<div class="row">
 				<div class="span12 aligncenter flyLeft">
 					<blockquote class="large">
-						We are an established and trusted web agency with a reputation for commitment and high integrity
+						Choose from a variety of conveninent and delicious meals from the back of a truck!
 					</blockquote>
 				</div>
 				<div class="span12 aligncenter flyRight">
@@ -457,7 +485,8 @@
 	<!-- section: Twitter -->
 	<section id="Twitter" class="section">
 		<div class="container">
-			<h4>Tweets from </h4><h4 id = "trucktweets"></h4>
+			<h4>Tweets from </h4>
+			<h4 id="trucktweets"></h4>
 			<!-- Three columns -->
 			<div class="row">
 				<div class="span3">
@@ -468,10 +497,17 @@
 						<div class="post-meta">
 							<i class="icon-file icon-2x"></i>
 							<span class="date">June 19, 2013</span>
-							<span class="tags"><a href="#">Design</a>, <a href="#">Blog</a></span>
+							<span class="tags">
+								<a href="#">Design</a>,
+								<a href="#">Blog</a>
+							</span>
 						</div>
 						<div class="entry-content">
-							<h5><strong><a href="#">New design trends</a></strong></h5>
+							<h5>
+								<strong>
+									<a href="#">New design trends</a>
+								</strong>
+							</h5>
 							<p>
 								Lorem Ipsum is simply dummy text of the printing and typesetting industry. &hellip;
 							</p>
@@ -487,10 +523,17 @@
 						<div class="post-meta">
 							<i class="icon-file icon-2x"></i>
 							<span class="date">June 19, 2013</span>
-							<span class="tags"><a href="#">Design</a>, <a href="#">News</a></span>
+							<span class="tags">
+								<a href="#">Design</a>,
+								<a href="#">News</a>
+							</span>
 						</div>
 						<div class="entry-content">
-							<h5><strong><a href="#">Retro is great</a></strong></h5>
+							<h5>
+								<strong>
+									<a href="#">Retro is great</a>
+								</strong>
+							</h5>
 							<p>
 								Lorem Ipsum is simply dummy text of the printing and typesetting industry. &hellip;
 							</p>
@@ -506,10 +549,17 @@
 						<div class="post-meta">
 							<i class="icon-file icon-2x"></i>
 							<span class="date">June 22, 2013</span>
-							<span class="tags"><a href="#">Design</a>, <a href="#">Tips</a></span>
+							<span class="tags">
+								<a href="#">Design</a>,
+								<a href="#">Tips</a>
+							</span>
 						</div>
 						<div class="entry-content">
-							<h5><strong><a href="#">Isometric mockup</a></strong></h5>
+							<h5>
+								<strong>
+									<a href="#">Isometric mockup</a>
+								</strong>
+							</h5>
 							<p>
 								Lorem Ipsum is simply dummy text of the printing and typesetting industry. &hellip;
 							</p>
@@ -525,10 +575,17 @@
 						<div class="post-meta">
 							<i class="icon-file icon-2x"></i>
 							<span class="date">June 27, 2013</span>
-							<span class="tags"><a href="#">News</a>, <a href="#">Tutorial</a></span>
+							<span class="tags">
+								<a href="#">News</a>,
+								<a href="#">Tutorial</a>
+							</span>
 						</div>
 						<div class="entry-content">
-							<h5><strong><a href="#">Free icon set</a></strong></h5>
+							<h5>
+								<strong>
+									<a href="#">Free icon set</a>
+								</strong>
+							</h5>
 							<p>
 								Lorem Ipsum is simply dummy text of the printing and typesetting industry. &hellip;
 							</p>
@@ -538,9 +595,9 @@
 				</div>
 			</div>
 			<div class="blankdivider30"></div>
-			<div class="aligncenter">
+			<!-- <div class="aligncenter">
 				<a href="#" class="btn btn-large btn-theme">More Tweets</a>
-			</div>
+			</div> -->
 		</div>
 	</section>
 
@@ -548,63 +605,59 @@
 	<!-- section: form -->
 	<section id="form" class="section green">
 		<div class="container">
-			<h4>Add/Update a Truck</h4>
-			<p>
-				Please complete all fields to add or update a food truck.
-			</p>
-			<div class="blankdivider30">
+			<div class="row">
+				<div class="span12">
+					<h4>Add/Update a Truck</h4>
+					<p>Please complete all fields to add or update a food truck.</p>
+				</div>
 			</div>
 			<div class="row">
 				<div class="span12">
-					<div class="cform" id="contact-form">
+					<div class="cform" id="existingTrucks">
+						<div class="form-group">
+							<label for="existing_foodtruck_name">Truck Name</label>
+							<select class="chosen-select update browser-default" id="existing_foodtruck_name">
+								<option value="">Select a Food Truck to Update</option>
+							</select>
+						</div>
 						<div id="sendmessage">Your truck has been sent. Thank you!</div>
 						<div id="errormessage"></div>
-						<form action="" method="post" role="form" class="contactForm">
-							<div class="row">
-								<div class="span6">
-									<div class="form-group">
-										<label for="existing_foodtruck_name">Truck Name</label>
-									    <select class="chosen-select update browser-default" id="existing_foodtruck_name">
-										  <option value="">Select a Food Truck to Update</option>
-		 								</select>
-									</div>										
-									<div class="field Truck-name form-group">
-										<input type="text" name="name" class="form-control" id="truck-name2" placeholder="Truck Name"/>
-										<div class="validation"></div>
-									</div>
-									<div class="field Truck-email form-group">
-										<input type="text" class="form-control" name="cuisine" id="truck-cuisine" placeholder="Cusine" />
-										<div class="validation"></div>
-									</div>
-									<div class="field phone_number form-group">
-										<input type="text" class="form-control" name="phone_number" id="truck-phone" placeholder="Phone" data-rule="email" data-msg="Please enter a valid Phone number" />
-										<div class="validation"></div>
-									</div>
-
-								</div>
-								<div class="span6">
-									<div class="field subject form-group">
-										<input type="text" class="form-control" name="description" id="truck-description" placeholder="description" />
-										<div class="validation"></div>
-									</div>
-									<div class="field subject form-group">
-										<input type="text" class="form-control" name="location" id="truck-location" placeholder="location" />
-										<div class="validation"></div>
-									</div>
-									<div class="field subject form-group" style="width:300px">
-										<input type="date" class="form-control" name="date" id="truck-date" placeholder="date" />
-										<div class="validation"></div>
-									</div>
-									<div>
-									<input  value="Add Truck" class="btn btn-theme pull-left" id ="submittruck">
-									<input  value="Update Truck" class="btn btn-theme pull-left" id ="updatetruck">
-								    </div>
-								</div>
-							</div>
-						</form>
 					</div>
 				</div>
-				<!-- ./span12 -->
+			</div>
+			<div class="row">
+				<form action="" method="post" role="form" class="contactForm">
+					<div class="span6">
+						<div class="field Truck-name form-group">
+							<input type="text" name="name" class="form-control" id="truck-name2" placeholder="Truck Name" />
+							<div class="validation"></div>
+						</div>
+						<div class="field Truck-email form-group">
+							<input type="text" class="form-control" name="cuisine" id="truck-cuisine" placeholder="Cuisine" />
+							<div class="validation"></div>
+						</div>
+						<div class="field phone_number form-group">
+							<input type="text" class="form-control" name="phone_number" id="truck-phone" placeholder="Phone" data-rule="email" data-msg="Please enter a valid Phone number"
+							/>
+							<div class="validation"></div>
+						</div>
+					</div>
+					<div class="span6">
+						<div class="field subject form-group">
+							<input type="text" class="form-control" name="description" id="truck-description" placeholder="description" />
+							<div class="validation"></div>
+						</div>
+						<div class="field subject form-group">
+							<input type="text" class="form-control" name="location" id="truck-location" placeholder="location" />
+							<div class="validation"></div>
+						</div>
+						<div class="field subject form-group">
+							<input type="date" class="form-control" name="date" id="truck-date" placeholder="date" />
+							<div class="validation"></div>
+						</div>
+						<input value="Add Truck" class="PageBtn btn pull-left" id="submittruck">
+					</div>
+				</form>
 			</div>
 		</div>
 	</section>
@@ -613,10 +666,26 @@
 			<div class="row">
 				<div class="span6 offset3">
 					<ul class="social-networks">
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-instagram icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-twitter icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-dribbble icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-pinterest icon-2x"></i></a></li>
+						<li>
+							<a href="">
+								<i class="icon-circled icon-bgdark icon-instagram icon-2x"></i>
+							</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/finder_truck">
+								<i class="icon-circled icon-bgdark icon-twitter icon-2x"></i>
+							</a>
+						</li>
+						<li>
+							<a href="https://github.com/max-liao">
+								<i class="icon-circled icon-bgdark icon-github icon-2x"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="icon-circled icon-bgdark icon-pinterest icon-2x"></i>
+							</a>
+						</li>
 					</ul>
 					<p class="copyright">
 						&copy; Max Liao. All rights reserved.
@@ -626,13 +695,16 @@
 		</div>
 		<!-- ./container -->
 	</footer>
-	<a href="#" class="scrollup"><i class="icon-angle-up icon-square icon-bgdark icon-2x"></i></a>
+	<a href="#" class="scrollup">
+		<i class="icon-angle-up icon-square icon-bgdark icon-2x"></i>
+	</a>
 	<!-- Google maps markerclusterer -->
 	<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6b6PThKZfWpNBOo_s6f1caBl9iB2PG4E"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 	<script src="js/map.js"></script>
-	
+
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery.scrollTo.js"></script>
 	<script src="js/jquery.nav.js"></script>

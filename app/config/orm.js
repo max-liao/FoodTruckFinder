@@ -20,8 +20,19 @@ var orm = {
       cb(result);
     });
   },
+  searchNames: function(table, col, name, cb) {
+
+    var queryString = "SELECT * FROM " + table + " WHERE " + col + " LIKE '%" + name + "%';";
+    console.log(queryString);
+    connection.query(queryString, function(err, result) {
+      if (err) throw err;
+
+      cb(result);
+    });
+  },
   selectAlllocations: function(table, cb) {
     var queryString = "SELECT location FROM " + table + ";";
+    console.log(queryString);
     connection.query(queryString, function(err, result) {
       if (err) throw err;
       cb(result);

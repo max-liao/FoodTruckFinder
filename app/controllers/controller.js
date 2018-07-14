@@ -1,15 +1,25 @@
 // Dependencies
 // =============================================================
-var express = require("express");
-var router = express.Router();
-var model = require("../models/model.js");
-var path = require("path");
-var bodyParser = require("body-parser");
+const express = require("express");
+const router = express.Router();
+const model = require("../models/model.js");
+const path = require("path");
 
 // Routes
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/index.html"));
+});
+
+// React Page
+router.get("/contact", function(req, res) {
+  // Serve up static assets.
+  // app.use(express.static("client/build"))
+  // if (process.env.NODE_ENV === "production") {
+    res.sendFile(path.join(__dirname, "../../client/build/index.html"));
+  // } else{
+    // res.sendFile(path.join(__dirname, "../../client/build/index.html"));
+  // }
 });
 
 // Map trucks
@@ -46,7 +56,6 @@ router.get("/locations", function(req, res) {
   model.selectlocations(function(data) {
     res.json(data);
   });
-
 });
 
 //Adds New food truck
