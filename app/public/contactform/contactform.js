@@ -17,15 +17,22 @@
           //console.log(newoption);
         }
         //console.log(trucks);
-
+        //$('#submittruck').attr( "disabled", true);
       }
+
+      
     );
 
-    $('#existing_foodtruck_name').on('select', function(event){
 
-       $('#addtruck').attr("disabled", true);
-    });
 
+  $('#existing_foodtruck_name').on('change', function() {
+      
+      if( $(this).val()) {
+          $('#submittruck').attr( "disabled", true );
+      } else {       
+          $('#submittruck').attr( "disabled", false );
+      }
+  });
 
      
    
