@@ -23,7 +23,6 @@
 
 
 
-
 //function to validate form data, ensure no fields are blank
 function validateForm() {
   var isValid = true;
@@ -35,10 +34,50 @@ function validateForm() {
     return isValid;
   }
 
-  if($('#existing_foodtruck_name').val()){
 
-    console.log("value updated");
-  }
+  $('#existing_foodtruck_name').on('change', function(){
+
+    if($('#existing_foodtruck_name').val()){
+
+      $('#submittruck').attr('disabled', true);
+
+      var val = $('#existing_foodtruck_name').val();
+
+ 
+      // foodtruck_name: $("#truck-name2").val().trim(),
+      // contact: $("#truck-phone").val().trim(),
+      // descr: $("#truck-description").val().trim(),
+      // cuisine: $("#truck-cuisine").val().trim(),
+      // location: $("#truck-location").val().trim(),
+      // date: $("#truck-date").val().trim()
+
+
+      $.ajax("/data/food_truck/id/" + val, {
+        type: "GET"
+        }).then(
+        function(data) {
+            //var promises = [];
+
+            //console.log("data from select dropdown " + data[0].foodtruck_name);
+
+            $("#truck-name2").val(data[0].foodtruck_name);
+            $("#truck-phone").val(data[0].contact);
+            $("#truck-description").val(data[0].descr);
+            $("#truck-cuisine").val(data[0].cuisine);
+            $("#truck-location").val(data[0].location);
+            $("#truck-date").val(data[0].date);
+        }
+    );
+
+
+
+    
+    }else{
+
+      $('#submittruck').attr('disabled', false);
+    }
+
+  })
   
 
   //when the submit is clicked to add a new food truck, validate the form and send the data
