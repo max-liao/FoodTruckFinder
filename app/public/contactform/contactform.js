@@ -43,14 +43,6 @@ function validateForm() {
 
       var val = $('#existing_foodtruck_name').val();
 
- 
-      // foodtruck_name: $("#truck-name2").val().trim(),
-      // contact: $("#truck-phone").val().trim(),
-      // descr: $("#truck-description").val().trim(),
-      // cuisine: $("#truck-cuisine").val().trim(),
-      // location: $("#truck-location").val().trim(),
-      // date: $("#truck-date").val().trim()
-
 
       $.ajax("/data/food_truck/id/" + val, {
         type: "GET"
