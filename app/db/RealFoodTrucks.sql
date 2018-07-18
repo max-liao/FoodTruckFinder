@@ -5,6 +5,10 @@ LIMIT 0, 1000
 -- Date: 2018-07-12 20:43
 */
 
+
+ALTER TABLE `project2_db`.`food_truck` 
+ADD COLUMN `website` VARCHAR(50) NULL AFTER `location`;
+
 INSERT INTO `food_truck` (`id`,`foodtruck_name`,`descr`,`cuisine`,`location`,`contact`,`date`) VALUES (25,'Best Truck Ever','Delicous Food','Asian','Global Mall Norcross','770-390-4598','2018-07-13 00:00:00');
 INSERT INTO `food_truck` (`id`,`foodtruck_name`,`descr`,`cuisine`,`location`,`contact`,`date`) VALUES (26,'Yumbii','Bright, easygoing kitchen fusing Asian & Mexican cooking in tacos, bowls & burritos.','Mexican','1927 Peachtree Road Northeast, Atlanta, GA 30309','(404) 975-3444','2018-07-12 19:50:01');
 INSERT INTO `food_truck` (`id`,`foodtruck_name`,`descr`,`cuisine`,`location`,`contact`,`date`) VALUES (27,'Mix\'D Up Burgers','Tiny brick-&-mortar outpost of a popular food truck with a drive-thru & massive gourmet burgers.','Burgers',' 313 Boulevard SE, Atlanta, GA 30312','(404) 963-2381','2018-07-12 20:10:19');
