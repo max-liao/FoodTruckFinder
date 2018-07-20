@@ -1,24 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-// import Jumbotron from "./components/Jumbotron";
-// import { Col, Row, Container } from "./components/Grid";
+import React from 'react';
+// import './App.css';
+// import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+// import Articles from "./pages/Articles";
+// import Detail from "./pages/Detail";
+// import NoMatch from "./pages/NoMatch";
+// import Nav from "./components/Nav";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        {/* <link href={require("/css/style.css")} rel="stylesheet" /> */}
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Contact Us</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+
+const App = (id) => (
+  <div>
+    <br />
+      <h1><strong> HELLO TO YOU MAX </strong></h1>
+  </div>
+  // <Router> 
+  //   <div>
+  //   <Nav />
+  //   <Switch>
+  //       <Route exact path="/" component={Articles} />
+  //       <Route exact path="/saved" component={Detail} />
+  //       <Route component={NoMatch} />
+  //   </Switch>
+  //   </div>
+  // </Router>
+);
 
 export default App;
