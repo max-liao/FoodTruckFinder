@@ -37,7 +37,7 @@ var HomePage = function (_Component) {
         _react2.default.createElement(
           'h1',
           null,
-          'Welcome Home: ',
+          'Welcome: ',
           this.props.name
         ),
         _react2.default.createElement(
@@ -53,7 +53,7 @@ var HomePage = function (_Component) {
         _react2.default.createElement(
           'p',
           null,
-          'Go',
+          'Go ',
           _react2.default.createElement(
             'a',
             { href: '/' },
