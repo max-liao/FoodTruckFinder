@@ -46,8 +46,8 @@ var HomePage = function (_Component) {
           'Read more ',
           _react2.default.createElement(
             'a',
-            { href: '/about' },
-            'About Us'
+            { href: '/' + this.props.link },
+            this.props.link
           )
         )
       );

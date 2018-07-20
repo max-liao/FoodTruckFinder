@@ -1,10 +1,4 @@
 import React from 'react';
-// import './App.css';
-// import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
-// import Articles from "./pages/Articles";
-// import Detail from "./pages/Detail";
-// import NoMatch from "./pages/NoMatch";
-// import Nav from "./components/Nav";
 
 
 const App = (id) => (
@@ -12,6 +6,8 @@ const App = (id) => (
     <br />
       <h1><strong> HELLO TO YOU MAX </strong></h1>
   </div>
+);
+
   // <Router> 
   //   <div>
   //   <Nav />
@@ -22,6 +18,4 @@ const App = (id) => (
   //   </Switch>
   //   </div>
   // </Router>
-);
-
 export default App;

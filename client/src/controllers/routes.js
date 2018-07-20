@@ -13,15 +13,23 @@ var path = require("path");
 const model = require("../models/model.js");
 
 function addRoutes(router) {
+  // Browser Routing
   router.get('/', function (req, res, next) {
     console.log("Home Page Accessed");
     next();
   });
 
-  router.get("/contact", function (req, res) {
-    
+  router.get("/contact", function (req, res, next) {
+    res.locals.component = _home2.default;
+    res.locals.initialState = { name: 'Max', link: 'test' };
+    next();
   });
 
+  router.get("/test", function (req, res, next) {
+    res.locals.component = _home2.default;
+    res.locals.initialState = { name: 'Max, enjoy the test!', link: 'contact'};
+    next();
+  });
   
   // SQL Database Routing
   // Shows all trucks data
