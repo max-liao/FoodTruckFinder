@@ -49,6 +49,16 @@ var HomePage = function (_Component) {
             { href: '/' + this.props.link },
             this.props.link
           )
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Go',
+          _react2.default.createElement(
+            'a',
+            { href: '/' },
+            'Home'
+          )
         )
       );
     }
