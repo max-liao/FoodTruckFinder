@@ -26,7 +26,6 @@ var App = function (_Component) {
     value: function render() {
       var isMobile = this.props.isMobile;
 
-
       return _react2.default.createElement(
         'div',
         null,

@@ -10,6 +10,12 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Jumbotron = require('../components/Jumbotron');
+
+var _Jumbotron2 = _interopRequireDefault(_Jumbotron);
+
+var _Form = require('../components/Form');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30,34 +36,51 @@ var HomePage = function (_Component) {
   _createClass(HomePage, [{
     key: 'render',
     value: function render() {
-
       return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(
-          'h1',
+          _Jumbotron2.default,
           null,
-          'Welcome: ',
-          this.props.name
-        ),
-        _react2.default.createElement(
-          'p',
-          null,
-          'Read more ',
           _react2.default.createElement(
-            'a',
-            { href: '/' + this.props.link },
-            this.props.link
-          )
-        ),
-        _react2.default.createElement(
-          'p',
-          null,
-          'Go ',
+            'h1',
+            null,
+            'Welcome: ',
+            this.props.name
+          ),
           _react2.default.createElement(
-            'a',
-            { href: '/' },
-            'Home'
+            'p',
+            null,
+            'Go to ',
+            _react2.default.createElement(
+              'a',
+              { href: '/' + this.props.link },
+              this.props.link
+            )
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            'Go ',
+            _react2.default.createElement(
+              'a',
+              { href: '/' },
+              'Home'
+            ),
+            ' ',
+            this.props.name
+          ),
+          _react2.default.createElement(
+            'form',
+            { style: 'width:100%' },
+            _react2.default.createElement(
+              'label',
+              { id: 'formHead' },
+              'Enter your Information:'
+            ),
+            _react2.default.createElement(_Form.Input, { id: 'Contact_Name', name: 'name', placeholder: 'Enter Your Name' }),
+            _react2.default.createElement(_Form.Input, { id: 'Contact_Email', name: 'email', placeholder: 'Enter Your Email' }),
+            _react2.default.createElement(_Form.TextArea, { id: 'Contact_Message', name: 'name', placeholder: 'Enter Your Message' })
           )
         )
       );
