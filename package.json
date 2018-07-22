@@ -16,7 +16,6 @@
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\" && webpack",
     "client": "cd client && npm run start",
     "install": "cd client && yarn install",
-    "prebuild": "cd src && babel lib --out-dir app",
     "build": "cd client && npm run build",
     "lint": "functionhappy | snazzy",
     "heroku-postbuild": "npm run build"
@@ -28,6 +27,7 @@
     "if-env": "^1.0.4",
     "mysql": "^2.15.0",
     "nighthawk": "^2.1.1",
+    "node-mandrill": "^1.0.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1"
@@ -42,7 +42,6 @@
     "concurrently": "^3.5.0",
     "functionhappy": "^1.0.0",
     "nodemon": "^1.11.0",
-    "sass-loader": "^4.0.0",
     "snazzy": "^4.0.0",
     "webpack": "^1.13.1",
     "webpack-node-externals": "^1.2.0"

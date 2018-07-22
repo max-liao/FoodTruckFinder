@@ -24,6 +24,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var mandrill = require('node-mandrill')('n3E5yMhIVHv6avpIIU0FFA');
+
 var HomePage = function (_Component) {
   _inherits(HomePage, _Component);
 
@@ -34,6 +36,20 @@ var HomePage = function (_Component) {
   }
 
   _createClass(HomePage, [{
+    key: 'sendEmail',
+    value: function sendEmail(_name, _email, _message) {
+      mandrill('/messages/send', {
+        message: {
+          to: [{ email: "atlfoodtruckfinder@gmail.com", name: _name }],
+          from_email: _email,
+          subject: "FoodTruckFinder Contact Us",
+          text: _message
+        }
+      }, function (error, response) {
+        if (error) console.log(error);else console.log(response);
+      });
+    }
+  }, {
     key: 'handleFormSubmit',
     value: function handleFormSubmit(event) {
       // When the form is submitted, prevent its default behavior, get recipes update the recipes state
@@ -53,7 +69,8 @@ var HomePage = function (_Component) {
       if (message !== "") {
         console.log(message);
       }
-      window.open('mailto:atlfoodtruckfinder@gmail.com?subject=From:' + name + '_@' + email + '&body=' + message);
+      this.sendEmail(name, email, message);
+      // window.open(`mailto:atlfoodtruckfinder@gmail.com?subject=From:${name}_@${email}&body=${message}`);
     }
   }, {
     key: 'render',

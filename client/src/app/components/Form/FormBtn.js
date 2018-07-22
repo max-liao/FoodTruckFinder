@@ -16,7 +16,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var FormBtn = exports.FormBtn = function FormBtn(props) {
   return _react2.default.createElement(
     "button",
-    _extends({}, props, { style: { float: "right", marginBottom: 10 }, className: "btn btn-success" }),
+    _extends({}, props, { style: { marginTop: 10, backgroundcolor: "#777474", marginBottom: 10 }, className: "btn btn-success" }),
     props.children
   );
 };
