@@ -34,6 +34,28 @@ var HomePage = function (_Component) {
   }
 
   _createClass(HomePage, [{
+    key: 'handleFormSubmit',
+    value: function handleFormSubmit(event) {
+      // When the form is submitted, prevent its default behavior, get recipes update the recipes state
+      event.preventDefault();
+      var name = document.getElementById("Contact_Name").value;
+      var email = document.getElementById("Contact_Email").value;
+      var message = document.getElementById("Contact_Message").value;
+
+      if (name !== "") {
+        console.log(name);
+      }
+
+      if (email !== "") {
+        console.log(email);
+      }
+
+      if (message !== "") {
+        console.log(message);
+      }
+      window.open('mailto:atlfoodtruckfinder@gmail.com?subject=From:' + name + '_@' + email + '&body=' + message);
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -78,7 +100,12 @@ var HomePage = function (_Component) {
             ),
             _react2.default.createElement(_Form.Input, { id: 'Contact_Name', name: 'name', placeholder: 'Enter Your Name' }),
             _react2.default.createElement(_Form.Input, { id: 'Contact_Email', name: 'email', placeholder: 'Enter Your Email' }),
-            _react2.default.createElement(_Form.TextArea, { id: 'Contact_Message', name: 'message', placeholder: 'Enter Your Message' })
+            _react2.default.createElement(_Form.TextArea, { id: 'Contact_Message', name: 'message', placeholder: 'Enter Your Message' }),
+            _react2.default.createElement(
+              _Form.FormBtn,
+              { className: 'btn btn-primary', onClick: this.handleFormSubmit },
+              'Send us an Email!'
+            )
           )
         )
       );

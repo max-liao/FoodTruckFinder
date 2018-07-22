@@ -4,7 +4,7 @@ import { Input, TextArea, FormBtn } from '../components/Form'
 
 export default class HomePage extends Component {
 
-  handleFormSubmit = event => {
+  handleFormSubmit(event){
     // When the form is submitted, prevent its default behavior, get recipes update the recipes state
     event.preventDefault();
     var name = document.getElementById("Contact_Name").value;
