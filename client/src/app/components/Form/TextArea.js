@@ -17,6 +17,6 @@ var TextArea = exports.TextArea = function TextArea(props) {
   return _react2.default.createElement(
     "div",
     { className: "form-group" },
-    _react2.default.createElement("textarea", _extends({ className: "form-control", rows: "10" }, props))
+    _react2.default.createElement("textarea", _extends({ className: "form-control", rows: "8", style: { width: "80%" } }, props))
   );
 };

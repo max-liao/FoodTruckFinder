@@ -66,13 +66,11 @@ var HomePage = function (_Component) {
               'a',
               { href: '/' },
               'Home'
-            ),
-            ' ',
-            this.props.name
+            )
           ),
           _react2.default.createElement(
             'form',
-            { style: 'width:100%' },
+            null,
             _react2.default.createElement(
               'label',
               { id: 'formHead' },
@@ -80,7 +78,7 @@ var HomePage = function (_Component) {
             ),
             _react2.default.createElement(_Form.Input, { id: 'Contact_Name', name: 'name', placeholder: 'Enter Your Name' }),
             _react2.default.createElement(_Form.Input, { id: 'Contact_Email', name: 'email', placeholder: 'Enter Your Email' }),
-            _react2.default.createElement(_Form.TextArea, { id: 'Contact_Message', name: 'name', placeholder: 'Enter Your Message' })
+            _react2.default.createElement(_Form.TextArea, { id: 'Contact_Message', name: 'message', placeholder: 'Enter Your Message' })
           )
         )
       );

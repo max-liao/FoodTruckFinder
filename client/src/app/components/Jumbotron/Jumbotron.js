@@ -15,7 +15,7 @@ var Jumbotron = function Jumbotron(_ref) {
   return _react2.default.createElement(
     "div",
     {
-      style: { height: 300, clear: "both", paddingTop: 120, textAlign: "center", backgroundColor: "skyblue", color: "whitesmoke" },
+      style: { height: 500, clear: "both", paddingTop: 60, textAlign: "center", backgroundColor: "skyblue", color: "whitesmoke" },
       className: "jumbotron"
     },
     children
