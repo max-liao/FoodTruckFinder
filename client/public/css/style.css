@@ -1779,7 +1779,7 @@ li{
 	font-size:20px;
 }
 
-#MaxSelfie{
+#MaxSelfie, #ThomasSelfie{
 	height: 175px;
 	width: 125px;
 }
