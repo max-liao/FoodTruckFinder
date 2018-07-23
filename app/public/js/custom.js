@@ -1,6 +1,10 @@
 
 jQuery(document).ready(function($) {
-
+	$("#playTruckHorn").click(function(){
+		var sound = document.getElementById("TruckHorn");
+		sound.play();
+	});
+	
 	$('.scrollup').click(function(){
 		$("html, body").animate({ scrollTop: 0 }, 1000);
 		return false;
