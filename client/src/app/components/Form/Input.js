@@ -17,6 +17,6 @@ var Input = exports.Input = function Input(props) {
   return _react2.default.createElement(
     "div",
     { className: "form-group" },
-    _react2.default.createElement("input", _extends({ className: "form-control", style: { marginTop: 10, width: "80%" } }, props))
+    _react2.default.createElement("input", _extends({ className: "form-control", style: { marginTop: 5, marginBottom: 5, width: "80%" } }, props))
   );
 };

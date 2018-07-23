@@ -29,13 +29,31 @@ var mandrill = require('node-mandrill')('n3E5yMhIVHv6avpIIU0FFA');
 var HomePage = function (_Component) {
   _inherits(HomePage, _Component);
 
-  function HomePage() {
+  function HomePage(props) {
     _classCallCheck(this, HomePage);
 
-    return _possibleConstructorReturn(this, (HomePage.__proto__ || Object.getPrototypeOf(HomePage)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (HomePage.__proto__ || Object.getPrototypeOf(HomePage)).call(this, props));
+
+    _this.state = {
+      isToggleOn: true,
+      isEnabled: false,
+      name: ["test"]
+    };
+    _this.handleClick = _this.handleClick.bind(_this);
+    return _this;
   }
 
   _createClass(HomePage, [{
+    key: 'handleClick',
+    value: function handleClick() {
+      console.log("HelloW");
+      this.setState(function (prevState) {
+        return {
+          isToggleOn: !prevState.isToggleOn
+        };
+      });
+    }
+  }, {
     key: 'sendEmail',
     value: function sendEmail(_name, _email, _message) {
       mandrill('/messages/send', {
@@ -52,13 +70,18 @@ var HomePage = function (_Component) {
   }, {
     key: 'handleFormSubmit',
     value: function handleFormSubmit(event) {
-      // When the form is submitted, prevent its default behavior, get recipes update the recipes state
       event.preventDefault();
-      var name = document.getElementById("Contact_Name").value;
-      var email = document.getElementById("Contact_Email").value;
-      var message = document.getElementById("Contact_Message").value;
+      var cname = document.getElementById("Contact_Name");
+      var email = document.getElementById("Contact_Email");
+      var message = document.getElementById("Contact_Message");
+      var thanks = document.getElementById("Thanks");
 
-      if (name !== "") {
+      this.setState({ name: cname }).catch(function (err) {
+        return console.log(err);
+      });;
+      thanks.style.display = 'block';
+
+      if (cname !== "") {
         console.log(name);
       }
 
@@ -69,7 +92,10 @@ var HomePage = function (_Component) {
       if (message !== "") {
         console.log(message);
       }
-      this.sendEmail(name, email, message);
+
+      // this.state.name = cname;
+      // this.sendEmail(cname, email, message);
+      console.log("Email sent");
       // window.open(`mailto:atlfoodtruckfinder@gmail.com?subject=From:${name}_@${email}&body=${message}`);
     }
   }, {
@@ -77,52 +103,43 @@ var HomePage = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { style: { backgroundColor: '#777474' } },
+        _react2.default.createElement(
+          'h1',
+          { className: 'brand' },
+          _react2.default.createElement(
+            'a',
+            { href: '/', style: { color: 'whitesmoke' } },
+            'Food Truck Finder'
+          )
+        ),
         _react2.default.createElement(
           _Jumbotron2.default,
           null,
           _react2.default.createElement(
             'h1',
             null,
-            'Welcome: ',
-            this.props.name
-          ),
-          _react2.default.createElement(
-            'p',
-            null,
-            'Go to ',
-            _react2.default.createElement(
-              'a',
-              { href: '/' + this.props.link },
-              this.props.link
-            )
-          ),
-          _react2.default.createElement(
-            'p',
-            null,
-            'Go ',
-            _react2.default.createElement(
-              'a',
-              { href: '/' },
-              'Home'
-            )
+            'Email Us:'
           ),
           _react2.default.createElement(
             'form',
             null,
-            _react2.default.createElement(
-              'label',
-              { id: 'formHead' },
-              'Enter your Information:'
-            ),
             _react2.default.createElement(_Form.Input, { id: 'Contact_Name', name: 'name', placeholder: 'Enter Your Name' }),
             _react2.default.createElement(_Form.Input, { id: 'Contact_Email', name: 'email', placeholder: 'Enter Your Email' }),
             _react2.default.createElement(_Form.TextArea, { id: 'Contact_Message', name: 'message', placeholder: 'Enter Your Message' }),
             _react2.default.createElement(
               _Form.FormBtn,
-              { className: 'btn btn-primary', onClick: this.handleFormSubmit },
-              'Send us an Email!'
+              { className: 'btn btn-primary', onClick: this.handleClick },
+              this.state.isToggleOn ? 'Submit' : 'OFF',
+              '!'
             )
+          ),
+          _react2.default.createElement(
+            'h1',
+            { id: 'Thanks', style: { display: 'none' } },
+            'Thanks ',
+            this.state.name,
+            '!'
           )
         )
       );

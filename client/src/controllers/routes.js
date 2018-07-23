@@ -9,7 +9,6 @@ var _home = require('../app/pages/home');
 var _home2 = _interopRequireDefault(_home);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var path = require("path");
 const model = require("../models/model.js");
 
 function addRoutes(router) {

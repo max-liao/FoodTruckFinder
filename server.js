@@ -41,7 +41,7 @@ app.use(function (req, res, next) {
       var appString = (0, _server.renderToString)(_react2.default.createElement(component, initialState));
       res.send((0, _template2.default)({
         body: appString,
-        title: 'Hello World from the server',
+        title: 'Food Truck Finder',
         initialState: JSON.stringify(initialState)
       }));
     },
