@@ -32,7 +32,6 @@ jQuery(document).ready(function($) {
 					$("#searchTabBody").append(twitterButton);
 				}
 
-				
 				}else{
 
 					$("#searchTabBody").text("No Food Truck Found");
@@ -54,10 +53,14 @@ jQuery(document).ready(function($) {
 			type: "GET"
 			}).then(
 			function(data) {
-
-
-		console.log("truck twitter clicked");
-	});
+				
+				console.log(data);
+			
+			}).fail(function(err){
+				throw(err);
+	
+		});
+	
 
 });
 

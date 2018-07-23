@@ -106,7 +106,11 @@ router.get("/api/:table/:column/:name", function(req, res) {
 router.get("/api/twitter/:handle", function(req, res) {
 
   var handle = req.params.handle;
-  twitterlog.getTweets(handle);
+  twitterlog.getTweets(handle, function(data) {
+    
+    console.log("data from controller" + data);
+    res.json(data);
+    });
 
 });
 
