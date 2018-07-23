@@ -68,7 +68,7 @@ class HomePage extends Component {
     return (
       <div style = {{backgroundColor: '#777474'}}>
         <h1 className="brand">
-            <a href="/" style = {{color: 'whitesmoke'}}>Food Truck Finder</a>
+            <a href="/" style = {{color: 'whitesmoke', "textTransform": "uppercase"}}>Food Truck Finder</a>
         </h1>
         <Jumbotron>
           <h1>Email Us:</h1>

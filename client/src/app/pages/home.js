@@ -109,7 +109,7 @@ var HomePage = function (_Component) {
           { className: 'brand' },
           _react2.default.createElement(
             'a',
-            { href: '/', style: { color: 'whitesmoke' } },
+            { href: '/', style: { color: 'whitesmoke', "textTransform": "uppercase" } },
             'Food Truck Finder'
           )
         ),
