@@ -1,11 +1,15 @@
 var Twitter = require('twitter');
+require("dotenv").config();
 
-var client =  new Twitter({
-    consumer_key: 'TEzUm4vR1m70YXhG4GCOsqmha',
-    consumer_secret: 'pGzv0Vvn0CD5eYagjhfqag1B8aRCNr9stiH5A1s5Hg8pz6k7I8',
-    access_token_key: '985525929861578753-TcjG7I8nmXFuMEZsyeKFY3WkzWRdqQy',
-    access_token_secret: 'tvv0e4JYe9Ppyw9xN06mLmwty1ALgdUkQn6FLUVWabfZE'
-  });
+// /Users/TJ/GTCBC/project3/FoodTruckFinder/.env
+// /Users/TJ/GTCBC/project3/FoodTruckFinder/app/public/js/twitter.js
+
+var client = new Twitter({
+    consumer_key: process.env.TWITTER_CONSUMER_KEY,
+    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+    access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+});
 
 
 
