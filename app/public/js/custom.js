@@ -45,9 +45,21 @@ jQuery(document).ready(function($) {
 	});
 
 	$(document).on('click', '.truck_twitter', function(event){
-		console.log(this.attr('data_val'));
+		console.log($(this).attr('data_val'));
+
+		twitterhandle = $(this).attr('data_val');
+		twittersearch = "/api/twitter/" + twitterhandle;
+
+		$.ajax(twittersearch , {
+			type: "GET"
+			}).then(
+			function(data) {
+
+
 		console.log("truck twitter clicked");
 	});
+
+});
 
 	$('#trucksearch').click(function(event){
 		return event.keyCode != 13;

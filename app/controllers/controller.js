@@ -103,10 +103,10 @@ router.get("/api/:table/:column/:name", function(req, res) {
   });
 });
 
-router.get("/api/twitter/", function(req, res) {
+router.get("/api/twitter/:handle", function(req, res) {
 
-  console.log("twitter controller.")
-  twitterlog.getTweets();
+  var handle = req.params.handle;
+  twitterlog.getTweets(handle);
 
 });
 

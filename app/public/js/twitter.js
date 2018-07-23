@@ -12,11 +12,11 @@ var client =  new Twitter({
 var twitter = {
 
 
-    getTweets: function() {
-        client.get('statuses/user_timeline',{ screen_name: 'DominicsNYPizz1'} , function(error, tweets, response) {
+    getTweets: function(handle) {
+        client.get('statuses/user_timeline',{ screen_name: handle} , function(error, tweets, response) {
         if (!error){
             var tweetslen = tweets.length;
-            for (i=0; i< 20 || i<tweets.length; i++){
+            for (i=0; i< 5 || i<tweets.length; i++){
                 if (tweets[i]){
                     console.log("\nTweet #" +(i+1));
                     console.log("created at: " + tweets[i].created_at);
