@@ -130,8 +130,7 @@ var HomePage = function (_Component) {
             _react2.default.createElement(
               _Form.FormBtn,
               { className: 'btn btn-primary', onClick: this.handleClick },
-              this.state.isToggleOn ? 'Submit' : 'OFF',
-              '!'
+              'Submit!'
             )
           ),
           _react2.default.createElement(
