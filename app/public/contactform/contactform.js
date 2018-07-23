@@ -78,6 +78,9 @@ function validateForm() {
      event.preventDefault();
     if(validateForm()){
     // Here we grab the form elements and remove blank spaces
+
+    
+
     var newTruck = {
       foodtruck_name: $("#truck-name2").val().trim(),
       contact: $("#truck-phone").val().trim(),

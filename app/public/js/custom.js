@@ -1,3 +1,4 @@
+
 jQuery(document).ready(function($) {
 
 	$('.scrollup').click(function(){
@@ -10,7 +11,7 @@ jQuery(document).ready(function($) {
 		$("#searchTabBody").empty();
 		var truck = document.getElementById("trucksearch").value;
 		document.getElementById("trucksearch").value = "";
-		console.log(truck);	
+		//console.log(truck);	
 		var namesearch = "/api/food_truck/foodtruck_name/" + truck;
 
 		console.log(namesearch);
@@ -20,17 +21,33 @@ jQuery(document).ready(function($) {
 			function(data) {
 				console.log(data);
 
-				for(let i=0; i<data.length; i++){
+				if(data.length > 0){
 
-					$("#searchTabBody").append(`<tr><th>${data[i].foodtruck_name}</th></tr>`);
+				 for(let i=0; i<data.length; i++){
+
+					var twitterButton = `<button data_val=${data[i].twitter} class="PageBtn btn btn-secondary truck_twitter">View ${data[i].twitter} Tweets</button>`;
+
+					$("#searchTabBody").append(`<tr><th>${data[i].foodtruck_name}</th></tr><td><a href="http://${data[i].website}" target = "_blank">${data[i].website}</a></td></tr><br><br><hr>`);
+					
+					$("#searchTabBody").append(twitterButton);
 				}
-			  	
+
+				
+				}else{
+
+					$("#searchTabBody").text("No Food Truck Found");
+				}	  	
 
 		}).fail(function(err){
 			throw(err);
+
 		});
 	});
 
+	$(document).on('click', '.truck_twitter', function(event){
+		console.log(this.attr('data_val'));
+		console.log("truck twitter clicked");
+	});
 
 	$('#trucksearch').click(function(event){
 		return event.keyCode != 13;
