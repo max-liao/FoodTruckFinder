@@ -7,10 +7,6 @@ for (let l = 1; l< 100; l++){
     labels.push(String(l));
 }
 
-//Map Locations
-var atlanta = {lat: 33.748995, lng: -84.387982};
-
-//Locations contains marker coordinates
 var locations = [];
 
 //POPULATE LOCATIONS FROM SQL DB

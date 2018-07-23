@@ -1,5 +1,5 @@
 {
-  "name": "foodtruckfinder",
+  "name": "FoodTruckFinder",
   "version": "1.0.0",
   "description": "Team:",
   "main": "server.js",
@@ -16,15 +16,21 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
+    "if-env": "^1.0.4",
     "mysql": "^2.15.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-router-dom": "^4.3.1",
-    "if-env": "^1.0.4"
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
+    "css-loader": "^1.0.0",
     "concurrently": "^3.5.0",
-	"nodemon": "^1.11.0"
+    "html-webpack-plugin": "^3.2.0",
+    "nodemon": "^1.11.0",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,5 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-
 var PORT = process.env.PORT || 8080;
 
 var app = express();
@@ -21,5 +20,3 @@ app.use(routes);
 app.listen(PORT, function() {
   console.log("App now listening at localhost:" + PORT);
 });
-
-

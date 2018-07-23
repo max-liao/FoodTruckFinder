@@ -1,10 +1,10 @@
 // Dependencies
 // =============================================================
-const express = require("express");
-const router = express.Router();
-const model = require("../models/model.js");
-const path = require("path");
-const twitterlog = require("../public/js/twitter.js")
+var express = require("express");
+var router = express.Router();
+var model = require("../models/model.js");
+var path = require("path");
+var twitterlog = require("../public/js/twitter.js")
 
 // Routes
 // Create all our routes and set up logic within those routes where required.
@@ -96,7 +96,7 @@ router.get("/api/:table/:column/:name", function(req, res) {
   var name = req.params.name;
   var table = req.params.table;
   var col = req.params.column;
-  console.log("Name from router:" + name);
+
   model.searchNames(table,col, name, function(data) {
   res.json(data);
   console.log(data);
