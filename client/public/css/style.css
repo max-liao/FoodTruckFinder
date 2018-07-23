@@ -1778,3 +1778,13 @@ li{
 .AboutP{
 	font-size:20px;
 }
+
+#MaxSelfie{
+	height: 175px;
+	width: 125px;
+}
+
+#Burger{
+	height: auto;
+	width: 90%;
+}
