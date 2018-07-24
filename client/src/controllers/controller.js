@@ -95,6 +95,7 @@ const twitterlog = require("../js/twitter.js")
   
   router.get("/api/twitter/:handle", function(req, res) {
   
+    console.log("twitter called");
     var handle = req.params.handle;
     twitterlog.getTweets(handle, function(data) {
       

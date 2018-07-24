@@ -29,8 +29,9 @@ jQuery(document).ready(function($) {
 
 				 for(let i=0; i<data.length; i++){
 
-					var twitterButton = `<button data_val=${data[i].twitter} class="PageBtn btn btn-secondary truck_twitter">View ${data[i].twitter} Tweets</button>`;
-
+					
+					var twitterButton = `<button data_val=${data[i].twitter} href ="#Twitter" class="PageBtn btn btn-secondary truck_twitter">View ${data[i].twitter} Tweets</button>`;
+					
 					$("#searchTabBody").append(`<tr><th>${data[i].foodtruck_name}</th></tr><td><a href="http://${data[i].website}" target = "_blank">${data[i].website}</a></td></tr><br><br><hr>`);
 					
 					$("#searchTabBody").append(twitterButton);
@@ -48,12 +49,16 @@ jQuery(document).ready(function($) {
 	});
 
 	$(document).on('click', '.truck_twitter', function(event){
-		console.log($(this).attr('data_val'));
+
+		$("#trucktweets").empty();
 
 		const twitterhandle = $(this).attr('data_val');
 		const twittersearch = "/api/twitter/" + twitterhandle;
 
-		$.ajax(twittersearch , {
+
+		console.log("twittersearch: " + twittersearch)
+
+		$.ajax(twittersearch, {
 			type: "GET"
 			}).then(
 			function(data) {

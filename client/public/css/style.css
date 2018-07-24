@@ -1788,3 +1788,10 @@ li{
 	height: auto;
 	width: 90%;
 }
+
+#trucktweets{
+	text-align:center;
+	margin:20px 0 0;
+	font-size:15px;
+
+}

@@ -28,7 +28,8 @@ jQuery(document).ready(function($) {
 
 				 for(let i=0; i<data.length; i++){
 
-					var twitterButton = `<button data_val=${data[i].twitter} class="PageBtn btn btn-secondary truck_twitter">View ${data[i].twitter} Tweets</button>`;
+
+					var twitterButton = `<button data_val=${data[i].twitter} href ="#Twitter" class="PageBtn btn btn-secondary truck_twitter">View ${data[i].twitter} Tweets</button>`;
 
 					$("#searchTabBody").append(`<tr><th>${data[i].foodtruck_name}</th></tr><td><a href="http://${data[i].website}" target = "_blank">${data[i].website}</a></td></tr><br><br><hr>`);
 					
@@ -51,6 +52,8 @@ jQuery(document).ready(function($) {
 
 		const twitterhandle = $(this).attr('data_val');
 		const twittersearch = "/api/twitter/" + twitterhandle;
+
+		console.log("twittersearch: " + twittersearch)
 
 		$.ajax(twittersearch , {
 			type: "GET"

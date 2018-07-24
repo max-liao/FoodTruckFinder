@@ -103,11 +103,11 @@ function addRoutes(router) {
   });
   
   router.get("/api/twitter/:handle", function(req, res) {
-  
+    console.log("twitter called 2");
     var handle = req.params.handle;
     twitterlog.getTweets(handle, function(data) {
       
-      console.log("data from router" + data);
+      //console.log(data);
       res.json(data);
       });
   

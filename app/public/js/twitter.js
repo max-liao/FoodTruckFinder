@@ -15,21 +15,21 @@ var twitter = {
 
 
     getTweets: function(handle, cb) {
-        client.get('statuses/user_timeline',{ screen_name: handle, limit: '1'} , function(error, tweets, response) {
+        client.get('statuses/user_timeline',{ screen_name: handle} , function(error, tweets, response) {
         if (!error){
 
-            
+            console.log("twitter called");
             var tweetslen = tweets.length;
-            // for (i=0; i< 5 || i<tweets.length; i++){
-            //     if (tweets[i]){
-            //         console.log("\nTweet #" +(i+1));
-            //         console.log("created at: " + tweets[i].created_at);
-            //         console.log(tweets[i].text);
-            //         console.log("\nTweet #" +(i+1));
-            //         console.log("created at: " + tweets[i].created_at);
-            //         console.log(tweets[i].text);
-            //     }
-            // }        
+            for (i=0; i< 5 || i<tweets.length; i++){
+                if (tweets[i]){
+                    console.log("\nTweet #" +(i+1));
+                    console.log("created at: " + tweets[i].created_at);
+                    console.log(tweets[i].text);
+                    console.log("\nTweet #" +(i+1));
+                    console.log("created at: " + tweets[i].created_at);
+                    console.log(tweets[i].text);
+                }
+            }        
         } else {
             // console.log(error);
             throw error;
