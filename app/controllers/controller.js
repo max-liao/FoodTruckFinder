@@ -5,6 +5,8 @@ const router = express.Router();
 const model = require("../models/model.js");
 const path = require("path");
 var app = express();
+const twitterlog = require("../public/js/twitter.js")
+
 
 // Routes
 // Create all our routes and set up logic within those routes where required.
@@ -87,6 +89,29 @@ router.put("/api/model/:id", function(req, res) {
       res.status(200).end();
     }
   );
+});
+
+
+router.get("/api/:table/:column/:name", function(req, res) {
+  var name = req.params.name;
+  var table = req.params.table;
+  var col = req.params.column;
+  console.log("search called.")
+  model.searchNames(table,col, name, function(data) {
+  res.json(data);
+  console.log(data);
+  });
+});
+
+router.get("/api/twitter/:handle", function(req, res) {
+
+  var handle = req.params.handle;
+  twitterlog.getTweets(handle, function(data) {
+    
+    console.log("data from controller" + data);
+    res.json(data);
+    });
+
 });
 
 // Export routes for server.js to use.

@@ -10,6 +10,7 @@ var _home2 = _interopRequireDefault(_home);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const model = require("../models/model.js");
+const twitterlog = require("../js/twitter.js");
 
 function addRoutes(router) {
   // Browser Routing
@@ -88,5 +89,27 @@ function addRoutes(router) {
       res.status(200).end();
     }
     );
+  });
+
+  router.get("/api/:table/:column/:name", function(req, res) {
+    var name = req.params.name;
+    var table = req.params.table;
+    var col = req.params.column;
+    console.log("search called.")
+    model.searchNames(table,col, name, function(data) {
+    res.json(data);
+    console.log(data);
+    });
+  });
+  
+  router.get("/api/twitter/:handle", function(req, res) {
+    console.log("twitter called 2");
+    var handle = req.params.handle;
+    twitterlog.getTweets(handle, function(data) {
+      
+      //console.log(data);
+      res.json(data);
+      });
+  
   });
 };

@@ -7,6 +7,7 @@ const path = require("path");
 
 var routes = require('./routes');
 const Home = require('../app/pages/home');
+const twitterlog = require("../js/twitter.js")
 
 // Routes
 // export default function addRoutes(router) {
@@ -79,6 +80,29 @@ const Home = require('../app/pages/home');
       res.status(200).end();
     }
     );
+  });
+
+  router.get("/api/:table/:column/:name", function(req, res) {
+    var name = req.params.name;
+    var table = req.params.table;
+    var col = req.params.column;
+    console.log("search called.")
+    model.searchNames(table,col, name, function(data) {
+    res.json(data);
+    console.log(data);
+    });
+  });
+  
+  router.get("/api/twitter/:handle", function(req, res) {
+  
+    console.log("twitter called");
+    var handle = req.params.handle;
+    twitterlog.getTweets(handle, function(data) {
+      
+      console.log("data from controller" + data);
+      res.json(data);
+      });
+  
   });
 // }
 

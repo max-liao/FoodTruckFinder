@@ -7,10 +7,6 @@ for (let l = 1; l< 100; l++){
     labels.push(String(l));
 }
 
-//Map Locations
-var atlanta = {lat: 33.748995, lng: -84.387982};
-
-//Locations contains marker coordinates
 var locations = [];
 
 //POPULATE LOCATIONS FROM SQL DB
@@ -155,10 +151,11 @@ async function clusterclick (map, markerCluster){
         
         $("#descr").empty();
         $("#contact").empty();
+        $("#location").empty();
         
             
         for (let i = 0; i < marks.length; i++) {
-            $('#truck-name').append(`<h4><b><strong> ${info[i][0].foodtruck_name} </b></strong></h4> ${info[i][0].descr}<br>${info[i][0].contact}`);
+            $('#truck-name').append(`<h4><b><strong> ${info[i][0].foodtruck_name} </b></strong></h4> ${info[i][0].descr}<br>${info[i][0].location}<br>${info[i][0].contact}`);
 
             // if (menuinfo.length > 1){
                 // $("#truck-name").append("<b> <br> \n Menu Highlights</b>");
@@ -197,6 +194,7 @@ function markerclick (map, marker){
          $('#truck-name').html("<h4><b>" + info[0].foodtruck_name + "</b></h4><hr>");
          $('#descr').text(info[0].descr);
          $('#contact').text(info[0].contact);
+         $('#location').text(info[0].location);
 
          //get the menu info and add it to maps.html
          var menuinfo = await getInfo("truck_menu", "truck_id", index);
@@ -290,7 +288,7 @@ async function getInfo(table, col, id){
              promises[i] = data[i];
  
          }
-        //  console.log("data from get info" + promises);
+          //console.log("data from get info" + promises);
          
          return new Promise(resolve => {
              resolve(promises);

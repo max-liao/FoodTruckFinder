@@ -18,23 +18,67 @@ jQuery(document).ready(function($) {
 		var namesearch = "/api/food_truck/foodtruck_name/" + truck;
 
 		console.log(namesearch);
-		$.ajax(namesearch , {
+		$.ajax(namesearch, {
 			type: "GET"
 			}).then(
 			function(data) {
 				console.log(data);
 
-				for(let i=0; i<data.length; i++){
+				if(data.length > 0){
 
-					$("#searchTabBody").append(`<tr><th>${data[i].foodtruck_name}</th></tr>`);
+				 for(let i=0; i<data.length; i++){
+
+
+					var twitterButton = `<button data_val=${data[i].twitter} href ="#Twitter" class="PageBtn btn btn-secondary truck_twitter">View ${data[i].twitter} Tweets</button>`;
+
+					$("#searchTabBody").append(`<tr><th>${data[i].foodtruck_name}</th></tr><td><a href="http://${data[i].website}" target = "_blank">${data[i].website}</a></td></tr><br><br><hr>`);
+					
+					$("#searchTabBody").append(twitterButton);
 				}
-			  	
+
+				}else{
+
+					$("#searchTabBody").text("No Food Truck Found");
+				}	  	
 
 		}).fail(function(err){
 			throw(err);
+
 		});
 	});
 
+	$(document).on('click', '.truck_twitter', function(event){
+		console.log($(this).attr('data_val'));
+
+		const twitterhandle = $(this).attr('data_val');
+		const twittersearch = "/api/twitter/" + twitterhandle;
+
+		console.log("twittersearch: " + twittersearch)
+
+		$.ajax(twittersearch , {
+			type: "GET"
+			}).then(
+			function(data) {
+
+				for (i=0; i< 5 || i<data.length; i++){
+					if (data[i]){
+					
+						console.log("truck tweets from app ");
+
+					$("#trucktweets").append(`<p>${data[i].created_at} ====> ${data[i].text}</p>`);
+
+					}
+				}        
+				
+				console.log(data);
+			
+			}).fail(function(err){
+				throw(err);
+	
+		});
+	
+
+});
 
 	$('#trucksearch').click(function(event){
 		return event.keyCode != 13;
@@ -157,7 +201,7 @@ jQuery(document).ready(function($) {
 	// flexslider main
 	$('#main-flexslider').flexslider({						
 		animation: "swing",
-		direction: "vertical", 
+		direction: "vertical", 
 		slideshow: true,
 		slideshowSpeed: 3500,
 		animationDuration: 1000,
