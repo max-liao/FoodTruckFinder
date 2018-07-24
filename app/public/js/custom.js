@@ -1,6 +1,9 @@
-
 jQuery(document).ready(function($) {
-
+	$("#playTruckHorn").click(function(){
+		var sound = document.getElementById("TruckHorn");
+		sound.play();
+	});
+	
 	$('.scrollup').click(function(){
 		$("html, body").animate({ scrollTop: 0 }, 1000);
 		return false;
@@ -11,11 +14,11 @@ jQuery(document).ready(function($) {
 		$("#searchTabBody").empty();
 		var truck = document.getElementById("trucksearch").value;
 		document.getElementById("trucksearch").value = "";
-		//console.log(truck);	
+		console.log(truck);	
 		var namesearch = "/api/food_truck/foodtruck_name/" + truck;
 
 		console.log(namesearch);
-		$.ajax(namesearch , {
+		$.ajax(namesearch, {
 			type: "GET"
 			}).then(
 			function(data) {
@@ -46,13 +49,23 @@ jQuery(document).ready(function($) {
 	$(document).on('click', '.truck_twitter', function(event){
 		console.log($(this).attr('data_val'));
 
-		twitterhandle = $(this).attr('data_val');
-		twittersearch = "/api/twitter/" + twitterhandle;
+		const twitterhandle = $(this).attr('data_val');
+		const twittersearch = "/api/twitter/" + twitterhandle;
 
 		$.ajax(twittersearch , {
 			type: "GET"
 			}).then(
 			function(data) {
+
+				for (i=0; i< 5 || i<data.length; i++){
+					if (data[i]){
+					
+						console.log("truck tweets from app ");
+
+					$("#trucktweets").append(`<p>${data[i].created_at} ====> ${data[i].text}</p>`);
+
+					}
+				}        
 				
 				console.log(data);
 			
@@ -185,7 +198,7 @@ jQuery(document).ready(function($) {
 	// flexslider main
 	$('#main-flexslider').flexslider({						
 		animation: "swing",
-		direction: "vertical", 
+		direction: "vertical", 
 		slideshow: true,
 		slideshowSpeed: 3500,
 		animationDuration: 1000,

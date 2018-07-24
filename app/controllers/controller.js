@@ -1,10 +1,12 @@
 // Dependencies
 // =============================================================
-var express = require("express");
-var router = express.Router();
-var model = require("../models/model.js");
-var path = require("path");
-var twitterlog = require("../public/js/twitter.js")
+const express = require("express");
+const router = express.Router();
+const model = require("../models/model.js");
+const path = require("path");
+var app = express();
+const twitterlog = require("../public/js/twitter.js")
+
 
 // Routes
 // Create all our routes and set up logic within those routes where required.
@@ -14,13 +16,10 @@ router.get("/", function(req, res) {
 
 // React Page
 router.get("/contact", function(req, res) {
-  // Serve up static assets.
-  // app.use(express.static("client/build"))
-  // if (process.env.NODE_ENV === "production") {
+    // Serve static content for the app from the "public" directory in the application directory.
+    console.log("React Try");
+    app.use(express.static(path.join(__dirname, "../../client/build/index.html")));  
     res.sendFile(path.join(__dirname, "../../client/build/index.html"));
-  // } else{
-    // res.sendFile(path.join(__dirname, "../../client/build/index.html"));
-  // }
 });
 
 // Map trucks
@@ -92,11 +91,12 @@ router.put("/api/model/:id", function(req, res) {
   );
 });
 
+
 router.get("/api/:table/:column/:name", function(req, res) {
   var name = req.params.name;
   var table = req.params.table;
   var col = req.params.column;
-
+  console.log("search called.")
   model.searchNames(table,col, name, function(data) {
   res.json(data);
   console.log(data);
