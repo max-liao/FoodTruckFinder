@@ -1,5 +1,12 @@
 //Google Maps initialization
-var googlemapskey = "AIzaSyACZMGscEwWMY3TJblK-NuIwhIRsoEaAnI";
+
+require("dotenv").config();
+
+var googlemapskey = "AIzaSyC1Fqqrqmi5mZ5bRT8lWt2Sb_W1HpFOn8Y";
+
+//process.env.GOOGLE_API 
+
+//"AIzaSyACZMGscEwWMY3TJblK-NuIwhIRsoEaAnI";
 
 // Create an array used to label the markers.
 var labels = [];
@@ -10,7 +17,20 @@ for (let l = 1; l< 100; l++){
 var locations = [];
 
 //POPULATE LOCATIONS FROM SQL DB
-async function init(){
+
+const init = function async() {
+    var data = await $.ajax("/locations");
+    console.log(data);
+    
+    var promises = [];
+    for(let i = 0; i < data.length; i++){
+        promises[i] = mapQuery(data[i].location, i);
+    }
+    return new Promise(resolve => {
+        resolve(promises);
+    });
+}
+/*async function init(){
     var promise = await $.ajax("/locations", {
         type: "GET"
     }).then(
@@ -28,11 +48,12 @@ async function init(){
         }
     );
     return promise;
-}
+}*/
 
 //Display Maps
 async function initMap() {
     var test = await init();
+    console.log(test);
 
     var locations = [];
     
