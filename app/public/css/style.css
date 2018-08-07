@@ -1,4 +1,3 @@
-/* Import css */
 /* Google font */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 /* bootstrap */
@@ -1774,4 +1773,25 @@ li{
 
 #form{
 	background-color: #f36f36
+}
+
+.AboutP{
+	font-size:20px;
+}
+
+#MaxSelfie, #ThomasSelfie{
+	height: 175px;
+	width: 125px;
+}
+
+#Burger{
+	height: auto;
+	width: 90%;
+}
+
+#trucktweets{
+	text-align:center;
+	margin:20px 0 0;
+	font-size:15px;
+
 }

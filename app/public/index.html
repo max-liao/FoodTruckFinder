@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Max Food Truck Finder</title>
+	<title>Food Truck Finder</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
@@ -41,17 +41,20 @@
 								<a title="map" href="#mapContainer">Map</a>
 							</li>
 							<li>
-								<a title="map" href="#Twitter">Twitter</a>
+								<a title="pictures" href="#cuisines">Pictures</a>
 							</li>
 							<li>
-								<a title="map" href="#form">Form</a>
+								<a title="twitter" href="#Twitter">Twitter</a>
 							</li>
 							<li>
-								<a title="oldmap" href="/contact">Contact Us</a>
+								<a title="form" href="#form">Form</a>
 							</li>
 							<li>
+								<a title="contact" href="/contact">Contact Us</a>
+							</li>
+							<!-- <li>
 								<a title="oldmap" href="map.html">Old Map</a>
-							</li>
+							</li> -->
 						</ul>
 					</nav>
 				</div>
@@ -62,7 +65,6 @@
 	<div id="header-wrapper" class="header-slider">
 		<header class="clearfix">
 			<div class="logo">
-				<div id="root">HELLO WORLD</div>
 				<audio id="TruckHorn" src="http://soundbible.com/grab.php?id=1446&type=mp3" autostart="false" ></audio>
 				<a id="playTruckHorn"><img src="img/blueTruck.png" alt="" /></a>
 			</div>
@@ -117,51 +119,43 @@
 		<div class="container">
 			<h4>Who We Are</h4>
 			<div class="row">
-				<div class="span4 offset1">
+				<div class="span5 offset1">
 					<div>
-						<h2>Eat
-							<strong>Food</strong>
+						<h2>Om
+							<strong>Nom Nom</strong>
 						</h2>
-						<p>
+						<p class="AboutP">
 							Want lunch from your favorite mobile dining establishment? Always know where it is with Food Truck Finder! Updates from all
 							your favorites mapped
 							<strong>live</strong>!
 						</p>
+						<p class="AboutP">
+							Max and Thomas present to you this awesome app for our Georgia Tech Boot Camp <strong>Final Project</strong>!
+						</p>
 					</div>
 				</div>
-				<div class="span6">
-					<div class="aligncenter">
-						<img src="img/icons/creativity.png" alt="" />
-					</div>
+				<div class="span5">
+					<img id = "Burger" src="./img/BurgerFries.jpg" alt="" />
 				</div>
 			</div>
 			<div class="row">
 				<div class="span2 offset1 flyIn">
 				</div>
-				<div class="span2 flyIn">
+				<div class="span3 flyIn">
 					<div class="people">
-						<img class="team-thumb img-circle" src="img/team/img-1.jpg" alt="" />
+						<img id = "MaxSelfie" class="team-thumb img-circle" src="img/workselfie.jpg" alt="" />
 						<h3>Max Liao</h3>
 						<p>
 							Creator
 						</p>
 					</div>
 				</div>
-				<div class="span2 flyIn">
+				<div class="span3 flyIn">
 					<div class="people">
-						<img class="team-thumb img-circle" src="img/team/img-2.jpg" alt="" />
+						<img id = "ThomasSelfie" class="team-thumb img-circle" src="img/thomas_selfie.JPG" alt="" />
 						<h3>Thomas Brown</h3>
 						<p>
 							Web developer
-						</p>
-					</div>
-				</div>
-				<div class="span2 flyIn">
-					<div class="people">
-						<img class="team-thumb img-circle" src="img/team/img-3.jpg" alt="" />
-						<h3>Carrie Kordys</h3>
-						<p>
-							Web designer
 						</p>
 					</div>
 				</div>
@@ -186,39 +180,6 @@
 					</thead>
 					<tbody id="searchTabBody"></tbody>
 				</table>
-				<!-- <div class="span3 animated-fast flyIn">
-					<div class="service-box">
-						<img src="img/icons/laptop.png" alt="" />
-						<h2>Web design</h2>
-						<p>
-						</p>
-					</div>
-				</div>
-				<div class="span3 animated flyIn">
-					<div class="service-box">
-						<img src="img/icons/lab.png" alt="" />
-						<h2>Web development</h2>
-						<p>
-							
-						</p>
-					</div>
-				</div>
-				<div class="span3 animated-fast flyIn">
-					<div class="service-box">
-						<img src="img/icons/camera.png" alt="" />
-						<h2>Photography</h2>
-						<p>
-						</p>
-					</div>
-				</div>
-				<div class="span3 animated-slow flyIn">
-					<div class="service-box">
-						<img src="img/icons/basket.png" alt="" />
-						<h2>Ecommerce</h2>
-						<p>
-						</p>
-					</div>
-				</div> -->
 			</div>
 		</div>
 	</section>
@@ -240,7 +201,6 @@
 								<div class="col-lg-12">
 									<p id="truck-name"></p>
 									<p id="descr"></p>
-									<p id="location"></p>
 									<p id="contact"></p>
 								</div>
 								<div class="col-lg-12">
@@ -259,7 +219,7 @@
 	<!-- section: cuisines -->
 	<section id="cuisines" class="section">
 		<div class="container clearfix">
-			<h4>Cuisines</h4>
+			<h4>Pictures</h4>
 			<!-- portfolio filter -->
 			<div class="row">
 				<div id="filters" class="span12">
@@ -270,23 +230,23 @@
 							</a>
 						</li>
 						<li>
-							<a href="#" data-filter=".web">
+							<a href="#" data-filter=".american">
 								<h5>American</h5>
 							</a>
 						</li>
 						<li>
-							<a href="#" data-filter=".print">
-								<h5>Mexican</h5>
+							<a href="#" data-filter=".latin">
+								<h5>Latin</h5>
 							</a>
 						</li>
 						<li>
-							<a href="#" data-filter=".design">
+							<a href="#" data-filter=".asian">
 								<h5>Asian</h5>
 							</a>
 						</li>
 						<li>
-							<a href="#" data-filter=".photography">
-								<h5>Pizza</h5>
+							<a href="#" data-filter=".italian">
+								<h5>Italian</h5>
 							</a>
 						</li>
 					</ul>
@@ -297,13 +257,13 @@
 				<div class="span12">
 					<div id="portfolio-wrap">
 						<!-- portfolio item -->
-						<div class="portfolio-item grid print photography">
+						<div class="portfolio-item grid asian">
 							<div class="portfolio">
-								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
-									<img src="img/works/1.png" alt="" />
+								<a href="img/RealTrucks/yumbii.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
+									<img src="img/RealTrucks/yumbii.jpg" alt="" />
 									<div class="portfolio-overlay">
 										<div class="thumb-info">
-											<h5>Portfolio name</h5>
+											<h5>Yumbii</h5>
 											<i class="icon-plus icon-2x"></i>
 										</div>
 									</div>
@@ -312,13 +272,13 @@
 						</div>
 						<!-- end portfolio item -->
 						<!-- portfolio item -->
-						<div class="portfolio-item grid print design web">
+						<div class="portfolio-item grid latin">
 							<div class="portfolio">
-								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
-									<img src="img/works/2.png" alt="" />
+								<a href="img/RealTrucks/cuchifritos.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
+									<img src="img/RealTrucks/cuchifritos.jpg" alt="" />
 									<div class="portfolio-overlay">
 										<div class="thumb-info">
-											<h5>Portfolio name</h5>
+											<h5>Cuchifritos</h5>
 											<i class="icon-plus icon-2x"></i>
 										</div>
 									</div>
@@ -327,13 +287,13 @@
 						</div>
 						<!-- end portfolio item -->
 						<!-- portfolio item -->
-						<div class="portfolio-item grid print design">
+						<div class="portfolio-item grid Amerian">
 							<div class="portfolio">
-								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
-									<img src="img/works/3.png" alt="" />
+								<a href="img/RealTrucks/FreckledBlueHen.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
+									<img src="img/RealTrucks/FreckledBlueHen.jpg" alt="" />
 									<div class="portfolio-overlay">
 										<div class="thumb-info">
-											<h5>Portfolio name</h5>
+											<h5>Freckled Blue Hen</h5>
 											<i class="icon-plus icon-2x"></i>
 										</div>
 									</div>
@@ -342,13 +302,13 @@
 						</div>
 						<!-- end portfolio item -->
 						<!-- portfolio item -->
-						<div class="portfolio-item grid photography web">
+						<div class="portfolio-item grid american">
 							<div class="portfolio">
-								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
-									<img src="img/works/4.png" alt="" />
+								<a href="img/RealTrucks/BasecampProvisions.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
+									<img src="img/RealTrucks/BasecampProvisions.jpg" alt="" />
 									<div class="portfolio-overlay">
 										<div class="thumb-info">
-											<h5>Portfolio name</h5>
+											<h5>Basecamp Provisions</h5>
 											<i class="icon-plus icon-2x"></i>
 										</div>
 									</div>
@@ -357,13 +317,13 @@
 						</div>
 						<!-- end portfolio item -->
 						<!-- portfolio item -->
-						<div class="portfolio-item grid photography web">
+						<div class="portfolio-item grid american">
 							<div class="portfolio">
-								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
-									<img src="img/works/5.png" alt="" />
+								<a href="img/RealTrucks/Varsity.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
+									<img src="img/RealTrucks/Varsity.jpg" alt="" />
 									<div class="portfolio-overlay">
 										<div class="thumb-info">
-											<h5>Portfolio name</h5>
+											<h5>Varsity</h5>
 											<i class="icon-plus icon-2x"></i>
 										</div>
 									</div>
@@ -372,13 +332,13 @@
 						</div>
 						<!-- end portfolio item -->
 						<!-- portfolio item -->
-						<div class="portfolio-item grid photography web">
+						<div class="portfolio-item grid latin">
 							<div class="portfolio">
-								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
-									<img src="img/works/6.png" alt="" />
+								<a href="img/RealTrucks/TexTaco.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
+									<img src="img/RealTrucks/TexTaco.jpg" alt="" />
 									<div class="portfolio-overlay">
 										<div class="thumb-info">
-											<h5>Portfolio name</h5>
+											<h5>Tex's Taco</h5>
 											<i class="icon-plus icon-2x"></i>
 										</div>
 									</div>
@@ -387,13 +347,13 @@
 						</div>
 						<!-- end portfolio item -->
 						<!-- portfolio item -->
-						<div class="portfolio-item grid photography web">
+						<div class="portfolio-item grid italian">
 							<div class="portfolio">
-								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
-									<img src="img/works/7.png" alt="" />
+								<a href="img/RealTrucks/DominicsNYpizza.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
+									<img src="img/RealTrucks/DominicsNYpizza.jpg" alt="" />
 									<div class="portfolio-overlay">
 										<div class="thumb-info">
-											<h5>Portfolio name</h5>
+											<h5>Dominic's NY Pizza</h5>
 											<i class="icon-plus icon-2x"></i>
 										</div>
 									</div>
@@ -402,13 +362,13 @@
 						</div>
 						<!-- end portfolio item -->
 						<!-- portfolio item -->
-						<div class="portfolio-item grid photography">
+						<div class="portfolio-item grid american">
 							<div class="portfolio">
-								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
-									<img src="img/works/8.png" alt="" />
+								<a href="img/RealTrucks/JustLoafin.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
+									<img src="img/RealTrucks/JustLoafin.jpg" alt="" />
 									<div class="portfolio-overlay">
 										<div class="thumb-info">
-											<h5>Portfolio name</h5>
+											<h5>Just Loaf'N</h5>
 											<i class="icon-plus icon-2x"></i>
 										</div>
 									</div>
@@ -417,13 +377,13 @@
 						</div>
 						<!-- end portfolio item -->
 						<!-- portfolio item -->
-						<div class="portfolio-item grid photography web">
+						<div class="portfolio-item grid american">TemptedPalate
 							<div class="portfolio">
-								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
-									<img src="img/works/9.png" alt="" />
+								<a href="img/RealTrucks/MixdUpFoodTruck.jpeg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
+									<img src="img/RealTrucks/MixdUpFoodTruck.jpeg" alt="" />
 									<div class="portfolio-overlay">
 										<div class="thumb-info">
-											<h5>Portfolio name</h5>
+											<h5>Mix'd Up Food Truck</h5>
 											<i class="icon-plus icon-2x"></i>
 										</div>
 									</div>
@@ -432,25 +392,25 @@
 						</div>
 						<!-- end portfolio item -->
 						<!-- portfolio item -->
-						<div class="portfolio-item grid design web">
+						<div class="portfolio-item grid american">
 							<div class="portfolio">
-								<a href="img/works/big.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
-									<img src="img/works/10.png" alt="" />
+								<a href="img/RealTrucks/TemptedPalate.jpg" data-pretty="prettyPhoto[gallery1]" class="portfolio-image">
+									<img src="img/RealTrucks/TemptedPalate.jpg" alt="" />
 									<div class="portfolio-overlay">
 										<div class="thumb-info">
-											<h5>Portfolio name</h5>
+											<h5>Tempted Palate</h5>
 											<i class="icon-plus icon-2x"></i>
 										</div>
 									</div>
 								</a>
 							</div>
 						</div>
-						<!-- end portfolio item -->
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+
 
 	<!-- spacer section -->
 	<section class="spacer bg3">
@@ -458,7 +418,7 @@
 			<div class="row">
 				<div class="span12 aligncenter flyLeft">
 					<blockquote class="large">
-						Choose from a variety of conveninent and delicious meals from the back of a truck!!!!!!!!!!!!
+						Choose from a variety of conveninent and delicious meals from the back of a truck!
 					</blockquote>
 				</div>
 				<div class="span12 aligncenter flyRight">
@@ -471,115 +431,15 @@
 	<!-- section: Twitter -->
 	<section id="Twitter" class="section">
 		<div class="container">
-			<h4>Tweets from </h4>
-			<h4 id="trucktweets"></h4>
-			<!-- Three columns -->
+			<div class="jumbotron" id="Tweetjumbo">
+				<h1 style="color:ghostwhite;margin-left: auto; margin-right: auto;">
+					<h4>Tweets from </h4>
+					<h4 id="trucktweets"></h4>
+				</h1>
 			<div class="row">
-				<div class="span3">
-					<div class="home-post">
-						<div class="post-image">
-							<img class="max-img" src="img/blog/img1.jpg" alt="" />
-						</div>
-						<div class="post-meta">
-							<i class="icon-file icon-2x"></i>
-							<span class="date">June 19, 2013</span>
-							<span class="tags">
-								<a href="#">Design</a>,
-								<a href="#">Blog</a>
-							</span>
-						</div>
-						<div class="entry-content">
-							<h5>
-								<strong>
-									<a href="#">New design trends</a>
-								</strong>
-							</h5>
-							<p>
-								Max is modifying things &hellip;
-							</p>
-							<a href="#" class="more">Read more</a>
-						</div>
-					</div>
+				<div class="span12">
 				</div>
-				<!-- <div class="span3">
-					<div class="home-post">
-						<div class="post-image">
-							<img class="max-img" src="img/blog/img2.jpg" alt="" />
-						</div>
-						<div class="post-meta">
-							<i class="icon-file icon-2x"></i>
-							<span class="date">June 19, 2013</span>
-							<span class="tags">
-								<a href="#">Design</a>,
-								<a href="#">News</a>
-							</span>
-						</div>
-						<div class="entry-content">
-							<h5>
-								<strong>
-									<a href="#">Retro is great</a>
-								</strong>
-							</h5>
-							<p>
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry. &hellip;
-							</p>
-							<a href="#" class="more">Read more</a>
-						</div>
-					</div>
-				</div>
-				<div class="span3">
-					<div class="home-post">
-						<div class="post-image">
-							<img class="max-img" src="img/blog/img3.jpg" alt="" />
-						</div>
-						<div class="post-meta">
-							<i class="icon-file icon-2x"></i>
-							<span class="date">June 22, 2013</span>
-							<span class="tags">
-								<a href="#">Design</a>,
-								<a href="#">Tips</a>
-							</span>
-						</div>
-						<div class="entry-content">
-							<h5>
-								<strong>
-									<a href="#">Isometric mockup</a>
-								</strong>
-							</h5>
-							<p>
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry. &hellip;
-							</p>
-							<a href="#" class="more">Read more</a>
-						</div>
-					</div>
-				</div>
-				<div class="span3">
-					<div class="home-post">
-						<div class="post-image">
-							<img class="max-img" src="img/blog/img4.jpg" alt="" />
-						</div>
-						<div class="post-meta">
-							<i class="icon-file icon-2x"></i>
-							<span class="date">June 27, 2013</span>
-							<span class="tags">
-								<a href="#">News</a>,
-								<a href="#">Tutorial</a>
-							</span>
-						</div>
-						<div class="entry-content">
-							<h5>
-								<strong>
-									<a href="#">Free icon set</a>
-								</strong>
-							</h5>
-							<p>
-								Lorem Ipsum is simply dummy text of the printing and typesetting industry. &hellip;
-							</p>
-							<a href="#" class="more">Read more</a>
-						</div>
-					</div>
-				</div>
-			</div> -->
+			</div>
 			<div class="blankdivider30"></div>
 			<!-- <div class="aligncenter">
 				<a href="#" class="btn btn-large btn-theme">More Tweets</a>
@@ -653,10 +513,26 @@
 			<div class="row">
 				<div class="span6 offset3">
 					<ul class="social-networks">
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-instagram icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-twitter icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-github icon-2x"></i></a></li>
-						<li><a href="#"><i class="icon-circled icon-bgdark icon-pinterest icon-2x"></i></a></li>
+						<li>
+							<a href="">
+								<i class="icon-circled icon-bgdark icon-instagram icon-2x"></i>
+							</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/finder_truck">
+								<i class="icon-circled icon-bgdark icon-twitter icon-2x"></i>
+							</a>
+						</li>
+						<li>
+							<a href="https://github.com/max-liao">
+								<i class="icon-circled icon-bgdark icon-github icon-2x"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="icon-circled icon-bgdark icon-pinterest icon-2x"></i>
+							</a>
+						</li>
 					</ul>
 					<p class="copyright">
 						&copy; Max Liao. All rights reserved.
@@ -675,6 +551,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	<script src="js/map.js"></script>
+
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery.scrollTo.js"></script>
 	<script src="js/jquery.nav.js"></script>
@@ -685,7 +562,7 @@
 	<script src="js/jquery.flexslider.js"></script>
 	<script src="js/inview.js"></script>
 	<script src="js/animate.js"></script>
-	<!-- <script src="js/custom.js"></script> -->
+	<script src="js/custom.js"></script>
 	<script src="contactform/contactform.js"></script>
 
 </body>

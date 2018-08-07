@@ -40,6 +40,4 @@ var twitter = {
 
 module.exports = twitter;
 
-//twitter();
-
 
