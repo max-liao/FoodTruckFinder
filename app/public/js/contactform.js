@@ -11,13 +11,12 @@
           id[i] = data[i].id;
           trucks[i] = data[i].foodtruck_name;
   
-          var newoption = '<option value='+ '"'+ id[i] + '"' + '>' + trucks[i] + '</option>';
+          var newoption = `<option value= ${id[i]}> ${trucks[i]}</option>`;
   
           $('#existing_foodtruck_name').append(newoption);
-          //console.log(newoption);
 
         }
-        //console.log(trucks);
+    
       }
     );
 
@@ -48,9 +47,7 @@ function validateForm() {
         type: "GET"
         }).then(
         function(data) {
-            //var promises = [];
 
-            //console.log("data from select dropdown " + data[0].foodtruck_name);
 
             $("#truck-name2").val(data[0].foodtruck_name);
             $("#truck-phone").val(data[0].contact);
@@ -94,7 +91,7 @@ function validateForm() {
     $.post("/api/model", newTruck,
       function(data) {
         console.log("data from repsonse " + data[0].changedRows);
-        //console.log("changed rows: " + data[0].affectedRows);
+
         // If a truck is added, send alert.
         if (data.length) {
           alert("Congratulations, your truck was added!");
@@ -140,7 +137,7 @@ function validateForm() {
       data: updateTruck
     }).then(
       function(data) {
-        console.log("changed rows: " + data);
+
         
         // If a truck is added, send alert.
         if (data) {

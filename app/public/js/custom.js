@@ -14,15 +14,14 @@ jQuery(document).ready(function($) {
 		$("#searchTabBody").empty();
 		var truck = document.getElementById("trucksearch").value;
 		document.getElementById("trucksearch").value = "";
-		console.log(truck);	
+	
 		var namesearch = "/api/food_truck/foodtruck_name/" + truck;
 
-		console.log(namesearch);
 		$.ajax(namesearch, {
 			type: "GET"
 			}).then(
 			function(data) {
-				console.log(data);
+
 
 				if(data.length > 0){
 
@@ -48,12 +47,11 @@ jQuery(document).ready(function($) {
 	});
 
 	$(document).on('click', '.truck_twitter', function(event){
-		console.log($(this).attr('data_val'));
+	
 
 		const twitterhandle = $(this).attr('data_val');
 		const twittersearch = "/api/twitter/" + twitterhandle;
 
-		console.log("twittersearch: " + twittersearch)
 
 		$.ajax(twittersearch , {
 			type: "GET"
@@ -63,14 +61,11 @@ jQuery(document).ready(function($) {
 				for (i=0; i< 5 || i<data.length; i++){
 					if (data[i]){
 					
-						console.log("truck tweets from app ");
 
 					$("#trucktweets").append(`<p>${data[i].created_at} ====> ${data[i].text}</p>`);
 
 					}
 				}        
-				
-				console.log(data);
 			
 			}).fail(function(err){
 				throw(err);

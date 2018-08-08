@@ -5,7 +5,7 @@ var orm = {
     var queryString = "SELECT * FROM " + table + ";";
     connection.query(queryString, function(err, result) {
       if (err) throw err;
-      //console.log(result);
+ 
       cb(result);
     });
   },
@@ -13,7 +13,7 @@ var orm = {
 
     var queryString = "SELECT * FROM " + table + " WHERE ";
     queryString += col + " = " + id + ';';
-    console.log(queryString);
+    //console.log(queryString);
     connection.query(queryString, function(err, result) {
       if (err) throw err;
 
@@ -23,7 +23,7 @@ var orm = {
   searchNames: function(table, col, name, cb) {
 
     var queryString = "SELECT * FROM " + table + " WHERE " + col + " LIKE '%" + name + "%';";
-    console.log(queryString);
+    //console.log(queryString);
     connection.query(queryString, function(err, result) {
       if (err) throw err;
 
@@ -32,7 +32,7 @@ var orm = {
   },
   selectAlllocations: function(table, cb) {
     var queryString = "SELECT location FROM " + table + ";";
-    console.log(queryString);
+    //console.log(queryString);
     connection.query(queryString, function(err, result) {
       if (err) throw err;
       cb(result);
@@ -41,8 +41,6 @@ var orm = {
 
   //Add row to table
   createOne: function(table, keys, values, cb) {
-
-    console.log("values from orm" + values);
     for(var a = 0; a<values.length; a++){
       values[a] = "'" + values[a] + "'";
     }
@@ -51,7 +49,7 @@ var orm = {
     console.log(queryString);
     connection.query(queryString, function(err, result) {
       if (err) throw err;
-      console.log(result);
+      //console.log(result);
       cb(result);
     });
   },
@@ -69,11 +67,9 @@ var orm = {
     queryString += " WHERE id= ";
     queryString += id+ ";";;
 
-    console.log(queryString);
-
     connection.query(queryString, function(err, result) {
       if (err) throw err;
-      console.log(result);
+      //console.log(result);
       cb(result);
     });
   }
