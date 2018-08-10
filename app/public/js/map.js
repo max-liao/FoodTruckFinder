@@ -213,7 +213,8 @@ function markerclick(map, marker) {
 async function mapQuery(addr, i) {
     var mapquery = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addr + "&key=" + googlemapskey;
     var promise = await $.ajax({ url: mapquery })
-
+    console.log(promise);
+    
     //Google maps api takes input -> lat, lng, address
     var latit = promise.results[0].geometry.location.lat;
     var longi = promise.results[0].geometry.location.lng;
