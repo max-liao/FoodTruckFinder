@@ -1,7 +1,7 @@
 //Google Maps initialization
 var googlemapskey = "AIzaSyBqEOJR-g_q-Yxd0Z_k3QyEWVRjWy8RIhU";
-
 //process.env.GOOGLE_API 
+
 var atlanta = { lat: 33.748995, lng: -84.387982 };
 
 // Create an array used to label the markers.
@@ -10,6 +10,7 @@ for (let l = 1; l < 100; l++) {
     labels.push(String(l));
 }
 
+// Array to populate with marker location info
 var locations = [];
 
 //POPULATE LOCATIONS FROM SQL DB
