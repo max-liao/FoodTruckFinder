@@ -1,12 +1,8 @@
 //Google Maps initialization
-
-require("dotenv").config();
-
-var googlemapskey = "AIzaSyC1Fqqrqmi5mZ5bRT8lWt2Sb_W1HpFOn8Y";
+var googlemapskey = "AIzaSyBqEOJR-g_q-Yxd0Z_k3QyEWVRjWy8RIhU";
 
 //process.env.GOOGLE_API 
-
-//"AIzaSyACZMGscEwWMY3TJblK-NuIwhIRsoEaAnI";
+var atlanta = {lat: 33.748995, lng: -84.387982};
 
 // Create an array used to label the markers.
 var labels = [];
@@ -18,9 +14,9 @@ var locations = [];
 
 //POPULATE LOCATIONS FROM SQL DB
 
-const init = function async() {
+const init = async function () {
     var data = await $.ajax("/locations");
-    console.log(data);
+    // console.log(data);
     
     var promises = [];
     for(let i = 0; i < data.length; i++){
@@ -52,20 +48,12 @@ const init = function async() {
 
 //Display Maps
 async function initMap() {
-    var test = await init();
-    console.log(test);
-
+    var grabLocs = await init();
     var locations = [];
     
-    for (i=0; i<test.length; i++){
-        await test[i].then(function(value){
-            // console.log(value);
-            locations.push(value);
-        });
+    for (i=0; i<grabLocs.length; i++){
+        locations.push(grabLocs[i]);
     }
-    // console.log(locations);
-    // console.log(locations[0]);
-    // console.log(locations.length);
 
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 10,
@@ -77,8 +65,6 @@ async function initMap() {
     // create an array of markers based on a given "locations" array.
     // The map() method here has nothing to do with the Google Maps API.{
     var marker = locations.map(function(data, i) {
-        // console.log(data);
-        // console.log(i);
       return new google.maps.Marker({
         position: data,
         label: labels[i % labels.length],
@@ -91,7 +77,7 @@ async function initMap() {
     var markerCluster = new MarkerClusterer(map, marker,
     {maxZoom: 22, imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'})
    
-    console.log(markerCluster);
+    // console.log(markerCluster);
     clusterclick(map, markerCluster);
     
 // Map events
@@ -245,7 +231,6 @@ function markerclick (map, marker){
 // Grabs coordinates and saves to database
 // var truckLocations = [];
 async function mapQuery(addr, i) {
-    var test;
     var mapquery = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addr + "&key=" + googlemapskey;
     var promise = await $.ajax({
         url: mapquery,
@@ -274,7 +259,7 @@ async function mapQuery(addr, i) {
               resolve(coordinates);
           });
     });
-    // console.log(promise);
+    console.log(promise);
     return promise;
 }
 
