@@ -1,6 +1,9 @@
+// var requireFromUrl = require('require-from-url/sync');
 //Google Maps initialization
-var googlemapskey = "AIzaSyBqEOJR-g_q-Yxd0Z_k3QyEWVRjWy8RIhU";
-//process.env.GOOGLE_API 
+async function getAPIkey() {
+    var data = await $.ajax("/api/google");
+    return data;
+}
 
 var atlanta = { lat: 33.748995, lng: -84.387982 };
 
@@ -14,7 +17,6 @@ for (let l = 1; l < 100; l++) {
 var locations = [];
 
 //POPULATE LOCATIONS FROM SQL DB
-
 async function init() {
     // Address Data
     var data = await $.ajax("/locations");
@@ -211,10 +213,13 @@ function markerclick(map, marker) {
 
 // Grabs coordinates and saves to database
 async function mapQuery(addr, i) {
+    const googlemapskey = await getAPIkey();
+    
     var mapquery = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addr + "&key=" + googlemapskey;
     var promise = await $.ajax({ url: mapquery })
-    console.log(promise);
-    
+
+    // console.log(promise);
+
     //Google maps api takes input -> lat, lng, address
     var latit = promise.results[0].geometry.location.lat;
     var longi = promise.results[0].geometry.location.lng;
