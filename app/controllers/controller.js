@@ -7,6 +7,8 @@ const path = require("path");
 var app = express();
 const twitterlog = require("../public/js/twitter.js")
 
+require('dotenv').config();
+var googlemapskey = process.env.GOOGLE_API;
 
 // Routes
 // Create all our routes and set up logic within those routes where required.
@@ -112,6 +114,10 @@ router.get("/api/twitter/:handle", function(req, res) {
     res.json(data);
     });
 
+});
+
+router.get("/api/google", function(req, res) {
+  res.send(googlemapskey);
 });
 
 // Export routes for server.js to use.

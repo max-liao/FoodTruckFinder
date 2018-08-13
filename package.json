@@ -4,28 +4,21 @@
   "description": "Team:",
   "main": "server.js",
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\" && webpack",
-    "lint": "functionhappy | snazzy",
+    "start": "node server.js",
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
-    "if-env": "^1.0.4",
     "mysql": "^2.15.0",
-    "node-mandrill": "^1.0.1"
-
+    "nighthawk": "^2.1.1",
+    "node-mandrill": "^1.0.1",
+    "twitter": "^1.7.1"
   },
   "devDependencies": {
-    "concurrently": "^3.5.0",
-    "functionhappy": "^1.0.0",
-    "nodemon": "^1.11.0",
-    "snazzy": "^4.0.0",
-    "webpack": "^1.13.1",
-    "webpack-node-externals": "^1.2.0"
+    "nodemon": "^1.11.0"
   },
   "repository": {
     "type": "git",
