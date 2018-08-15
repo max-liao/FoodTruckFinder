@@ -1808,7 +1808,7 @@ li{
 	font-size:26px;
 }
 
-.location a{
+.location a, #location a{
 	font-weight:550;
 	font-size:18px;
 	color:rgb(0, 89, 255);
