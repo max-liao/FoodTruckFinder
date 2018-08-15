@@ -143,8 +143,15 @@ async function clusterclick(map, markerCluster) {
         $("#contact").empty();
         $("#location").empty();
 
+        
+{/* */}
         for (let i = 0; i < marks.length; i++) {
-            $('#truck-name').append(`<h4><b><strong> ${info[i][0].foodtruck_name} </b></strong></h4> ${info[i][0].descr}<br>${info[i][0].location}<br>${info[i][0].contact}`);
+            var GoogleAddress = info[i][0].location;
+            // console.log(GoogleAddress);
+            $('#truck-name').append(`<h4><b><strong> ${info[i][0].foodtruck_name} </b></strong></h4> \
+            ${info[i][0].descr}<br> \
+            <a href= "https://www.google.com/maps/dir/?api=1&destination=${GoogleAddress}">${info[i][0].location}</a><br>\
+            ${info[i][0].contact}`);
 
             // if (menuinfo.length > 1){
             // $("#truck-name").append("<b> <br> \n Menu Highlights</b>");
