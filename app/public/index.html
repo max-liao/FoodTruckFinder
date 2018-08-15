@@ -195,14 +195,17 @@
 				<div class="span12 aligncenter flyLeft">
 					<div>
 						<div class="jumbotron" id="Mapjumbo">
-							<h1 style="color:white"><strong> Map </strong><hr></h1>
+							<h1 style="color:white">
+								<strong> Map </strong>
+								<hr>
+							</h1>
 							<div id="ClusterInfo">
 							</div>
 							<div id="truck-name"></div>
 							<div id="descr"></div>
 							<div id="location"></div>
 							<div id="contact"></div>
-							<ul  id="menulist"></ul>
+							<ul id="menulist"></ul>
 						</div>
 					</div>
 					<!--The div element for the map -->
@@ -467,8 +470,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<form action="" method="post" role="form" class="contactForm">
+			<form action="" method="post" role="form" class="contactForm">
+				<div class="row">
 					<div class="span6">
 						<div class="field Truck-name form-group">
 							<input type="text" name="name" class="form-control" id="truck-name2" placeholder="Truck Name" />
@@ -494,14 +497,14 @@
 							<div class="validation"></div>
 						</div>
 						<div class="field subject form-group">
-							<input type="date" class="form-control" name="date" id="truck-date" placeholder="date" />
+							<input type="date" class="form-control" name="date" id="truck-date" placeholder="date" style="margin-bottom:15px" />
 							<div class="validation"></div>
 						</div>
-						<input value="Add Truck" class="PageBtn btn pull-left" id="submittruck">
-						<input value="Update Truck" class="PageBtn btn pull-right" id="updatetruck">
 					</div>
-				</form>
-			</div>
+				</div>
+				<input value="Add Truck" class="PageBtn btn pull-right" id="submittruck">
+				<input value="Update Truck" class="PageBtn btn pull-right" id="updatetruck">
+			</form>
 		</div>
 	</section>
 	<footer>
