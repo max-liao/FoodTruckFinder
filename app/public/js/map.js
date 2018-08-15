@@ -65,7 +65,7 @@ async function initMap() {
     // Map events
     map.addListener('click', function (event) {
         var data = {};
-        console.log(event);
+        // console.log(event);
         data.lat = event.latLng.lat();
         data.lng = event.latLng.lng();
         // console.log("Longitude: "+ data.lng);
@@ -85,12 +85,14 @@ function placeMarker(map, location) {
         position: location,
         map: map
     });
-    var infowindow = new google.maps.InfoWindow({
+    infoWindow = new google.maps.InfoWindow({
         content: 'Latitude: ' + location.lat +
             '<br>Longitude: ' + location.lng
     });
-    infowindow.open(map, marker);
+    infoWindow.open(map, marker);
 }
+
+var infoWindow = null;
 
 //Listener for marker clicks
 async function clusterclick(map, markerCluster) {
@@ -106,9 +108,14 @@ async function clusterclick(map, markerCluster) {
         for (let i = 0; i < marks.length; i++) {
             array.push(marks[i].label - 1);
         }
+        
+        if (infoWindow) {
+            // console.log(infoWindow);
+            infoWindow.close();
+        }
 
-        var infoWindow = new google.maps.InfoWindow({
-            content: "Hello World!"
+        infoWindow = new google.maps.InfoWindow({
+            content: ""
         });
 
         var infonames = "";
@@ -120,9 +127,10 @@ async function clusterclick(map, markerCluster) {
         // console.log(infonames);
 
         if (map.getZoom() > 15) {
-            infoWindow.setContent(array.length + " markers <br>" + infonames);
+            infoWindow.setContent(array.length + " trucks here: <br>" + infonames);
             infoWindow.setPosition(cluster.getCenter());
             infoWindow.open(map);
+            // map.setZoom(15);
         }
 
         var info = [];
@@ -130,58 +138,73 @@ async function clusterclick(map, markerCluster) {
             var truckobj = await getInfo("food_truck", "id", marks[i].label);
             info.push(truckobj);
         }
-        // console.log(info);
 
-        $(".truck-name").empty();
-        $(".descr").empty();
-        $(".location").empty();
-        $(".contact").empty();
-        $(".menulist").empty();
-
-        for (let i = 0; i < marks.length; i++) {
-            var GoogleAddress = info[i][0].location;
-            // console.log(GoogleAddress);GIT
-            $('#Mapjumbo').append(`<div class="truck-name"><h4 class="truck-name" title="Truck Name"><b><strong>\
-                ${info[i][0].foodtruck_name}</b></strong></h4></div>\
-                <div class="descr" title="Truck Information"> ${info[i][0].descr} </div> \
-                <div class="location" title="Click for directions from your location!">\
-                <a title="Click for directions from your location!"  \
-                href="https://www.google.com/maps/dir/?api=1&destination=${GoogleAddress}">${info[i][0].location}</a></div>\
-                <div class="contact">${info[i][0].contact}</div><hr>`
-            );
-        }
+        clusterInfo(marks, info, map);
+        // console.log(infowindow.content());
     });
+}
+
+function clusterInfo(marks, info, map){
+    $("#truck-name").text("");
+    $("#descr").text("");
+    $("#location").text("");
+    $("#contact").text("");
+    $("#menulist").text("");
+
+    $('#ClusterInfo').html(`
+    <div class="truck-name"></div>
+    <div class="descr"></div>
+    <div class="location"></div>
+    <div class="contact"></div>
+    <ul  class="menulist"></ul>`);
+
+    for (let i = 0; i < marks.length; i++) {
+        var GoogleAddress = info[i][0].location;
+        // console.log(GoogleAddress);
+        $('#ClusterInfo').append(`<div class="truck-name"><h4 class="truck-name" title="Truck Name"><b><strong>\
+            ${info[i][0].foodtruck_name}</b></strong></h4></div>\
+            <div class="descr" title="Truck Information"> ${info[i][0].descr} </div> \
+            <div class="location" title="Click for directions from your location!">\
+            <a title="Click for directions from your location!"  \
+            href="https://www.google.com/maps/dir/?api=1&destination=${GoogleAddress}">${info[i][0].location}</a></div>\
+            <div class="contact">${info[i][0].contact}<hr></div>`
+        );
+    }
+    // console.log(map.getZoom());
+    
+    if ($('#ClusterInfo').text().search("-") > -1){
+        map.setZoom(15);
+    };
 }
 
 //Listener for marker clicks
 function markerclick(map, marker) {
     google.maps.event.addListener(marker, 'click', async function () {
         var name = await getNames();
-        $('#menulist').empty();
 
         // console.log("NAME:", name);
         console.log(marker);
         // console.log(truckinfo);
-        map.setZoom(18);
+        map.setZoom(15);
         map.setCenter(marker.getPosition());
         // console.log(marker.getPosition());
         var index = marker.label;
 
         var info = await getInfo("food_truck", "id", index);
+        $('#ClusterInfo').empty();
 
         //print the truck info to maps.html
-        $('.truck-name').html('<h4 class="truck-name" title="Truck Name">' + info[0].foodtruck_name + "</h4>");
-        $('.descr').html(`<div title='Truck Information'>${info[0].descr}</div>`);
-        $('.location').append(`<a title="Click for directions from your location!" href= "https://www.google.com/maps/dir/?api=1&destination=\
+        $('#truck-name').html('<h4 class="truck-name" title="Truck Name">' + info[0].foodtruck_name + "</h4>");
+        $('#descr').html(`<div title='Truck Information'>${info[0].descr}</div>`);
+        $('#location').html(`<a title="Click for directions from your location!" href= "https://www.google.com/maps/dir/?api=1&destination=\
         ${info[0].location}">${info[0].location}</a>`);
-        $('.contact').text(info[0].contact);
-        $('.contact').append("<hr>");
+        $('#contact').html(info[0].contact +"<hr>");
 
         //get the menu info and add it to maps.html
         var menuinfo = await getInfo("truck_menu", "truck_id", index);
         //  console.log("menu info: " + menuinfo[0].menu_item);
         if (menuinfo.length > 1) {
-            //  $("#menulist").html("<b>Menu Highlights</b><hr>");
+             $("#menulist").html("<b>Menu Highlights:</b>");
         }
         else {
             $("#menulist").text("");
@@ -195,11 +218,17 @@ function markerclick(map, marker) {
             $("#menulist").append(menuitem);
         }
 
-        console.log(name[index - 1]);
-        var infowindow = new google.maps.InfoWindow({
-            content: name[index - 1]//truckinfo
+        var truckname = name[index - 1];
+        console.log(truckname);
+        
+        if (infoWindow) {
+            infoWindow.close();
+        }
+        
+        infoWindow = new google.maps.InfoWindow({
+            content: truckname
         });
-        infowindow.open(map, marker);
+        infoWindow.open(map, marker);
     });
 }
 

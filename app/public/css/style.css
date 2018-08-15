@@ -1798,11 +1798,11 @@ li{
 	margin-right:40px;
 }
 
-.location, .contact, .descr{
+.location, .contact, .descr, #location, #contact, #descr{
 	margin: 10px;
 }
 
-.truck-name h4{
+.truck-name h4, #truck-name h4{
 	color: rgb(218, 255, 243);
 	font-weight:750;
 	font-size:26px;
