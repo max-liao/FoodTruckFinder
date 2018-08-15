@@ -126,46 +126,29 @@ async function clusterclick(map, markerCluster) {
         }
 
         var info = [];
-        // var menuinfo = [];
         for (let i = 0; i < marks.length; i++) {
             var truckobj = await getInfo("food_truck", "id", marks[i].label);
             info.push(truckobj);
-            // var menu = getInfo("truck_menu", "truck_id", marks[i].label);
-            // menuinfo.push(menu);
         }
         // console.log(info);
-        // console.log(menuinfo);
 
-        $("#truck-name").empty();
-        $("#menulist").empty();
+        $(".truck-name").empty();
+        $(".descr").empty();
+        $(".location").empty();
+        $(".contact").empty();
+        $(".menulist").empty();
 
-        $("#descr").empty();
-        $("#contact").empty();
-        $("#location").empty();
-
-        
-{/* */}
         for (let i = 0; i < marks.length; i++) {
             var GoogleAddress = info[i][0].location;
-            // console.log(GoogleAddress);
-            $('#truck-name').append(`<h4><b><strong> ${info[i][0].foodtruck_name} </b></strong></h4> \
-            ${info[i][0].descr}<br> \
-            <a href= "https://www.google.com/maps/dir/?api=1&destination=${GoogleAddress}">${info[i][0].location}</a><br>\
-            ${info[i][0].contact}`);
-
-            // if (menuinfo.length > 1){
-            // $("#truck-name").append("<b> <br> \n Menu Highlights</b>");
-            // }
-            //get the menu info and add it to maps.html
-
-            // for (var j = 0; j < menuinfo[i].length; j++) {
-            //     var menuitem = "<li>" + menuinfo[i][j].menu_item + " -- "
-            //         + menuinfo[i][j].menu_description + " -- $"
-            //         + menuinfo[i][j].price
-            //         + "</li>"
-            //     $("#truck-name").append(menuitem);
-            // }
-            $("#truck-name").append("<hr>");
+            // console.log(GoogleAddress);GIT
+            $('#Mapjumbo').append(`<div class="truck-name"><h4 class="truck-name" title="Truck Name"><b><strong>\
+                ${info[i][0].foodtruck_name}</b></strong></h4></div>\
+                <div class="descr" title="Truck Information"> ${info[i][0].descr} </div> \
+                <div class="location" title="Click for directions from your location!">\
+                <a title="Click for directions from your location!"  \
+                href="https://www.google.com/maps/dir/?api=1&destination=${GoogleAddress}">${info[i][0].location}</a></div>\
+                <div class="contact">${info[i][0].contact}</div><hr>`
+            );
         }
     });
 }
@@ -187,10 +170,12 @@ function markerclick(map, marker) {
         var info = await getInfo("food_truck", "id", index);
 
         //print the truck info to maps.html
-        $('#truck-name').html("<h4><b>" + info[0].foodtruck_name + "</b></h4><hr>");
-        $('#descr').text(info[0].descr);
-        $('#contact').text(info[0].contact);
-        $('#location').text(info[0].location);
+        $('.truck-name').html('<h4 class="truck-name" title="Truck Name">' + info[0].foodtruck_name + "</h4>");
+        $('.descr').html(`<div title='Truck Information'>${info[0].descr}</div>`);
+        $('.location').append(`<a title="Click for directions from your location!" href= "https://www.google.com/maps/dir/?api=1&destination=\
+        ${info[0].location}">${info[0].location}</a>`);
+        $('.contact').text(info[0].contact);
+        $('.contact').append("<hr>");
 
         //get the menu info and add it to maps.html
         var menuinfo = await getInfo("truck_menu", "truck_id", index);
