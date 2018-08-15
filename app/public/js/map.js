@@ -95,11 +95,12 @@ function placeMarker(map, location) {
 //Listener for marker clicks
 async function clusterclick(map, markerCluster) {
     var names = await getNames();
+    // console.log(names);
     google.maps.event.addListener(markerCluster, 'clusterclick', async function (cluster) {
         // var size = cluster.getSize();
         // console.log("clustersize", size);
-        var marks = await cluster.getMarkers();
-        console.log("markers", marks);
+        var marks = cluster.getMarkers();
+        // console.log("markers", marks);
 
         var array = [];
         for (let i = 0; i < marks.length; i++) {
@@ -116,7 +117,7 @@ async function clusterclick(map, markerCluster) {
             infonames += `${names[array[i]]}, `;
         }
         infonames = infonames.slice(0, -2);
-        console.log(infonames);
+        // console.log(infonames);
 
         if (map.getZoom() > 15) {
             infoWindow.setContent(array.length + " markers <br>" + infonames);
@@ -125,12 +126,12 @@ async function clusterclick(map, markerCluster) {
         }
 
         var info = [];
-        var menuinfo = [];
+        // var menuinfo = [];
         for (let i = 0; i < marks.length; i++) {
             var truckobj = await getInfo("food_truck", "id", marks[i].label);
             info.push(truckobj);
-            var menu = await getInfo("truck_menu", "truck_id", marks[i].label);
-            menuinfo.push(menu);
+            // var menu = getInfo("truck_menu", "truck_id", marks[i].label);
+            // menuinfo.push(menu);
         }
         // console.log(info);
         // console.log(menuinfo);
@@ -150,13 +151,13 @@ async function clusterclick(map, markerCluster) {
             // }
             //get the menu info and add it to maps.html
 
-            for (var j = 0; j < menuinfo[i].length; j++) {
-                var menuitem = "<li>" + menuinfo[i][j].menu_item + " -- "
-                    + menuinfo[i][j].menu_description + " -- $"
-                    + menuinfo[i][j].price
-                    + "</li>"
-                $("#truck-name").append(menuitem);
-            }
+            // for (var j = 0; j < menuinfo[i].length; j++) {
+            //     var menuitem = "<li>" + menuinfo[i][j].menu_item + " -- "
+            //         + menuinfo[i][j].menu_description + " -- $"
+            //         + menuinfo[i][j].price
+            //         + "</li>"
+            //     $("#truck-name").append(menuitem);
+            // }
             $("#truck-name").append("<hr>");
         }
     });
@@ -217,7 +218,7 @@ async function mapQuery(addr, i) {
     var mapquery = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addr + "&key=" + googlemapskey;
     var promise = await $.ajax({ url: mapquery })
 
-    console.log(promise);
+    // console.log(promise);
 
     //Google maps api takes input -> lat, lng, address
     var latit = promise.results[0].geometry.location.lat;
