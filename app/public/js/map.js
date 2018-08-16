@@ -161,13 +161,17 @@ function clusterInfo(marks, info, map){
     for (let i = 0; i < marks.length; i++) {
         var GoogleAddress = info[i][0].location;
         // console.log(GoogleAddress);
+        var TelephoneNumber = info[i][0].contact.replace(/-/g, "");
+        // console.log(TelephoneNumber);
+
         $('#ClusterInfo').append(`<div class="truck-name"><h4 class="truck-name" title="Truck Name"><b><strong>\
             ${info[i][0].foodtruck_name}</b></strong></h4></div>\
             <div class="descr" title="Truck Information"> ${info[i][0].descr} </div> \
             <div class="location" title="Click for directions from your location!">\
             <a title="Click for directions from your location!"  \
             href="https://www.google.com/maps/dir/?api=1&destination=${GoogleAddress}">${info[i][0].location}</a></div>\
-            <div class="contact">${info[i][0].contact}<hr></div>`
+            <div class="contact">${info[i][0].contact}\
+            <i class="far fa-clipboard" onclick='copyNumber(${TelephoneNumber})'></i><hr></div>`
         );
     }
     // console.log(map.getZoom());
@@ -176,6 +180,7 @@ function clusterInfo(marks, info, map){
         map.setZoom(15);
     };
 }
+
 
 //Listener for marker clicks
 function markerclick(map, marker) {
@@ -191,6 +196,10 @@ function markerclick(map, marker) {
         var index = marker.label;
 
         var info = await getInfo("food_truck", "id", index);
+
+        var TelephoneNumber = info[0].contact.replace(/-/g, "");
+        // console.log(TelephoneNumber);
+
         $('#ClusterInfo').empty();
 
         //print the truck info to maps.html
@@ -198,7 +207,7 @@ function markerclick(map, marker) {
         $('#descr').html(`<div title='Truck Information'>${info[0].descr}</div>`);
         $('#location').html(`<a title="Click for directions from your location!" href= "https://www.google.com/maps/dir/?api=1&destination=\
         ${info[0].location}">${info[0].location}</a>`);
-        $('#contact').html(info[0].contact +"<hr>");
+        $('#contact').html(info[0].contact +`     <i class="far fa-clipboard" onclick='copyNumber(${TelephoneNumber})'></i><hr>`);
 
         //get the menu info and add it to maps.html
         var menuinfo = await getInfo("truck_menu", "truck_id", index);
@@ -219,7 +228,7 @@ function markerclick(map, marker) {
         }
 
         var truckname = name[index - 1];
-        console.log(truckname);
+        // console.log(truckname);
         
         if (infoWindow) {
             infoWindow.close();
@@ -230,6 +239,16 @@ function markerclick(map, marker) {
         });
         infoWindow.open(map, marker);
     });
+}
+
+function copyNumber(data){
+    // console.log(data);
+    const temp = document.createElement('textarea');
+    temp.value = data;
+    document.body.appendChild(temp);
+    temp.select();
+    document.execCommand('copy');
+    document.body.removeChild(temp);
 }
 
 // Grabs coordinates and saves to database
