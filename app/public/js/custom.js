@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
 		$("#searchTabBody").empty();
 		var truck = document.getElementById("trucksearch").value;
 		document.getElementById("trucksearch").value = "";
-
+	
 		var namesearch = "/api/food_truck/foodtruck_name/" + truck;
 
 		$.ajax(namesearch, {
@@ -28,19 +28,20 @@ jQuery(document).ready(function($) {
 				 for(let i=0; i<data.length; i++){
 
 
-					var twitterButton = `<button data_val=${data[i].twitter} href = #Twitter class="PageBtn btn btn-secondary truck_twitter">View ${data[i].twitter} Tweets</button>`;
+					var twitterButton = `<a href="#Twitter"><button data_val=${data[i].twitter} class="PageBtn btn btn-secondary /
+					truck_twitter">View ${data[i].twitter} Tweets</button></a>`;
 
-
-
-					$("#searchTabBody").append(`<tr><th>${data[i].foodtruck_name}</th></tr><td><a href="http://${data[i].website}" target = "_blank">${data[i].website}</a></td></tr><br><br><hr>`);
-
+					$("#searchTabBody").append(`<tr><th>${data[i].foodtruck_name}</th></tr>/
+					<td><a href="http://${data[i].website}" target = "_blank">${data[i].website}</a></td></tr>/
+					<br><br><hr>`);
+					
 					$("#searchTabBody").append(twitterButton);
 				}
 
 				}else{
 
 					$("#searchTabBody").text("No Food Truck Found");
-				}
+				}	  	
 
 		}).fail(function(err){
 			throw(err);

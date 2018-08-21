@@ -161,8 +161,8 @@ function clusterInfo(marks, info, map){
     for (let i = 0; i < marks.length; i++) {
         var GoogleAddress = info[i][0].location;
         // console.log(GoogleAddress);
-        var TelephoneNumber = info[i][0].contact.replace(/-/g, "");
-        // console.log(TelephoneNumber);
+        var TelephoneNumber = info[i][0].contact.replace(/[-()]/g, "");
+        console.log(TelephoneNumber);
 
         $('#ClusterInfo').append(`<div class="truck-name"><h4 class="truck-name" title="Truck Name"><b><strong>\
             ${info[i][0].foodtruck_name}</b></strong></h4></div>\
@@ -171,7 +171,7 @@ function clusterInfo(marks, info, map){
             <a title="Click for directions from your location!"  \
             href="https://www.google.com/maps/dir/?api=1&destination=${GoogleAddress}">${info[i][0].location}</a></div>\
             <div class="contact">${info[i][0].contact}\
-            <i class="far fa-clipboard" onclick='copyNumber(${TelephoneNumber})'></i><hr></div>`
+            <i class="far fa-clipboard" title="Click to copy to your keyboard!" onclick='copyNumber(${TelephoneNumber})'></i><hr></div>`
         );
     }
     // console.log(map.getZoom());
