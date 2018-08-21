@@ -3,7 +3,7 @@ jQuery(document).ready(function($) {
 		var sound = document.getElementById("TruckHorn");
 		sound.play();
 	});
-	
+
 	$('.scrollup').click(function(){
 		$("html, body").animate({ scrollTop: 0 }, 1000);
 		return false;
@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
 		$("#searchTabBody").empty();
 		var truck = document.getElementById("trucksearch").value;
 		document.getElementById("trucksearch").value = "";
-	
+
 		var namesearch = "/api/food_truck/foodtruck_name/" + truck;
 
 		$.ajax(namesearch, {
@@ -28,17 +28,19 @@ jQuery(document).ready(function($) {
 				 for(let i=0; i<data.length; i++){
 
 
-					var twitterButton = `<button data_val=${data[i].twitter} href ="#Twitter" class="PageBtn btn btn-secondary truck_twitter">View ${data[i].twitter} Tweets</button>`;
+					var twitterButton = `<button data_val=${data[i].twitter} href = $("#Twitter") class="PageBtn btn btn-secondary truck_twitter">View ${data[i].twitter} Tweets</button>`;
+
+
 
 					$("#searchTabBody").append(`<tr><th>${data[i].foodtruck_name}</th></tr><td><a href="http://${data[i].website}" target = "_blank">${data[i].website}</a></td></tr><br><br><hr>`);
-					
+
 					$("#searchTabBody").append(twitterButton);
 				}
 
 				}else{
 
 					$("#searchTabBody").text("No Food Truck Found");
-				}	  	
+				}
 
 		}).fail(function(err){
 			throw(err);
@@ -47,50 +49,81 @@ jQuery(document).ready(function($) {
 	});
 
 	$(document).on('click', '.truck_twitter', function(event){
-	
+		$("#trucktweets").empty();
 
-		const twitterhandle = $(this).attr('data_val');
-		const twittersearch = "/api/twitter/" + twitterhandle;
+		 const twitterhandle = $(this).attr('data_val');
+		 const twittersearch = "/api/twitter/" + twitterhandle;
+
+		// const twittersearch = "https://twitter.com/" + twitterhandle;
+
+		// $("trucktwitter").attr("data-screen-name", twittersearch);
+		// $("trucktwitter").attr("href", twittersearch);
+		// $("trucktwitter").text("Tweets by "+ twitterhandle);
+
+		// const tweets = `<a class="twitter-timeline" href=${twittersearch} \
+		//  				 data-screen-name=${twitterhandle} data-tweet-limit="5"></a>`;
+
+		// $("#trucktweets").append(tweets);
 
 
-		$.ajax(twittersearch , {
+
+
+		//console.log(twittersearch);
+		// $.ajax(twittersearch , {
+		// 	type: "GET"
+		// 	}).then(
+		// 	function(data) {
+
+		// 		for (i=0; i< 5 || i<data.length; i++){
+		// 			if (data[i]){
+
+
+		// 			$("#trucktweets").append(`<p>${data[i].created_at} ====> ${data[i].text}</p>`);
+
+		// 			}
+		// 		}
+
+		// 	}).fail(function(err){
+		// 		throw(err);
+
+		// });
+
+	    $.ajax(twittersearch , {
 			type: "GET"
 			}).then(
 			function(data) {
+				
+				console.log(data.html);
+				const twitterEmbed = data.html;
+				
 
-				for (i=0; i< 5 || i<data.length; i++){
-					if (data[i]){
-					
+				$("#trucktweets").append(twitterEmbed);
 
-					$("#trucktweets").append(`<p>${data[i].created_at} ====> ${data[i].text}</p>`);
-
-					}
-				}        
-			
 			}).fail(function(err){
 				throw(err);
-	
+
 		});
-	
+
+
 
 });
 
 	$('#trucksearch').click(function(event){
 		return event.keyCode != 13;
 	});
-	
+
 		$('.accordion').on('show', function (e) {
-		
+
 			$(e.target).prev('.accordion-heading').find('.accordion-toggle').addClass('active');
 			$(e.target).prev('.accordion-heading').find('.accordion-toggle i').removeClass('icon-plus');
 			$(e.target).prev('.accordion-heading').find('.accordion-toggle i').addClass('icon-minus');
 		});
-		
+
 		$('.accordion').on('hide', function (e) {
 			$(this).find('.accordion-toggle').not($(e.target)).removeClass('active');
 			$(this).find('.accordion-toggle i').not($(e.target)).removeClass('icon-minus');
 			$(this).find('.accordion-toggle i').not($(e.target)).addClass('icon-plus');
-		});	
+		});
 
 	$('.navigation').onePageNav({
 		begin: function() {
@@ -99,15 +132,15 @@ jQuery(document).ready(function($) {
 		end: function() {
 			console.log('stop');
 		},
-			scrollOffset: 0		
+			scrollOffset: 0
 	});
-	
-	// prettyPhoto
-	$("a[data-pretty^='prettyPhoto']").prettyPhoto();		
 
-    // Localscrolling 
+	// prettyPhoto
+	$("a[data-pretty^='prettyPhoto']").prettyPhoto();
+
+    // Localscrolling
 	$('#menu-main, .brand').localScroll();
-	
+
 	$('#menu-main li a').click(function(){
 		var links = $('#menu-main li a');
 		links.removeClass('selected');
@@ -119,8 +152,8 @@ jQuery(document).ready(function($) {
 
     if (p === 'iPad' || p === 'iPhone' || p === 'iPod') {
         iOS = true;
-    }	
-	
+    }
+
     if (iOS === false) {
 
         $('.flyIn').bind('inview', function (event, visible) {
@@ -142,7 +175,7 @@ jQuery(document).ready(function($) {
         });
 
     }
-	
+
 	// add animation on hover
 		$(".service-box").hover(
 			function () {
@@ -154,13 +187,13 @@ jQuery(document).ready(function($) {
 			$(this).find('h2').removeClass("animated fadeInUp");
 			}
 		);
-		
-	
+
+
 	// cache container
 	var $container = $('#portfolio-wrap');
-	$.browser.safari = ($.browser.webkit && !(/chrome/.test(navigator.userAgent.toLowerCase())));	
-	
-	if($.browser.safari){ 	
+	$.browser.safari = ($.browser.webkit && !(/chrome/.test(navigator.userAgent.toLowerCase())));
+
+	if($.browser.safari){
 	// initialize isotope
 	$container.isotope({
 		animationEngine : 'jquery',
@@ -170,7 +203,7 @@ jQuery(document).ready(function($) {
 		},
 		layoutMode: 'fitRows'
 	});
-	} else {	
+	} else {
 	$container.isotope({
 		animationEngine : 'best-available',
 		animationOptions: {
@@ -178,8 +211,8 @@ jQuery(document).ready(function($) {
 			queue: false
 		},
 		layoutMode: 'fitRows'
-	});	
-	
+	});
+
 	$(window).resize(function() {
 		$container.isotope('reLayout');
 	});
@@ -194,17 +227,17 @@ jQuery(document).ready(function($) {
 	});
 
 	// flexslider main
-	$('#main-flexslider').flexslider({						
+	$('#main-flexslider').flexslider({
 		animation: "swing",
-		direction: "vertical", 
+		direction: "vertical",
 		slideshow: true,
 		slideshowSpeed: 3500,
 		animationDuration: 1000,
 		directionNav: true,
-		prevText: '<i class="icon-angle-up icon-2x"></i>',       
-		nextText: '<i class="icon-angle-down icon-2x active"></i>', 
+		prevText: '<i class="icon-angle-up icon-2x"></i>',
+		nextText: '<i class="icon-angle-down icon-2x active"></i>',
 		controlNav: false,
-		smootheHeight:true,						
+		smootheHeight:true,
 		useCSS: false
 	});
 });

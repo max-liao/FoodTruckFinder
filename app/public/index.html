@@ -430,11 +430,13 @@
 			<div class="jumbotron" id="Tweetjumbo">
 				<h1 style="color:ghostwhite;margin-left: auto; margin-right: auto;">
 					<h4>Tweets from </h4>
-					<h4 id="trucktweets"></h4>
-					<a class="twitter-timeline" href="https://twitter.com/{SweetAuburnBBQ}">
-						Tweets by @{SweetAuburnBBQ}
-					</a>
+					<h4 id="trucktweets">
+						<!-- <a id="trucktwitter" class="twitter-timeline" href="https://twitter.com/EatSouthernFood" data-screen-name="EatSouthernFood" data-tweet-limit="5"></a> -->
+					</h4>
+					
+					<!--<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
 				</h1>
+				<!--https://twitter.com/SweetAuburnBBQ?ref_src=twsrc%5Etfw"-->
 				<div class="row">
 					<div class="span12">
 					</div>
@@ -563,6 +565,23 @@
 	<script src="js/animate.js"></script>
 	<script src="js/custom.js"></script>
 	<script src="js/contactform.js"></script>
+	<script>window.twttr = (function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0],
+		  t = window.twttr || {};
+		if (d.getElementById(id)) return t;
+		js = d.createElement(s);
+		js.id = id;
+		js.src = "https://platform.twitter.com/widgets.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	  
+		t._e = [];
+		t.ready = function(f) {
+		  t._e.push(f);
+		};
+	  
+		return t;
+	  }(document, "script", "twitter-wjs"));
+	</script>
 
 </body>
 
