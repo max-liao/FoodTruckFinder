@@ -28,7 +28,7 @@ jQuery(document).ready(function($) {
 				 for(let i=0; i<data.length; i++){
 
 
-					var twitterButton = `<button data_val=${data[i].twitter} href = $("#Twitter") class="PageBtn btn btn-secondary truck_twitter">View ${data[i].twitter} Tweets</button>`;
+					var twitterButton = `<button data_val=${data[i].twitter} href = #Twitter class="PageBtn btn btn-secondary truck_twitter">View ${data[i].twitter} Tweets</button>`;
 
 
 
@@ -48,55 +48,21 @@ jQuery(document).ready(function($) {
 		});
 	});
 
+	//Twitter Search
 	$(document).on('click', '.truck_twitter', function(event){
 		$("#trucktweets").empty();
 
 		 const twitterhandle = $(this).attr('data_val');
 		 const twittersearch = "/api/twitter/" + twitterhandle;
 
-		// const twittersearch = "https://twitter.com/" + twitterhandle;
-
-		// $("trucktwitter").attr("data-screen-name", twittersearch);
-		// $("trucktwitter").attr("href", twittersearch);
-		// $("trucktwitter").text("Tweets by "+ twitterhandle);
-
-		// const tweets = `<a class="twitter-timeline" href=${twittersearch} \
-		//  				 data-screen-name=${twitterhandle} data-tweet-limit="5"></a>`;
-
-		// $("#trucktweets").append(tweets);
-
-
-
-
-		//console.log(twittersearch);
-		// $.ajax(twittersearch , {
-		// 	type: "GET"
-		// 	}).then(
-		// 	function(data) {
-
-		// 		for (i=0; i< 5 || i<data.length; i++){
-		// 			if (data[i]){
-
-
-		// 			$("#trucktweets").append(`<p>${data[i].created_at} ====> ${data[i].text}</p>`);
-
-		// 			}
-		// 		}
-
-		// 	}).fail(function(err){
-		// 		throw(err);
-
-		// });
 
 	    $.ajax(twittersearch , {
 			type: "GET"
 			}).then(
 			function(data) {
 				
-				console.log(data.html);
 				const twitterEmbed = data.html;
-				
-
+			
 				$("#trucktweets").append(twitterEmbed);
 
 			}).fail(function(err){
