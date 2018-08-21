@@ -207,7 +207,7 @@ function markerclick(map, marker) {
         $('#location').html(`<a title="Click for directions from your location!" \
         href= "https://www.google.com/maps/dir/?api=1&destination=\
         ${info[0].location}">${info[0].location}</a>`);
-        $('#contact').html(info[0].contact +`     <i class="far fa-clipboard" onclick='copyNumber(${TelephoneNumber})'></i><hr>`);
+        $('#contact').html(info[0].contact +`     <i class="far fa-clipboard" title="Click to copy to your keyboard!" onclick='copyNumber(${TelephoneNumber})'></i><hr>`);
 
         //get the menu info and add it to maps.html
         var menuinfo = await getInfo("truck_menu", "truck_id", index);
