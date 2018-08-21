@@ -9,6 +9,7 @@
 	<meta name="author" content="">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/bootstrap-responsive.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 	<link href="color/default.css" rel="stylesheet">
 	<link rel="shortcut icon" href="img/food-truck.png">
 </head>
@@ -105,7 +106,7 @@
 			<div class="row">
 				<div class="span6 alignright flyLeft">
 					<blockquote class="large">
-						FOOD AND DRINK, CONVENIENTLY
+						FOOD AND DRINK, CONVENIENTLY ACCESSIBLE
 						<cite>Max</cite>
 					</blockquote>
 				</div>
@@ -195,13 +196,16 @@
 				<div class="span12 aligncenter flyLeft">
 					<div>
 						<div class="jumbotron" id="Mapjumbo">
-							<h1 style="color:ghostwhite;margin-left: auto; margin-right: auto;">
+							<h1 style="color:white">
 								<strong> Map </strong>
 								<hr>
 							</h1>
-							<p id="truck-name"></p>
-							<p id="descr"></p>
-							<p id="contact"></p>
+							<div id="ClusterInfo">
+							</div>
+							<div id="truck-name"></div>
+							<div id="descr"></div>
+							<div id="location"></div>
+							<span id="contact"></span>
 							<ul id="menulist"></ul>
 						</div>
 					</div>
@@ -425,16 +429,12 @@
 	</section>
 	<!-- end spacer section -->
 	<!-- section: Twitter -->
-	<section id="Twitter" class="section">
+	<section id="Twitter" class="section green">
 		<div class="container">
+			<h4>Tweets from </h4>
 			<div class="jumbotron" id="Tweetjumbo">
 				<h1 style="color:ghostwhite;margin-left: auto; margin-right: auto;">
-					<h4>Tweets from </h4>
-					<h4 id="trucktweets">
-						<!-- <a id="trucktwitter" class="twitter-timeline" href="https://twitter.com/EatSouthernFood" data-screen-name="EatSouthernFood" data-tweet-limit="5"></a> -->
-					</h4>
-					
-					<!--<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+					<h4 id="trucktweets"></h4>
 				</h1>
 				<!--https://twitter.com/SweetAuburnBBQ?ref_src=twsrc%5Etfw"-->
 				<div class="row">
@@ -472,8 +472,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<form action="" method="post" role="form" class="contactForm">
+			<form action="" method="post" role="form" class="contactForm">
+				<div class="row">
 					<div class="span6">
 						<div class="field Truck-name form-group">
 							<input type="text" name="name" class="form-control" id="truck-name2" placeholder="Truck Name" />
@@ -499,14 +499,14 @@
 							<div class="validation"></div>
 						</div>
 						<div class="field subject form-group">
-							<input type="date" class="form-control" name="date" id="truck-date" placeholder="date" />
+							<input type="date" class="form-control" name="date" id="truck-date" placeholder="date" style="margin-bottom:15px" />
 							<div class="validation"></div>
 						</div>
-						<input value="Add Truck" class="PageBtn btn pull-left" id="submittruck">
-						<input value="Update Truck" class="PageBtn btn pull-right" id="updatetruck">
 					</div>
-				</form>
-			</div>
+				</div>
+				<input value="Add Truck" class="PageBtn btn pull-right" id="submittruck">
+				<input value="Update Truck" class="PageBtn btn pull-right" id="updatetruck">
+			</form>
 		</div>
 	</section>
 	<footer>
@@ -565,23 +565,6 @@
 	<script src="js/animate.js"></script>
 	<script src="js/custom.js"></script>
 	<script src="js/contactform.js"></script>
-	<script>window.twttr = (function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0],
-		  t = window.twttr || {};
-		if (d.getElementById(id)) return t;
-		js = d.createElement(s);
-		js.id = id;
-		js.src = "https://platform.twitter.com/widgets.js";
-		fjs.parentNode.insertBefore(js, fjs);
-	  
-		t._e = [];
-		t.ready = function(f) {
-		  t._e.push(f);
-		};
-	  
-		return t;
-	  }(document, "script", "twitter-wjs"));
-	</script>
 
 </body>
 

@@ -172,7 +172,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-family:'Open Sans', Arial, sans-serif;
 }
 h1 {
-	font-size: 36px;
+	font-size: 40px;
 	margin-bottom:20px;
 }
 h2 {
@@ -1744,7 +1744,6 @@ h3 {
 
 h4 {
 	color: #312f2b;
-	font-size: 22px;
 }
 
 li{
@@ -1762,9 +1761,15 @@ li{
 
 .PageBtn{	
     display: block;
-    margin-left: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	margin-right: auto;
+	margin-left: auto;
 	background-color: #777474;
+}
+
+#form .PageBtn{
+	margin: 10px;
 }
 
 .form-control{
@@ -1797,4 +1802,20 @@ li{
 
 .SpacerFood{
 	margin-right:40px;
+}
+
+.location, .contact, .descr, #location, #contact, #descr{
+	margin: 10px;
+}
+
+.truck-name h4, #truck-name h4{
+	color: rgb(218, 255, 243);
+	font-weight:750;
+	font-size:26px;
+}
+
+.location a, #location a{
+	font-weight:550;
+	font-size:18px;
+	color:rgb(0, 89, 255);
 }
