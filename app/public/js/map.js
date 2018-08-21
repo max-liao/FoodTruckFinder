@@ -181,7 +181,6 @@ function clusterInfo(marks, info, map){
     };
 }
 
-
 //Listener for marker clicks
 function markerclick(map, marker) {
     google.maps.event.addListener(marker, 'click', async function () {
@@ -205,7 +204,8 @@ function markerclick(map, marker) {
         //print the truck info to maps.html
         $('#truck-name').html('<h4 class="truck-name" title="Truck Name">' + info[0].foodtruck_name + "</h4>");
         $('#descr').html(`<div title='Truck Information'>${info[0].descr}</div>`);
-        $('#location').html(`<a title="Click for directions from your location!" href= "https://www.google.com/maps/dir/?api=1&destination=\
+        $('#location').html(`<a title="Click for directions from your location!" \
+        href= "https://www.google.com/maps/dir/?api=1&destination=\
         ${info[0].location}">${info[0].location}</a>`);
         $('#contact').html(info[0].contact +`     <i class="far fa-clipboard" onclick='copyNumber(${TelephoneNumber})'></i><hr>`);
 
@@ -243,11 +243,11 @@ function markerclick(map, marker) {
 
 function copyNumber(data){
     // console.log(data);
-    const temp = document.createElement('textarea');
+    const temp = document.createElement("textarea");
     temp.value = data;
     document.body.appendChild(temp);
     temp.select();
-    document.execCommand('copy');
+    document.execCommand("copy");
     document.body.removeChild(temp);
 }
 
