@@ -171,7 +171,7 @@ function clusterInfo(marks, info, map){
             <a title="Click for directions from your location!"  \
             href="https://www.google.com/maps/dir/?api=1&destination=${GoogleAddress}">${info[i][0].location}</a></div>\
             <div class="contact">${info[i][0].contact}\
-            <i class="far fa-clipboard" title="Click to copy to your keyboard!" onclick='copyNumber(${TelephoneNumber})'></i><hr></div>`
+            <i class="far fa-clipboard"  title="Click to copy to your keyboard!" onclick='copyNumber(${TelephoneNumber})'></i><hr></div>`
         );
     }
     // console.log(map.getZoom());
@@ -196,8 +196,8 @@ function markerclick(map, marker) {
 
         var info = await getInfo("food_truck", "id", index);
 
-        var TelephoneNumber = info[0].contact.replace(/-/g, "");
-        // console.log(TelephoneNumber);
+        var TelephoneNumber = info[0].contact.replace(/[-()]/g, "");
+        console.log(TelephoneNumber);
 
         $('#ClusterInfo').empty();
 
