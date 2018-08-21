@@ -161,7 +161,7 @@ function clusterInfo(marks, info, map){
     for (let i = 0; i < marks.length; i++) {
         var GoogleAddress = info[i][0].location;
         // console.log(GoogleAddress);
-        var TelephoneNumber = info[i][0].contact.replace(/[-()]/g, "");
+        var TelephoneNumber = info[i][0].contact.replace(/[-() ]/g, "");
         console.log(TelephoneNumber);
 
         $('#ClusterInfo').append(`<div class="truck-name"><h4 class="truck-name" title="Truck Name"><b><strong>\
@@ -196,7 +196,7 @@ function markerclick(map, marker) {
 
         var info = await getInfo("food_truck", "id", index);
 
-        var TelephoneNumber = info[0].contact.replace(/[-()]/g, "");
+        var TelephoneNumber = info[0].contact.replace(/[-() ]/g, "");
         console.log(TelephoneNumber);
 
         $('#ClusterInfo').empty();
@@ -238,7 +238,6 @@ function markerclick(map, marker) {
             content: truckname
         });
         infoWindow.open(map, marker);
-        console.log("(404) 314-7825".replace(/[-() ]/g, ""));
     });
 }
 
