@@ -238,6 +238,7 @@ function markerclick(map, marker) {
             content: truckname
         });
         infoWindow.open(map, marker);
+        console.log("(404) 314-7825".replace(/[-() ]/g, ""));
     });
 }
 
