@@ -263,7 +263,7 @@ h2.pagetitle {
 	color: #fff;
 	font-size: 1.75em;
 	margin-left: 0;
-	font-weight: 400;
+	font-weight: 600;
 	text-transform:uppercase;
 }
 .navbar .brand a:hover {
@@ -318,7 +318,7 @@ ul#menu-main > li > a:focus {
 #header-wrapper {
 	width: 100%;
 	min-height: 600px;
-	margin-top: -60px;
+	margin-top: -35px;
 	padding-top:160px;
 	text-align:center;
 }
@@ -354,7 +354,7 @@ header .logo {
 }
 
 #main-flexslider ul.slides li p {
-	font-size: 72px;
+	font-size: 50px;
 	text-transform: uppercase;
 	position: relative;
 	margin-bottom: 0px;
@@ -547,8 +547,6 @@ section.spacer blockquote cite {
 #portfolio-wrap {
 	position: relative;
 	padding: 0;
-	width: 100.1%;
-	margin: 0 auto;
 	display: block;
 }
 #portfolio-wrap .grid {
@@ -1555,7 +1553,7 @@ i.icon-white {
 	}
 	
 	.navbar-inner .btn-navbar {
-		margin:20px 20px 0;
+		margin: 3% 0% 0 0%;
 	}
 	
 	.container {
@@ -1791,6 +1789,7 @@ li{
 #Burger{
 	height: auto;
 	width: 90%;
+	margin-left: 5%;
 }
 
 #trucktweets{
@@ -1818,4 +1817,9 @@ li{
 	font-weight:550;
 	font-size:18px;
 	color:rgb(0, 89, 255);
+}
+
+#AppTitle{
+	padding:auto;
+	margin: 3% 0 0 5%;
 }
