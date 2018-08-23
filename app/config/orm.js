@@ -9,10 +9,10 @@ var orm = {
     });
   },
   selectOne: function(table, col, id, cb) {
-
+    //Select truck based on id
     var queryString = "SELECT * FROM " + table + " WHERE ";
     queryString += col + " = " + id + ';';
-    //console.log(queryString);
+    console.log(queryString);
     connection.query(queryString, function(err, result) {
       if (err) throw err;
 
@@ -30,7 +30,7 @@ var orm = {
     });
   },
   selectAlllocations: function(table, cb) {
-    var queryString = "SELECT location FROM " + table + ";";
+    var queryString = "SELECT location FROM " + table + " WHERE active=1;";
     //console.log(queryString);
     connection.query(queryString, function(err, result) {
       if (err) throw err;
