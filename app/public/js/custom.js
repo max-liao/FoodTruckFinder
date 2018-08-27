@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
 		return false;
 	});
 
-	$('#searchButton').click(function(event){
+	$('#SearchTrucks').click(function(event){
 		event.preventDefault();
 		$("#searchTabBody").empty();
 		var truck = document.getElementById("trucksearch").value;
