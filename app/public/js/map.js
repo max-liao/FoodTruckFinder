@@ -22,7 +22,7 @@ async function init() {
     var data = await $.ajax("/locations");
     var promises = [];
     for (let i = 0; i < data.length; i++) {
-        promises[i] = await mapQuery(data[i].location);
+        promises[i] = await mapQuery(data[i].location, i);
     };
 
     return promises;
@@ -77,20 +77,6 @@ async function initMap() {
     for (i = 0; i < marker.length; i++) {
         markerclick(map, marker[i], false);
     }
-
-    // $('#SearchLocation').click(async function(event){
-    //     event.preventDefault();
-    //     $("#searchTabBody").empty();
-    //     var location = document.getElementById("trucksearch").value;
-    //     document.getElementById("trucksearch").value = "";
-        
-    //     if (location !== ""){
-    //         var LocationSearchCenter = await mapQuery(location);
-    //         console.log(LocationSearchCenter); 
-    //         map.setCenter(LocationSearchCenter);
-    //         map.setZoom(13);
-    //     }
-    // });
 }
 
 //Places a new temporary marker
@@ -276,8 +262,8 @@ function copyNumber(data) {
 
 // API queries
 
-// Grabs coordinates from address
-async function mapQuery(addr) {
+// Grabs coordinates and saves to database
+async function mapQuery(addr, i) {
     const googlemapskey = await getAPIkey();
 
     var mapquery = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addr + "&key=" + googlemapskey;
@@ -310,6 +296,5 @@ async function getInfo(table, col, id) {
     // console.log(promise);
     return promise;
 }
-
 
 initMap();
