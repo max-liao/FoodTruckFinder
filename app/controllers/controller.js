@@ -7,6 +7,8 @@ const path = require("path");
 var app = express();
 const twitterlog = require("../public/js/twitter.js")
 
+require('dotenv').config();
+var googlemapskey = process.env.GOOGLE_API;
 
 // Routes
 // Create all our routes and set up logic within those routes where required.
@@ -14,23 +16,31 @@ router.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
-// React Page
-router.get("/contact", function(req, res) {
-    // Serve static content for the app from the "public" directory in the application directory.
-    console.log("React Try");
-    app.use(express.static(path.join(__dirname, "../../client/build/index.html")));  
-    res.sendFile(path.join(__dirname, "../../client/build/index.html"));
+router.get("/admin", function(req, res) {
+  res.send("Welcome Max or Thomas");
 });
 
-// Map trucks
-router.get("/map", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/map.html"));
+router.get("/form", function(req, res) {
+  res.send("Form will be here soon");
 });
 
-// Add/Update trucks
-router.get("/input", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/userInput.html"));
+// 3rd Party APIs
+router.get("/api/twitter/:handle", function(req, res) {
+
+  var handle = req.params.handle;
+  twitterlog.getTweets(handle, function(data) {
+    
+    console.log("data from controller" + data);
+    res.json(data);
+    });
+
 });
+
+router.get("/api/google", function(req, res) {
+  res.send(googlemapskey);
+});
+
+// MYSQL Queries
 
 // Shows all trucks data
 router.get("/data", function(req, res) {
@@ -63,8 +73,8 @@ router.post("/api/model", function(req, res) {
   console.log('server got', JSON.stringify(req.body, null, 2))
   //model.createone(req.body.keys, req.body.values, function(result) {
 
-  var keys = [ 'foodtruck_name', 'contact', 'descr', 'cuisine', 'location', 'date'];
-  var values = [req.body.foodtruck_name, req.body.contact, req.body.descr, req.body.cuisine, req.body.location, req.body.date];
+  var keys = [ 'foodtruck_name', 'contact', 'descr', 'cuisine', 'location', 'date', 'active'];
+  var values = [req.body.foodtruck_name, req.body.contact, req.body.descr, req.body.cuisine, req.body.location, req.body.date, req.body.active];
   console.log ('keys:' + keys);
   console.log ('values :' + values);
    model.createone(keys, values, function(result) {
@@ -91,26 +101,16 @@ router.put("/api/model/:id", function(req, res) {
   );
 });
 
+
 router.get("/api/:table/:column/:name", function(req, res) {
   var name = req.params.name;
   var table = req.params.table;
   var col = req.params.column;
-  console.log("Name from router:" + name);
+  console.log("search called.")
   model.searchNames(table,col, name, function(data) {
   res.json(data);
   console.log(data);
   });
-});
-
-router.get("/api/twitter/:handle", function(req, res) {
-
-  var handle = req.params.handle;
-  twitterlog.getTweets(handle, function(data) {
-    
-    console.log("data from controller" + data);
-    res.json(data);
-    });
-
 });
 
 // Export routes for server.js to use.

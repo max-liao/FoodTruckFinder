@@ -1,7 +1,6 @@
 var Twitter = require('twitter');
 require("dotenv").config();
 
-
 var client = new Twitter({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
     consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
@@ -10,25 +9,16 @@ var client = new Twitter({
 });
 
 
-
 var twitter = {
-
-
-    getTweets: function(handle) {
-        client.get('statuses/user_timeline',{ screen_name: handle} , function(error, tweets, response) {
+    getTweets: function(handle, cb) {
+        client.get(`https://publish.twitter.com/oembed?url=https://twitter.com/${handle}`, 
+        {maxwidth: '800',
+         maxheight: '400',
+         limit: '5'},
+        function(error, tweets, response) {
+        //client.get('statuses/user_timeline',{ screen_name: handle, limit: '1'} , function(error, tweets, response) {
         if (!error){
-
-            var tweetslen = tweets.length;
-            for (i=0; i< 5 || i<tweets.length; i++){
-                if (tweets[i]){
-                    console.log("\nTweet #" +(i+1));
-                    console.log("created at: " + tweets[i].created_at);
-                    console.log(tweets[i].text);
-                    console.log("\nTweet #" +(i+1));
-                    console.log("created at: " + tweets[i].created_at);
-                    console.log(tweets[i].text);
-                }
-            }        
+            cb(tweets);      
         } else {
             // console.log(error);
             throw error;
@@ -37,31 +27,6 @@ var twitter = {
     }
 }
 
-  
-
-// var twitter = function() {
-//     client.get('statuses/user_timeline',{ screen_name: 'Bobmax75999205'} , function(error, tweets, response) {
-//     if (!error){
-//         var tweetslen = tweets.length;
-//         for (i=0; i< 20 || i<tweets.length; i++){
-//             if (tweets[i]){
-//                 console.log("\nTweet #" +(i+1));
-//                 console.log("created at: " + tweets[i].created_at);
-//                 console.log(tweets[i].text);
-//                 console.log("\nTweet #" +(i+1));
-//                 console.log("created at: " + tweets[i].created_at);
-//                 console.log(tweets[i].text);
-//             }
-//         }        
-//     } else {
-//         // console.log(error);
-//         throw error;
-//     }
-//     });
-// }
-
 module.exports = twitter;
-
-//twitter();
 
 
