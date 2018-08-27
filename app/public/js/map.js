@@ -108,7 +108,7 @@ async function clusterclick(map, markerCluster) {
         for (let i = 0; i < marks.length; i++) {
             array.push(marks[i].label - 1);
         }
-
+        
         if (infoWindow) {
             // console.log(infoWindow);
             infoWindow.close();
@@ -144,7 +144,7 @@ async function clusterclick(map, markerCluster) {
     });
 }
 
-function clusterInfo(marks, info, map) {
+function clusterInfo(marks, info, map){
     $("#truck-name").text("");
     $("#descr").text("");
     $("#location").text("");
@@ -162,7 +162,7 @@ function clusterInfo(marks, info, map) {
         var GoogleAddress = info[i][0].location;
         // console.log(GoogleAddress);
         var TelephoneNumber = info[i][0].contact.replace(/[-() ]/g, "");
-        // console.log(TelephoneNumber);
+        console.log(TelephoneNumber);
 
         $('#ClusterInfo').append(`<div class="truck-name"><h4 class="truck-name" title="Truck Name"><b><strong>\
             ${info[i][0].foodtruck_name}</b></strong></h4></div>\
@@ -171,13 +171,12 @@ function clusterInfo(marks, info, map) {
             <a title="Click for directions from your location!"  \
             href="https://www.google.com/maps/dir/?api=1&destination=${GoogleAddress}">${info[i][0].location}</a></div>\
             <div class="contact">${info[i][0].contact}\
-            <i class="far fa-clipboard"  title="Click to copy to your keyboard!" \
-            onclick='copyNumber(${TelephoneNumber})'></i></div><hr>`
+            <i class="far fa-clipboard"  title="Click to copy to your keyboard!" onclick='copyNumber(${TelephoneNumber})'></i><hr></div>`
         );
     }
     // console.log(map.getZoom());
-    $('#ClusterInfo').append(`<div class="popUp" style="display: none;"> Copied to Clipboard</div>`);
-    if ($('#ClusterInfo').text().search("-") > -1) {
+    
+    if ($('#ClusterInfo').text().search("-") > -1){
         map.setZoom(15);
     };
 }
@@ -208,17 +207,13 @@ function markerclick(map, marker) {
         $('#location').html(`<a title="Click for directions from your location!" \
         href= "https://www.google.com/maps/dir/?api=1&destination=\
         ${info[0].location}">${info[0].location}</a>`);
-
-        $('#contact').html(info[0].contact + ` \
-        <div class="far fa-clipboard" title="Click to copy to your keyboard!" \
-        onclick='copyNumber(${TelephoneNumber})'></div>\
-        <div class="popUp" style="display: none; margin-top:1%"> Number copied to Clipboard</div><hr>`);
+        $('#contact').html(info[0].contact +`     <i class="far fa-clipboard" title="Click to copy to your keyboard!" onclick='copyNumber(${TelephoneNumber})'></i><hr>`);
 
         //get the menu info and add it to maps.html
         var menuinfo = await getInfo("truck_menu", "truck_id", index);
         //  console.log("menu info: " + menuinfo[0].menu_item);
         if (menuinfo.length > 1) {
-            $("#menulist").html("<b>Menu Highlights:</b>");
+             $("#menulist").html("<b>Menu Highlights:</b>");
         }
         else {
             $("#menulist").text("");
@@ -234,11 +229,11 @@ function markerclick(map, marker) {
 
         var truckname = name[index - 1];
         // console.log(truckname);
-
+        
         if (infoWindow) {
             infoWindow.close();
         }
-
+        
         infoWindow = new google.maps.InfoWindow({
             content: truckname
         });
@@ -246,12 +241,8 @@ function markerclick(map, marker) {
     });
 }
 
-function copyNumber(data) {
-    $(".popUp").show();
-    setTimeout(function () {
-        $(".popUp").hide();
-    }, 2000);
-
+function copyNumber(data){
+    // console.log(data);
     const temp = document.createElement("textarea");
     temp.value = data;
     document.body.appendChild(temp);
@@ -260,12 +251,10 @@ function copyNumber(data) {
     document.body.removeChild(temp);
 }
 
-// API queries
-
 // Grabs coordinates and saves to database
 async function mapQuery(addr, i) {
     const googlemapskey = await getAPIkey();
-
+    
     var mapquery = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addr + "&key=" + googlemapskey;
     var promise = await $.ajax({ url: mapquery })
 
