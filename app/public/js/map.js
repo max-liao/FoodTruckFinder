@@ -78,19 +78,19 @@ async function initMap() {
         markerclick(map, marker[i], false);
     }
 
-    $('#SearchLocation').click(async function(event){
-        event.preventDefault();
-        $("#searchTabBody").empty();
-        var location = document.getElementById("trucksearch").value;
-        document.getElementById("trucksearch").value = "";
+    // $('#SearchLocation').click(async function(event){
+    //     event.preventDefault();
+    //     $("#searchTabBody").empty();
+    //     var location = document.getElementById("trucksearch").value;
+    //     document.getElementById("trucksearch").value = "";
         
-        if (location !== ""){
-            var LocationSearchCenter = await mapQuery(location);
-            console.log(LocationSearchCenter); 
-            map.setCenter(LocationSearchCenter);
-            map.setZoom(13);
-        }
-    });
+    //     if (location !== ""){
+    //         var LocationSearchCenter = await mapQuery(location);
+    //         console.log(LocationSearchCenter); 
+    //         map.setCenter(LocationSearchCenter);
+    //         map.setZoom(13);
+    //     }
+    // });
 }
 
 //Places a new temporary marker
