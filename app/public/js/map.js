@@ -86,7 +86,7 @@ async function initMap() {
         
         if (location !== ""){
             var LocationSearchCenter = await mapQuery(location);
-            // console.log(LocationSearchCenter); 
+            console.log(LocationSearchCenter); 
             map.setCenter(LocationSearchCenter);
             map.setZoom(13);
         }
