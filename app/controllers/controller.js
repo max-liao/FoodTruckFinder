@@ -38,7 +38,7 @@ router.get("/input", function(req, res) {
 router.get("/data", function(req, res) {
     model.selectall(function(data) {
     res.json(data);
-    //console.log(data);
+    console.log(data);
   });
 });
 

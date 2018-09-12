@@ -16,7 +16,7 @@
           $('#existing_foodtruck_name').append(newoption);
 
         }
-    
+        console.log("trucks go here.")
       }
     );
 
