@@ -263,7 +263,7 @@ h2.pagetitle {
 	color: #fff;
 	font-size: 1.75em;
 	margin-left: 0;
-	font-weight: 400;
+	font-weight: 600;
 	text-transform:uppercase;
 }
 .navbar .brand a:hover {
@@ -318,7 +318,7 @@ ul#menu-main > li > a:focus {
 #header-wrapper {
 	width: 100%;
 	min-height: 600px;
-	margin-top: -60px;
+	margin-top: -35px;
 	padding-top:160px;
 	text-align:center;
 }
@@ -354,7 +354,7 @@ header .logo {
 }
 
 #main-flexslider ul.slides li p {
-	font-size: 72px;
+	font-size: 42px;
 	text-transform: uppercase;
 	position: relative;
 	margin-bottom: 0px;
@@ -547,8 +547,6 @@ section.spacer blockquote cite {
 #portfolio-wrap {
 	position: relative;
 	padding: 0;
-	width: 100.1%;
-	margin: 0 auto;
 	display: block;
 }
 #portfolio-wrap .grid {
@@ -1545,19 +1543,6 @@ i.icon-white {
 		padding:0;
 	}
 	
-	.navbar-inner {
-	 padding-right: 20px;
-	 padding-left: 20px;	
-	}
-	
-	.navbar-inner h1.brand {
-		margin-left:20px;
-	}
-	
-	.navbar-inner .btn-navbar {
-		margin:20px 20px 0;
-	}
-	
 	.container {
 	 padding-right: 20px;
 	 padding-left: 20px;
@@ -1586,10 +1571,6 @@ i.icon-white {
 	
 	.navbar-inner h1.brand {
 		margin-left:20px;
-	}
-	
-	.navbar-inner .btn-navbar {
-		margin:20px 20px 0;
 	}
 	
 	.container {
@@ -1628,9 +1609,17 @@ i.icon-white {
 	}
 
 }
-    
+	
+
+@media only screen  and (min-device-width : 405px)  and (max-device-width : 477px) {
+	#IconBar {
+		top: 100%;
+		right: 10%;
+	}
+}
     /* Smartphones (portrait and landscape) ----------- */
 @media only screen  and (min-device-width : 320px)  and (max-device-width : 480px) {
+
 
  section.section {
  padding: 1em 0;
@@ -1673,16 +1662,11 @@ i.icon-white {
  margin-left: auto;
  margin-right: auto;
 }
-		
-/* Contact Form */
-	#contact-form {
-		overflow: hidden;
-	}
-	#contact-form input[type=submit] {
-		width: 100%;
-	}
 }
 
+
+
+/* Our stuff */
 #map {
     height: 600px;  /* The height is 400 pixels */
     width: 100%;  /* The width is the width of the web page */
@@ -1791,6 +1775,7 @@ li{
 #Burger{
 	height: auto;
 	width: 90%;
+	margin-left: 5%;
 }
 
 #trucktweets{
@@ -1818,4 +1803,9 @@ li{
 	font-weight:550;
 	font-size:18px;
 	color:rgb(0, 89, 255);
+}
+
+#AppTitle{
+	padding:auto;
+	margin: 3% 0 0 5%;
 }

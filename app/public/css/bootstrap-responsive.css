@@ -7,7 +7,6 @@
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
-
 .clearfix {
   *zoom: 1;
 }
@@ -1094,7 +1093,11 @@
   }
   .navbar .btn-navbar {
     display: block;
+    position: absolute;
+    right: 10%;
+    top: 60%;
   }
+
   .navbar-static .navbar-inner {
     padding-right: 10px;
     padding-left: 10px;

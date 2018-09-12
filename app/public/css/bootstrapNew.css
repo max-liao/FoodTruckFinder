@@ -4,6 +4,16 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
+ .navbar-fixed-top{
+  top: 0;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  margin-bottom: 0;
+ }
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
