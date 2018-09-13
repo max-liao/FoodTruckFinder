@@ -22,7 +22,7 @@ async function init() {
     var data = await $.ajax("/locations");
     var promises = [];
     for (let i = 0; i < data.length; i++) {
-        promises[i] = await mapQuery(data[i].location, i);
+        promises[i] = await mapQuery(data[i].location);
     };
 
     return promises;
@@ -77,6 +77,20 @@ async function initMap() {
     for (i = 0; i < marker.length; i++) {
         markerclick(map, marker[i], false);
     }
+
+    $('#SearchLocation').click(async function(event){
+        event.preventDefault();
+        $("#searchTabBody").empty();
+        var location = document.getElementById("trucksearch").value;
+        document.getElementById("trucksearch").value = "";
+        
+        if (location !== ""){
+            var LocationSearchCenter = await mapQuery(location);
+            // console.log(LocationSearchCenter); 
+            map.setCenter(LocationSearchCenter);
+            map.setZoom(13);
+        }
+    });
 }
 
 //Places a new temporary marker
@@ -108,7 +122,7 @@ async function clusterclick(map, markerCluster) {
         for (let i = 0; i < marks.length; i++) {
             array.push(marks[i].label - 1);
         }
-
+        
         if (infoWindow) {
             // console.log(infoWindow);
             infoWindow.close();
@@ -144,7 +158,7 @@ async function clusterclick(map, markerCluster) {
     });
 }
 
-function clusterInfo(marks, info, map) {
+function clusterInfo(marks, info, map){
     $("#truck-name").text("");
     $("#descr").text("");
     $("#location").text("");
@@ -171,13 +185,12 @@ function clusterInfo(marks, info, map) {
             <a title="Click for directions from your location!"  \
             href="https://www.google.com/maps/dir/?api=1&destination=${GoogleAddress}">${info[i][0].location}</a></div>\
             <div class="contact">${info[i][0].contact}\
-            <i class="far fa-clipboard"  title="Click to copy to your keyboard!" \
-            onclick='copyNumber(${TelephoneNumber})'></i></div><hr>`
+            <i class="far fa-clipboard"  title="Click to copy to your keyboard!" onclick='copyNumber(${TelephoneNumber})'></i><hr></div>`
         );
     }
     // console.log(map.getZoom());
     $('#ClusterInfo').append(`<div class="popUp" style="display: none;"> Copied to Clipboard</div>`);
-    if ($('#ClusterInfo').text().search("-") > -1) {
+    if ($('#ClusterInfo').text().search("-") > -1){
         map.setZoom(15);
     };
 }
@@ -188,7 +201,7 @@ function markerclick(map, marker) {
         var name = await getNames();
 
         // console.log("NAME:", name);
-        console.log(marker);
+        // console.log(marker);
         // console.log(truckinfo);
         map.setZoom(15);
         map.setCenter(marker.getPosition());
@@ -198,7 +211,7 @@ function markerclick(map, marker) {
         var info = await getInfo("food_truck", "id", index);
 
         var TelephoneNumber = info[0].contact.replace(/[-() ]/g, "");
-        console.log(TelephoneNumber);
+        // console.log(TelephoneNumber);
 
         $('#ClusterInfo').empty();
 
@@ -234,11 +247,11 @@ function markerclick(map, marker) {
 
         var truckname = name[index - 1];
         // console.log(truckname);
-
+        
         if (infoWindow) {
             infoWindow.close();
         }
-
+        
         infoWindow = new google.maps.InfoWindow({
             content: truckname
         });
@@ -246,7 +259,8 @@ function markerclick(map, marker) {
     });
 }
 
-function copyNumber(data) {
+function copyNumber(data){
+    // console.log(data);
     $(".popUp").show();
     setTimeout(function () {
         $(".popUp").hide();
@@ -260,12 +274,10 @@ function copyNumber(data) {
     document.body.removeChild(temp);
 }
 
-// API queries
-
 // Grabs coordinates and saves to database
-async function mapQuery(addr, i) {
+async function mapQuery(addr) {
     const googlemapskey = await getAPIkey();
-
+    
     var mapquery = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addr + "&key=" + googlemapskey;
     var promise = await $.ajax({ url: mapquery })
 
