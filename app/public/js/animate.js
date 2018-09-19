@@ -1,5 +1,4 @@
 jQuery(document).ready(function($) {
-
 							
 	//animate effect	
 	$(".e_flash").hover(
