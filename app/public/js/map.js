@@ -276,9 +276,9 @@ function copyNumber(data){
 
 // Grabs coordinates and saves to database
 async function mapQuery(addr) {
-    const googlemapskey = await getAPIkey();
-    
-    var mapquery = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addr + "&key=" + googlemapskey;
+    //const googlemapskey = await getAPIkey();
+    var mapquery = "https://maps.googleapis.com/maps/api/geocode/json?address=\
+        " + addr + "&key=AIzaSyBqEOJR-g_q-Yxd0Z_k3QyEWVRjWy8RIhU";// + googlemapskey;
     var promise = await $.ajax({ url: mapquery });
 
     console.log(promise);
