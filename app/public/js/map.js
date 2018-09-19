@@ -279,7 +279,7 @@ async function mapQuery(addr) {
     const googlemapskey = await getAPIkey();
     
     var mapquery = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addr + "&key=\
-        AIzaSyBG_Bw250OEo8r6gfP_ntrSJFSd8J68xcE"; //+ googlemapskey;
+        AIzaSyBqEOJR-g_q-Yxd0Z_k3QyEWVRjWy8RIhU"; //+ googlemapskey;
     var promise = await $.ajax({ url: mapquery })
 
     console.log(promise);
