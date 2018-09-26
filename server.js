@@ -1,14 +1,10 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+require('dotenv').config();
 
 var PORT = process.env.PORT || 8080;
 
-exports.envVar = (req, res) => {
-  res.send(process.env.GoogleCloud);
-};
-
-console.log(res);
-console.log(req);
+console.log(process.env.GoogleCloud)
 
 var app = express();
 

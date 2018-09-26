@@ -1,10 +1,8 @@
 var mysql = require("mysql");
+require('dotenv').config();
 
 var connection;
-
-exports.envVar = (req, res) => {
-  console.log(process.env.GoogleCloud);
-};
+console.log(process.env.GoogleCloud);
 
 // Heroku
 if (process.env.JAWSDB_URL) {
