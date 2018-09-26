@@ -16,6 +16,7 @@ app.use(bodyParser.json());
 
 var routes = require('./app/controllers/controller.js');
 app.use(routes);
+<<<<<<< HEAD
 
 //app.set('trust proxy', true);
 app.enable('trust proxy');
@@ -23,4 +24,9 @@ app.enable('trust proxy');
 app.listen(PORT, function() {
   console.log("App now listening at localhost:" + PORT);
   console.log('Press Ctrl+C to quit.');
+=======
+
+app.listen(PORT, function() {
+  console.log("App now listening at localhost:" + PORT);
+>>>>>>> Max
 });
