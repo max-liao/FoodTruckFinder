@@ -2,11 +2,6 @@ var mysql = require("mysql");
 
 var connection;
 
-exports.envVar = (req, res) => {
-  // Sends 'bar' as response
-  res.send(process.env.GoogleCloud);
-};
-
 console.log(process.env.GoogleCloud);
 
 // Heroku
