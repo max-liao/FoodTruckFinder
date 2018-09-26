@@ -4,8 +4,11 @@ var bodyParser = require("body-parser");
 var PORT = process.env.PORT || 8080;
 
 exports.envVar = (req, res) => {
-  console.log(process.env.GoogleCloud);
+  res.send(process.env.GoogleCloud);
 };
+
+console.log(res);
+console.log(req);
 
 var app = express();
 
