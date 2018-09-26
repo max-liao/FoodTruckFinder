@@ -9,11 +9,11 @@ if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else if (process.env.GoogleCloud) {
   connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
+    host: "104.196.51.217",
+    port: 3307,
     user: "root",
-    password: "root",
-    database: "project2_db"
+    password: "password",
+    database: "FoodTruck"
   });
 } else {
   connection = mysql.createConnection({
