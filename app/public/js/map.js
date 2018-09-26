@@ -21,7 +21,7 @@ async function init() {
     // Address Data
     var data = await $.ajax("/locations");
     var promises = [];
-    console.log(data.length);
+    //console.log(data.length);
     for (let i = 0; i < data.length; i++) {
         promises[i] = await mapQuery(data[i].location);
     };
@@ -282,8 +282,8 @@ async function mapQuery(addr) {
     var mapquery = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addr + "&key=" + googlemapskey;
     var promise = await $.ajax({ url: mapquery })
 
-    console.log(mapquery);
-    console.log(promise);
+    //console.log(mapquery);
+    //console.log(promise);
 
     //Google maps api takes input -> lat, lng, address
     var latit = promise.results[0].geometry.location.lat;
