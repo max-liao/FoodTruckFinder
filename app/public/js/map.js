@@ -21,10 +21,7 @@ async function init() {
     // Address Data
     var data = await $.ajax("/locations");
     var promises = [];
-<<<<<<< HEAD
     //console.log(data.length);
-=======
->>>>>>> Max
     for (let i = 0; i < data.length; i++) {
         promises[i] = await mapQuery(data[i].location);
     };
@@ -225,21 +222,12 @@ function markerclick(map, marker) {
         $('#location').html(`<a title="Click for directions from your location!" \
         href= "https://www.google.com/maps/dir/?api=1&destination=\
         ${info[0].location}">${info[0].location}</a>`);
-<<<<<<< HEAD
 
         $('#contact').html(info[0].contact + ` \
         <div class="far fa-clipboard" title="Click to copy to your keyboard!" \
         onclick='copyNumber(${TelephoneNumber})'></div>\
         <div class="popUp" style="display: none; margin-top:1%"> Number copied to Clipboard</div><hr>`);
 
-=======
-
-        $('#contact').html(info[0].contact + ` \
-        <div class="far fa-clipboard" title="Click to copy to your keyboard!" \
-        onclick='copyNumber(${TelephoneNumber})'></div>\
-        <div class="popUp" style="display: none; margin-top:1%"> Number copied to Clipboard</div><hr>`);
-
->>>>>>> Max
         //get the menu info and add it to maps.html
         var menuinfo = await getInfo("truck_menu", "truck_id", index);
         //  console.log("menu info: " + menuinfo[0].menu_item);
@@ -294,12 +282,8 @@ async function mapQuery(addr) {
     var mapquery = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addr + "&key=" + googlemapskey;
     var promise = await $.ajax({ url: mapquery })
 
-<<<<<<< HEAD
     //console.log(mapquery);
     //console.log(promise);
-=======
-    // console.log(promise);
->>>>>>> Max
 
     //Google maps api takes input -> lat, lng, address
     var latit = promise.results[0].geometry.location.lat;
